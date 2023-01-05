@@ -1,0 +1,13 @@
+Medidadas de posição
+media
+  A soma dividido pela quantidade.
+moda
+  Os valores que mais se repete
+Mediana (Precisa ordear os valores)
+ O Numero que esta no meio da quantidade ordenada.
+ A mediana da soma divido por 2.
+Medidas de dispersão
+  indentifica com o valores se distancia da média
+
+Amostra representa algo - Salarios inicial
+

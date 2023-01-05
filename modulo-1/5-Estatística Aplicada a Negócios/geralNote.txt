@@ -1,0 +1,7 @@
+
+
+
+A combinação de informações de diferentes domínios é chamada de reconciliação
+A principal diferença entre DW e data lake, é a forma como os dados estão dentro da estrutura.
+O armazenamento distribuído oferece disponibilidade em tempo real, dado que não há persistência de repositório.
+Tipo de projeto, que contempla 5 possibilidades (arquitetura; análise e design; implementação; melhoria operacional; e gestão e administração).
