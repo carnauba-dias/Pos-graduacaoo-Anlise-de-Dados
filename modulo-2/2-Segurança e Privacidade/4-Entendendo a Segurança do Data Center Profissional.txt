@@ -1,0 +1,48 @@
+
+# Entendendo a Segurança de um Data Center Profissional
+Data Center é um espaço construído para armazenar os dados dos clientes, contemplando como premissa a segurança física e lógica do ambiente. Existem certificações que comprovam a qualidade da prestação dos serviços, entre elas TIER 2 e TIER 3. 
+Ter um Data Center cuidando da proteção dos seus arquivos é excelente, afinal, o ambiente foi construído para isso, com especialistas no assunto tomando conta de toda a infraestrutura da tecnologia da informação, elétrica, acessos físicos e virtuais. 
+Mas será que vale a pena manter todos esses dados em um local que você não conhece a fundo? Nesta aula vamos apresentar os principais pontos de um Data Center e como ele poderá lhe ajudar no seu dia a dia, com grandes vantagens que de fato diminuem o risco de ser impactado por falta de segurança.
+Nem todas as empresas possuem os recursos financeiros necessários para colocarem seus dados em um Data Center. E mesmo tendo o recurso, ainda assim, existem algumas desvantagens que precisam ser colocadas em pauta antes de fecharem um contrato desse porte.
+Apresentaremos as principais desvantagens e riscos existentes em manter seus dados em um Data Center e como podemos tornar o cenário favorável às empresas por meio de um acesso híbrido, usando somente algumas funções no Data Center e outras mantendo em um espaço local, com a devida proteção que o ambiente exige.
+Com estas informações, você poderá entender qual é o seu cenário atual e se é válido ou não migrar seus dados para um Data Center profissional.
+Abaixo, segue alguns pontos importantes que confirmam a seriedade de um Data Center e como a certificação confirma a qualidade dos serviços prestados.
+ 
+# Ambiente físico:
+Seguranças: O Data Center tem uma proteção física externa, onde seguranças devidamente preparados e treinados ficam ao redor do ambiente, protegendo a entrada de qualquer pessoa.
+ 
+# Acesso físico: 
+Quando você vai a um Data Center, mesmo tendo os serviços contratados, é necessário enviar previamente um e-mail a coordenação de segurança informando quem vai acessar o Data Center e o número dos documentos que comprovem a identidade.
+ 
+# Controle de ar-condicionado:
+Existem sistemas de ar-condicionado com diferentes formas de passagem fria e quente de ar entre os equipamentos. É feito um estudo para que os equipamentos de infraestrutura de TI não esquentem, tendo o risco de danificá-los por aquecimento.
+ 
+# Proteção contra Incêndio:
+Como não podem acionar um combate de incêndio com água, visto que a água pode danificar os equipamentos de TI, existem sistemas que diminuem o oxigênio no ambiente. Essa diminuição não faz com que o ser humano desmaie, mas faz com que o fogo não se prolifere.
+ 
+# Energia Elétrica 
+Existem contingências para o ambiente elétrico, onde cuidam de fases de energia elétrica separadas dentro do mesmo ambiente e geradores e bancos de baterias que estão prontos para entrar em ação em caso de quedas de energia. 
+ 
+# Acesso físico ao seu servidor
+Não é fácil localizar seu servidor dentro de um Data Center. Normalmente as portas não tem identificação das empresas que estão naquele ambiente. Para maior segurança da informação, somente os analistas técnicos tem acesso físico aos servidores. Em alguns casos como colocation onde o cliente leva os equipamentos para o data center, nestes casos o cliente também sabe onde está fisicamente seus equipamentos, mas precisa de acompanhamento técnico para chegar ao local e com data/hora agendada.
+ 
+# Equipamentos de última geração
+Uma empresa que vende serviços de Cloud precisa estar atualizada com os melhores equipamentos de tecnologia da informação. Essa é uma premissa para fazer parte de uma concorrência de grande porte, onde os equipamentos não podem perder qualquer tipo de performance de rede, muito menos impactos no ambiente.
+ 
+# Backups no ambiente de Infraestrutura
+Em caso de impactos por uma questão de infraestrutura, existem equipamentos de contingência que permitem que o impacto não seja grande, fazendo com que seus dados possam ser recuperados rapidamente em outro ambiente, normalizando a operação.
+ 
+# Equipes especializadas em turnos 24 x 7 x 365
+Vinte quatro horas, por sete dias na semana, por trezentos e sessenta e cinco dias no ano. Esse é o tempo dedicado ao trabalho em um Data Center que não pode parar. São funcionários atuando em diferentes turnos e acompanhando diariamente os desafios para manter a operação em dia. Isso ocorre de manhã, tarde, noite, madrugada, dias da semana, finais de semana, feriados, natais e ano novo. Todos os funcionários sabem das políticas da empresa e dos plantões que exigem sua participação. Não dá para parar!
+ 
+# Cabeamento Estruturado com perfeição
+Estamos falando de centenas de equipamentos. Existe um piso elevado e grelhas que fazem os melhores caminhos para que o cabeamento seja ligado com sucesso nos equipamentos. Algumas deformações no cabo podem fazer com que ele não traga o resultado desejado, por isso, existe um planejamento perfeito para que os cabos estejam ok e muito bem identificados, caso exista a necessidade de substituição.
+ 
+# Relatórios Mensais
+Relatórios são gerados para que você possa acompanhar a quantidade de dados que você está ocupando no ambiente contratado em produção e no ambiente de backup. Neste relatório são apresentadas as porcentagens de performance dos equipamentos. Se algum equipamento ou internet teve o mínimo de impacto, o cliente deve ser avisado e as ações de melhorias apresentadas, mostrando o período que o equipamento ficou fora.
+ 
+# Gerenciamento de Impactos com fornecedores e parceiros
+Para que um Data Center possa funcionar corretamente com a empresa cliente, existe o link de internet entre eles. Esse link pode ser dedicado (Contratado com SLA Nível de Serviço de Retorno) ou ADSL (Link padrão de internet residencial sem SLA). Independente do serviço contratado, a equipe do Data Center é responsável por abrir os chamados com as operadoras e acompanhar o incidente, escalando se necessário até que normalize o ambiente.
+ 
+# Desvantagem de um Data Center
+Com base nos itens acima apresentados, percebe-se a complexidade dos serviços prestados e a quantidade de recursos humanos envolvidos. Dessa forma, o valor da prestação deste serviço se torna caro. Ao mesmo tempo, a tendência é que o cliente cresça e automaticamente, os dados da empresa também. Por consequência, o valor que é pago por espaço utilizado também tende a aumentar.

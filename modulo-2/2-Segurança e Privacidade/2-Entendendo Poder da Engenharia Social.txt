@@ -1,0 +1,5 @@
+---Entendendo Poder da Engenharia Social
+ Ficar esperto no ambiente que estamos.
+ Vericar pessoas maliciosa
+
+---Minimizando Impactos com Backups

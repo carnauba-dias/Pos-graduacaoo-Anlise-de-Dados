@@ -1,0 +1,32 @@
+# Minimizando Impacto com Backups
+Fazendo o Backup desde Sempre
+Backup é um procedimento realizado no computador e na rede da empresa para que todos os dados possam ser copiados com segurança em um servidor dedicado de backup, como também em fitas guardadas em cofres.
+Se você tem um computador e não tem um backup, informo que o seu risco é garantido seja na empresa ou em casa! Quando a empresa não tem equipes especializadas e a infraestrutura adequada para o armazenamento dos dados em backup, o básico precisa ser feito, nem que o backup seja realizado uma vez por semana em HD externo. Neste caso, se você for atacado e precisará dos dados, é bem provável que perderá pelo menos uma semana de arquivos gravados, pois não terá um backup feito com frequência. 
+Constantemente consultorias de Segurança da Informação têm recebido ligações de novos clientes desesperados por estarem sendo atacados e não terem seus backups à disposição para voltar ao ambiente. Este é o pior dos cenários, pois não existe alguma solução para o resto do ambiente, a menos que o Hacker devolva os dados. O Hacker vai pedir um resgate caro pelos seus dados e pode ser que você pague e não tenha seus dados de volta. Ou seja, este é o cenário mais comum onde os clientes ficam de mãos atadas e não adianta ficarem bravos. O risco foi deles de não terem o backup.
+Quando falamos de backup, não devemos só nos preocupar com Hackers. Incidentes ocorrem, como quebra do computador, uma queda, uma chuva, um raio. Se deixar seu notebook no carro, a chance de roubo também é grande. 
+Nesta aula vamos conhecer alguns conceitos sobre Backup e como você pode melhorar o seu ambiente de segurança, cuidando dos seus dados como eles merecem que sejam cuidados e minimizando todos os impactos em caso de ataques.
+Não é necessário ter grandes recursos e data centers para começar a fazer um backup dos seus arquivos. Veremos que tendo o mínimo, já poderá lhe ajudar muito no seu dia a dia. Importante lembrar que o backup precisa ser feito com um cronograma assertivo. Não adianta fazer só uma vez e deixar o tempo passar. Quando você precisar dos arquivos, pode ser que eles estejam desatualizados por falta de um backup mais recente.
+Abaixo seguem algumas premissas para se ter um bom Backup! Todas as informações abaixo são de extrema importância para atender a expectativa dos clientes que desejam recuperar seus dados com sucesso.
+ 
+#Tenha equipes especialistas no assunto
+Não adianta contratar pessoas com baixo conhecimento técnico para trabalhar em um ambiente tão complexo como um backup, que envolve Jobs, setores, pastas, banda de internet caso seja na nuvem, fitas e pessoas.
+ 
+#Saiba planejar o tipo de backup necessário para a empresa
+A empresa pode ter grandes setores, grande quantidade de pessoas. Quanto mais dados trafegando na empresa, mais segurança precisam ter. Sabemos que qualquer dado não recuperado pode gerar grandes transtornos aos setores, principalmente em dias de grande pressão, como por exemplo, período de fechamento anual. Por isso, defina se o backup será como nas grandes organizações, sendo diário, semanal, mensal, full e com retenções de pelo menos cinco anos.
+ 
+#Identifique os espaços necessários para o seu backup 
+Muitas empresas acreditam que a compra do software de backup é o suficiente para garantir a cópia dos dados, mas esquecem que existem configurações necessárias e esquecem que esta cópia precisa ir para algum local, seja servidores internos na empresa ou externos em algum data center. Só o fato de esquecer desses detalhes já tem impacto também garantido, pois o software sendo bem configurado poderá até dar andamento a rotina de backup, porém, se não tem espaço externo adequado para receber estes dados, o backup não será feito.
+ 
+#Contrate Ferramentas de Backup reconhecidas no Mercado
+O Barato sai caro e isto é fato! Não busque economias com os dados da sua empresa que são os mais importantes para você manter a empresa ativa no mercado. Se você contratar um serviço de baixa qualidade, as chances de impactos são grandes, pois você só saberá dos reais impactos quando precisar dos arquivos e pode ser tarde demais. Contratando uma empresa de grande porte e reconhecida no mercado, você estará minimizando qualquer impacto no seu ambiente. Para saber quais são as melhores ferramentas de backup do mercado, busque informações no site do Gartner.
+ 
+#Tenha um controle dos seus arquivos, independente dos backups
+A sua disciplina entra em jogo neste momento. Se você não tiver uma boa administração das pastas de rede que você usa e como salvar os seus arquivos, pode ser que você precise recuperar algum arquivo, mas não saiba em qual pasta está, muito menos o nome do arquivo. Quando é feita a recuperação de um arquivo por meio de um backup, você precisa saber exatamente o nome do arquivo e o local que ele estava salvo, para que o analista possa identificar o local, o arquivo e recuperar com sucesso os seus dados. 
+ 
+#Cuidados com as Políticas de Backup
+Conheça bem as políticas de backup! Se a empresa contratou um terceiro especialista para cuidar dos Jobs de backup e no contrato consta que os backups só serão feitos das pastas de rede, isso significa que se você salvar os arquivos no seu computador, estes não terão backup, ou seja, se você perder seu notebook, quebrar ou for roubado, isso significa que os seus arquivos não serão recuperados.  Por isso tenha muita atenção sobre o local que você está salvando os seus arquivos.
+Perceba que o Backup parece simples, mas visualizando todos os itens acima, você pode perceber que é um ambiente bem complexo e exige um esforço de equipes, sistemas e infraestrutura de Tecnologia da informação para realizar o serviço com sucesso.
+ 
+#Atenção aos horários programados de Backup
+Fazer backup em horário comercial pode gerar uma lentidão na rede devido a banda interna que é ocupada na transmissão dos dados. Por isso, nas grandes empresas, o backup é iniciado em períodos noturnos, se estendendo pela madrugada a dentro. Um dos objetivos também é iniciar o backup no período noturno para que possa ser aproveitado o backup de um dia inteiro de trabalho.
+
