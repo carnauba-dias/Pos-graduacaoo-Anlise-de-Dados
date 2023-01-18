@@ -1,0 +1,39 @@
+# Políticas de Segurança
+Quando temos uma empresa com funcionários, precisamos estar sempre alinhados com a expectativa da companhia referente a ordem e segurança da informação. Com a tecnologia da informação, o acesso às informações ficou mais fácil e o vazamento dos dados também. Sabemos que existem pessoas que desejam entrar fisicamente e logicamente nas empresas e os cuidados precisam ser tomados desde o primeiro passo no acesso da empresa até nos mais complexos que envolvem equipes técnicas especializadas para realizar as auditorias necessárias.
+Para que isso ocorra da melhor forma, políticas de segurança são criadas e divulgadas aos funcionários para que eles tenham o conhecimento necessário de tudo que pode e não pode fazer dentro da empresa.
+Essas políticas são de extrema importância para ter como base em caso de incidentes e impactos gerados pelos funcionários que não estejam respeitando o documento. Esse documento é um compromisso que o funcionário deve assinar para a empresa.
+A responsabilidade pela segurança da informação é de todos e cabe a empresa fazer as campanhas necessárias para manter a divulgação interna sobre a política de segurança e realizar os treinamentos para manter os funcionários alinhados e respeitando o que foi divulgado.
+Abaixo segue alguns pontos importantes que devem ser respeitados dentro de uma política de segurança:
+Entrada na empresa de Carro
+Algumas empresas permitem que os funcionários estacionem gratuitamente em seus estacionamentos, mas para que o funcionário possa entrar, existem duas barreiras. A primeira é um crachá da empresa que deve estar no carro informando o nome do funcionário, ramal, modelo do carro, setor e placa. Estes dados são confirmados pelo segurança antes da liberação da primeira portaria. Após esta liberação, o funcionário deve passar o seu crachá por uma cancela, segunda portaria, para confirmar a sua entrada como funcionário.
+ 
+# Representação do funcionário por meio de crachá
+Todo funcionário deve andar com um crachá pendurado no pescoço ou preso a sua roupa para facilitar a sua identificação em todos os locais de trabalho. Este crachá deve conter nome, setor, ramal, cargo e foto, comprovando que é funcionário da empresa. Neste crachá existem chips que permitem a sua entrada e saída em alguns estabelecimentos.
+ 
+# Acesso físico aos setores
+Alguns setores têm o acesso restrito aos seus funcionários. Neste caso, o crachá do funcionário deve estar configurado para que ele tenha o acesso liberado por onde for trabalhar. Em alguns casos, a empresa dá o almoço ao funcionário e antes de almoçar, existe também a passarem por uma catraca via crachá.
+ 
+# Acesso Lógico a rede
+Para que o funcionário possa acessar a rede, ele precisa de um login e senha individual. Por meio deste login e senha, a equipe de TI consegue realizar as auditorias necessárias, acompanhando os acessos aos arquivos e as alterações realizadas. Isso é permitido com alguns recursos técnicos que a equipe de TI tem conhecimento.
+ 
+# Como atender telefone
+Algumas empresas adotam o atendimento do telefone com uma frase obrigatória, constando o nome da empresa, setor, nome do funcionário e uma saudação. Algumas empresas optam por gravar as ligações e em qualquer conversa, existe a possibilidade de buscar evidências que comprovem algum fato desejado. Muitas empresas de Call Center atuam com esta política, informando o cliente que a ligação está sendo gravada.
+ 
+# Assinatura de E-mail
+Existe um padrão de assinatura de e-mail a ser adotado. Neste padrão as empresas colocam o logotipo, nome e sobrenome, telefone fixo, celular, site, e-mail e a função do funcionário. Estas informações são obrigatórias para que o funcionário se identifique em suas comunicações. Também existem alguns padrões que são solicitados como saudação e encerramento, exemplo: Prezado cliente, bom dia! Conteúdo e encerrando com atenciosamente, grato.
+ 
+# Câmeras de Segurança
+Por questões de segurança, as empresas solicitam ao funcionário uma assinatura estando de acordo com o direito de filmagem no expediente. O objetivo das câmeras é capturar imagem e áudio em alta qualidade para que possam ser coletados dados que evidenciem algo que saiu do padrão de ordem, exemplo, uma briga, um roubo ou alguma ação de má índole. Pelas câmeras também é possível ter evidências de entradas e saídas dos funcionários.
+ 
+# Permissionamento de Pastas
+Independente da empresa ser de pequeno, médio e grande porte, existem alguns setores que possuem informações confidenciais, a exemplo do financeiro, rh, auditoria. Estes dados não são do interesse de outros funcionários. Isso permite que a empresa realize um filtro de quem pode acessar qual pasta. Quando os ambientes são mapeados, cabe aos gestores, autorizar os acessos dos funcionários nas pastas desejadas de rede. Se a empresa não tem esse controle, fica mais fácil de um funcionário começar a acessar pastas que não deve, chegando a informações como, por exemplo, folha de pagamento com os salários de todos os funcionários.
+ 
+# Senha na impressora
+Sabemos que alguns arquivos são confidenciais. Quando estes arquivos são impressos em empresas de grande porte que atuam com o serviço de Outsourcing de Impressão, normalmente a impressora está distante e respeita uma fila de impressões. Quando um arquivo é impresso, muitas vezes ele é esquecido na impressora devido a quantidade de tarefas que o funcionário tem que fazer ao mesmo tempo. Para evitar desperdício de papéis e aumentar a segurança da informação, as empresas optaram por gerar senhas nas impressoras multifuncionais para que a impressão só saia quando o funcionário inserir o login e senha.
+ 
+# ATAS de Reuniões
+Algumas empresas prezam que as Atas de reuniões sejam feitas e assinadas por todos os funcionários presentes nas reuniões. Estas ATAS por questões de segurança são realizadas para que todos estejam de acordo com o que foi acordado e para seguirem os próximos passos do projeto em andamento.
+ 
+# Política de Desligamento dos Funcionários
+Neste caso, o gestor responsável pelo funcionário a ser desligado deve fazer um acordo de data e horário com o departamento de RH para elaborar as documentações necessárias, entre elas, a carta de desligamento e um acordo com a equipe de tecnologia da informação, para que combinam o horário exato de bloqueio deste funcionário a rede e e-mails. Este bloqueio é necessário para que o funcionário desligado não acesse mais nenhum dispositivo da empresa e possa ir embora sem gerar maiores riscos à companhia. No momento do desligamento, o funcionário também é obrigado a devolver o celular, crachá, notebook e o que mais for da companhia que estiver sob sua responsabilidade. Para finalizar, algumas empresas preferem que um segurança acompanhe o funcionário até a saída.
+
