@@ -1,0 +1,37 @@
+Meios de Transmissão
+Nesta aula, tratamos de como as informações são transmitidas, começando pela modulação, que é o processo no qual a informação transmitida numa comunicação é adicionada a ondas eletromagnéticas. 
+O transmissor adiciona a informação em uma onda especial de tal forma que poderá ser recuperada na outra parte através de um processo reverso chamado demodulação.
+A maioria dos sinais, da forma como são fornecidos pelo transmissor, não podem ser enviados diretamente através dos canais de transmissão. 
+Então é necessário modificar esse sinal através de uma onda eletromagnética portadora, cujas propriedades são mais convenientes aos meios de transmissão.
+Basicamente, a modulação consiste em fazer com que um parâmetro da onda portadora mude de valor de acordo com a variação do sinal modulante. 
+Com base nas características de ondas, existem diferentes tipos de modulações digitais:
+ 
+ASK - Modulação em Amplitude
+FSK - Modulação em Frequência
+PSK - Modulação em Fase
+ 
+Partindo ao meio físico, vários meios físicos podem ser usados para realizar a transmissão. Cada um tem seu próprio nicho em termos de largura de banda, retardo, custo e facilidade de instalação e manutenção, começando pelos cabos metálicos.
+O meio de transmissão mais antigo e ainda mais comum é o par trançado. Um par trançado consiste em dois fios de cobre encapados, que em geral têm cerca de 1 mm de espessura. Os fios são enrolados de forma helicoidal, assim como uma molécula de DNA. 
+O segundo tipo de cabo metálico é o cabo coaxial.
+ 
+O cabo coaxial tem melhor blindagem que os pares trançados, e assim pode se estender por distâncias mais longas em velocidades mais altas.
+Um cabo coaxial consiste em um fio de cobre esticado na parte central, envolvido por um material isolante. O isolante é protegido por um condutor cilíndrico, geralmente uma malha sólida entrelaçada. O condutor externo é coberto por uma camada plástica protetora.
+O próximo meio de transmissão é a comunicação Wi-Fi.
+O termo comunicação sem fio foi utilizado como duas formas na história da comunicação e cada forma com dois significados diferentes.
+ 
+É utilizada por produtos certificados que pertencem à classe de dispositivos de rede local sem fios (WLAN) baseados no padrão IEEE 802.11. Por causa do relacionamento íntimo com seu padrão de mesmo nome, o termo Wi-Fi é usado frequentemente como sinônimo para a tecnologia IEEE 802.11.
+ 
+O padrão Wi-Fi opera em faixas de frequências que não necessitam de licença para instalação e/ou operação.
+ 
+As frequências são livres de licença, o usuário não paga nenhuma taxa, mas são permitidos apenas equipamentos que tenham sido analisados, avaliados e obtido um certificado de homologação, sendo que esses equipamentos recebem um selo de identificação da agência.
+ 
+O terceiro tipo de meio de transmissão apresentado foi a fibra ótica.
+ 
+Mesmo confinada a um meio físico, a luz transmitida pela fibra óptica proporciona o alcance de taxas de transmissão (velocidades) elevadíssimas, da ordem de 109 à 1010 bits por segundo (cerca de 40Gbps), com baixa taxa de atenuação por quilômetro. 
+ 
+Como a luz se propaga no interior de um meio físico, sofrendo ainda o fenômeno de reflexão, ela não consegue alcançar a velocidade de propagação no vácuo, que é de 300.000 km/segundo, sendo esta velocidade diminuída consideravelmente.
+ 
+Para realizar a transmissão de dados em uma fibra óptica, é preciso utilizar equipamentos especiais que contenham um foto emissor, ou seja, um aparelho que possa transformar sinais elétricos em pulsos de luz. Assim os pulsos de luz passam a representarem valores digitais binários correspondentes aos dados.
+ 
+A principal diferença na comparação de um cabo de fibra óptica e um de par trançado, além do material empregado, é a velocidade da transferência das informações e a ausência de interferências eletromagnéticas.
+

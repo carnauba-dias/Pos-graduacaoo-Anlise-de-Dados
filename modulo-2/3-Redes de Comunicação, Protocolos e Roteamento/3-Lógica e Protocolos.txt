@@ -1,0 +1,39 @@
+Lógica e Protocolos
+Os protocolos TCP/IP (Transmission Control Protocol/Internet Protocol) são os protocolos mais conhecidos e utilizados no mundo, isso de um conjunto de muitos que servem de suporte à redes e a própria internet.
+Estes protocolos foram desenvolvidos por grupos de trabalho que, ao longo das últimas décadas, estiveram ligados ao desenvolvimento da rede mundial de computadores.
+A arquitetura TCP/IP foi a primeira arquitetura de redes apresentada e que cumpria o objetivo, formada por uma estrutura de camadas de protocolos.
+Surgiu em 1969, desenvolvido pelo governo americano, como recurso para um projeto experimental chamado ARPANET. 
+O objetivo do projeto era disponibilizar links (vínculos) de comunicação com alta velocidade, utilizando redes de comutação de pacotes. 
+O protocolo deveria ser capaz de encontrar a melhor rota possível entre dois sites, além de ser capaz de procurar rotas alternativas para chegar ao destino, caso qualquer uma das rotas tivesse sido destruída.
+O objetivo principal da elaboração de TCP/IP foi na época, encontrar um protocolo que pudesse tentar de todas as formas uma comunicação caso ocorresse uma guerra nuclear. 
+A adoção do TCP/IP como protocolo padrão se deve a uma série de qualidades que permitem enorme versatilidade nas comunicações. 
+Ele também possibilita a padronização no desenvolvimento de novas tecnologias em software e hardware. 
+Outra qualidade é a interconectividade, pois ele vincula sistemas não similares, proporcionando a transferência de dados entre eles.
+ O fato de ser multiplataforma é característico da robustez deste protocolo, ao permitir a conexão entre dois sistemas operacionais cliente/servidor, mesmo que distantes. 
+Ele é projetado para exigir pouco gerenciamento central e para tornar as redes mais confiáveis. O protocolo ainda possibilita a recuperação automática da falha de qualquer dispositivo na rede.
+O TCP/IP sempre foi considerado um modelo bastante pesado quando comparado com modelo UDP/IP, uma vez que o TCP/IP tem muito de seu foco voltado para a confiabilidade ao invés de só velocidade, diferente do UDP/IP, que é mais leve e veloz, mas não garante que a informação chegará ao respectivo destino.
+Falando do IP versão 4, ou IPv4, o endereço IP consiste em uma sequência de números composta por 32 bits. 
+Esse valor consiste em um conjunto de quatro sequências de 8 bits. Cada uma é separada por um ponto e recebe o nome de octeto ou simplesmente byte, pois um byte é formado por 8 bits.
+O IPv6 é a versão mais atual do Protocolo de Internet, a sexta versão. O protocolo está sendo implantado gradativamente na Internet e deve funcionar lado a lado com o IPv4, numa situação tecnicamente chamada de "pilha dupla" ou "dual stack", por algum tempo. 
+ 
+O IPv4 transfere endereços de protocolos de 32 bits e sustenta aproximadamente 4,29 bilhões de IPs pelo mundo todo, o que nos fez chegar na crise atual: O sistema não suportará mais endereços do que isso. 
+ 
+Sendo o protocolo Base da arquitetura Internet, é utilizado por todos os serviços de aplicação atuais.
+ 
+O TCP/IP sempre foi considerado um modelo bastante pesado quando comparado com modelo UDP/IP, uma vez que o TCP/IP tem muito de seu foco voltado para a confiabilidade ao invés de só velocidade, diferente do UDP/IP, que é mais leve e veloz, mas não garante que a informação chegará ao respectivo destino.
+ 
+Para que seja possível termos IPs para uso em redes locais e IPs para utilização na internet, contamos com um esquema de distribuição que, basicamente, divide os endereços em três classes principais e mais duas complementares. 
+ 
+ 
+São elas:
+ 
+Classe A: 0.0.0.0 até 127.255.255.255 — permite até 128 redes
+Classe B: 128.0.0.0 até 191.255.255.255 — permite até 16.384 redes
+Classe C: 192.0.0.0 até 223.255.255.255 — permite até 2.097.152 redes
+Classe D: 224.0.0.0 até 239.255.255.255 — multicast
+Classe E: 240.0.0.0 até 255.255.255.255 — multicast reservado
+ 
+O endereçamento no IPv6 é de 128 bits (o quádruplo do IPv4), e inclui prefixo de rede e sufixo de host. No entanto, não existem classes de endereços, como acontece no IPv4. 
+ 
+Um endereço padrão IPv6 deve ser formado por um campo provider ID, subscribe ID, subnet ID e node ID. O node ID (ou identificador de interface) deve ter 64 bits, e pode ser formado a partir do endereço físico (MAC) no formato EUI 64.
+

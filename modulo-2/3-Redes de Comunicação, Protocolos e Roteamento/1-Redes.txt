@@ -1,0 +1,25 @@
+Redes
+No início, as pessoas compravam um computador para textos e jogos, porém algo surgiu para mudar radicalmente e gerar uma real necessidade: A troca de informações.
+ 
+A troca de informações começou entre computadores avançados e com propósitos específicos.
+Atualmente a maior motivação de se ter um computador ou um sistema computacional é o acesso à internet.
+A internet foi a resposta do século XXI ao telefone do século XX, onde o auge da comunicação ocorreu no início dos anos 2000, com um modelo de comunicação não hierárquica.
+Uma rede de computadores é um grupo de sistemas computacionais e dispositivos de hardware (desktops, servidores, dispositivos móveis e proprietários) que estão ligados entre si através de canais de comunicação, permitindo assim o compartilhamento de recursos entre os usuários.
+Para que ocorra a troca de informações, grande parte da indústria utiliza um código numérico que representa os caracteres, usando uma escala decimal de 0 a 127. Este código é conhecido como ASCII. Cada letra digitada corresponde a um código. 
+Com o uso do código ASCII, os caracteres são convertidos em números decimais e o computador converte em binários e assim processa o comando.
+Em 1970, começaram a surgir redes de computação de pacotes, como a ALOHAnet, rede de micro-ondas por rádio que interligava as ilhas do Havaí, e a TELENET, rede de interligação de pacotes comerciais baseada na tecnologia da ARPAnet.
+O número de pequenas redes foi crescendo tanto que Robert Metcalfe apresentou os princípios de uma rede local, a ETHERNET, que depois deram origem a LANs de curta distância, com supervisão da DARPA (Agência de Projetos de Pesquisa Avançada de Defesa). 
+Nesse período, também foi criado o protocolo TCP (transmission control protocol), responsável por enviar os pacotes em sequência e de forma confiável. Com o tempo, o serviço foi sendo modificado e o TCP ficou responsável por organizar a chegada dos pacotes, enquanto o IP tem a função de envio e o UDP controla o fluxo de voz.
+O Protocolo de Controle de Transmissão (TCP) funciona com o Protocolo de Internet (IP).
+No documento número 793 das normas RFC (Request for Comment), o Protocolo de Controle de Transmissão é definido pela IETF.
+O IETF (Internet Engineering Task Force, ou força-tarefa de engenharia da internet), reúne milhares de voluntários que discutem e produzem documentos técnicos e padrões da rede. Trabalha-se com padrões abertos obtidos por consenso, disponíveis publicamente, de aceitação voluntária e livres de royalties. 
+O IETF tem como missão identificar e propor soluções a questões/problemas relacionados à utilização da Internet, além de propor padronização das tecnologias e protocolos envolvidos.
+Mas voltando ao TCP/IP, no final da de 1970, cerca de 200 computadores já estavam conectados à ARPAnet, principalmente porque ela foi usada para a comunicação entre os militares durante a Guerra Fria.
+Terminada essa época de uso militar, a ARPAnet deixou de ser interessante para eles e foi transferida para as universidades. Foi quando os pesquisadores começaram a transmitir essa comunicação para outras nações, chegando a ter 100 mil máquinas na rede ao final da década de 1980.
+Assim se formou uma grande rede mundial, que começou a ser chamada de internet. Depois disso, em 1983, o protocolo TCP/IP se tornou oficial e passou a ser obrigatório em todos os computadores. 
+Foi também nessa época que surgiu o NSFNET, o backbone primário que fornecia acesso aos outros centros de computação, e o DNS (Domain Name System), que permitia transformar endereços em palavras e letras, que são mais fáceis de memorizar.
+O Brasil entrou na rede em 1990 criando a RNP (rede nacional de pesquisas). 
+Em 1992 foi criada a Internet Society e já existiam 200 servidores web em operação. 
+ 
+Hoje em dia, qualquer pessoa pode operar uma rede de computadores, simplesmente baseando-se pela troca de mensagens instantâneas
+
