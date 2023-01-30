@@ -1,0 +1,29 @@
+Comunicação em Camadas
+Este modulo abrange as métricas de padronização, o modelo TCP/IP e qual órgão é responsável pela homologação e normatização das tecnologias relacionadas a redes.
+A arquitetura TCP/IP foi a primeira arquitetura de redes apresentada e que cumpria o objetivo, formada por uma estrutura de camadas de protocolos. Foi desenvolvida pelo governo americano, como recurso a um projeto experimental chamado ARPANET. A partir de 1922 a ARPANET começou a evoluir, vindo a se transformar no que conhecemos hoje como INTERNET.
+O protocolo TPC/IP foi escolhido para ser o padrão da Internet, pois além de possuir muitas qualidades, é multiplataforma e possibilita a recuperação de falhas em qualquer dispositivo da rede.
+O modelo OSI é um padrão para os protocolos de rede e protocolos nada mais são do que regras de comunicação usadas para conectar dois ou mais computadores. O que o modelo OSI faz é agrupar esses protocolos em 7 grupos específicos, aqui apontadas como camadas.
+O processo de enviar uma requisição para um servidor é parecido com o de enviar um pacote pelos correios, os pacotes enviados pelo computador passam por algumas etapas até chegar ao destino final. Esses passos são identificados nas camadas do Modelo OSI.
+São estas camadas:
+Física
+Enlace
+Rede
+Transporte
+Sessão
+Apresentação
+Aplicação
+Quando falamos das camadas do modelo OSI, costumamos falar na ordem inversa, isto é, a camada mais alta é a camada 7, enquanto que a camada 1 é a camada mais baixa.
+Outro assunto visto foi o controle de erros de transmissão. É uma das funções mais importantes asseguradas pela camada de enlace.
+Independentemente do fenômeno causador de erro, estes tendem a gerar normalmente verdadeiros pacotes de erros (error bursts) e não erros simples. Portanto, definimos que a detecção de erros  consiste em receber o aviso de erro e em seguida encontrar este erro, que pode ser causado por interferências, ruídos, entre outros fatores já citado, a fim de que possa ser corrigido pela correção de erros.
+Os protocolos, outra parte fundamental para a camada de enlace, são algoritmos que determinam como os nós compartilham um canal de comunicação e se baseiam no conceito de acesso múltiplo, protocolos MAC, protocolos de Multiplexação, protocolos de acesso aleatório e protocolos de revezamento.
+Estes protocolos, diferente das camadas superiores que são baseados em RFCs, são definidos por empresas de comunicações e fabricantes que desenvolvem as novas tecnologias.
+Vimos nesta aula sobre controles de erros, é uma das funções mais importantes asseguradas pela camada de enlace (usualmente implementado na subcamada LLC). 
+Os erros que podem ocorrer sobre os suportes de transmissão e tem como causas os mais diversos fenômenos físicos, como por exemplo, o ruído térmico, provocado pela agitação dos elétrons nos cabos de cobre.
+Independentemente do fenômeno causador de erro, estes tendem a gerar normalmente verdadeiros pacotes de erros (error bursts) e não erros simples.
+A detecção de erros consiste em receber o aviso de erro e em seguida encontrar este erro, que pode ser causado por interferências, ruídos, entre outros fatores já citado, a fim de que possa ser corrigido pela correção de erros.
+A detecção de erros pode ser realizada pelos seguintes métodos: método de repetição, método de paridade, Checksum e método de redundância cíclica. 
+Estes métodos, seguindo seus próprios conceitos, irão de alguma maneira, detectar o erro para passar a correção de erros. O que tem em comum entre todos estes métodos é a utilização de inserção de bits extras, funcionando de uma maneira fácil de compreender: emissor envia junto à informação original bits a mais, então o receptor calcula estes bits a mais, e os remove para formar a informação enviada.
+ 
+
+
+

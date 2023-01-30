@@ -1,0 +1,22 @@
+Segmentação de Redes
+A segmentação física é o ato de dividir uma rede privada em subseções. 
+É um processo que, em redes locais, é considerado antigo e ultrapassado, mas para redes de porte industrial, com vários equipamentos com tecnologias distintas embarcadas, acabam sendo de estrema utilidade e segurança. Cada segmento não é uma rede independente.
+Se a rede utiliza um símbolo, ou um método de prevenção de colisão de escuta, um grande número de dispositivos na mesma rede pode provocar atrasos na transmissão. 
+Se a rede é grande, com muitos dispositivos ligados, cada dispositivo tem que esperar um longo tempo antes que haja silêncio na linha e possa aplicar dados a ele. 
+Então a solução mais comum para este problema é o de dividir a rede em secções. Assim os dispositivos apenas têm de competir para o acesso com o reduzido número de dispositivos no mesmo segmento.
+Os computadores em um segmento ainda precisam se comunicar com o computador conectado a outros segmentos da LAN. Os segmentos da rede estão ligados entre si por uma ponte. 
+A ponte representa todos os dispositivos na mesma rede, mas fora do segmento atual. O sistema de endereçamento que liga uso é chamado de endereço MAC.
+Então os segmentos de rede possuem um dispositivo conhecido como "Data Link Layer“, que opera em endereços MAC ao invés de endereços IP. 
+O endereço MAC é o identificador físico de cada dispositivo, que é codificado para a sua placa de rede e apresentado a rede num todo através do IP.
+É prática comum para unir dois segmentos em conjunto com as duas pontes, ou também chamadas de pontes de enlace. Isto fornece um back-up em caso de uma das pontes falhar. No entanto, isso causa um problema chamado de “ponte loops”.
+Cada ponte reconhece um nó da rede como destino para um endereço externo ao segmento atual. As duas pontes podem acabar com pacotes de dados de rebatidos entre si, entrando em um processo chamado de colisão.
+Em redes segmentadas, é empregado o protocolo Spanning Tree para combater o problema da ponte de enlace. Isto privilegia uma ponte e direciona o tráfego para o outro apenas se a primeira ponte de enlace é desligada. 
+O nível mais baixo de roteamento endereço MAC suporta maior nível de roteamento de endereço IP.  E quando digo mais baixo, não é em sua altura em relação ao chão ou de cima para baixo na figura aqui apresentada. 
+Quando falamos nos níveis mais baixos é quando falamos de concentradores, em uma rede dita “cascateada”, os nós/concentradores mais próximos do roteador, possuem maior capacidade de concentrar endereços.
+A segmentação lógica é uma estratégia de segurança muito utilizada pelas corporações para proteger seus dados de ataques cibernéticos. 
+Ela permite a divisão da rede em subseções para que seja possível controlar a concessão de acessos dos usuários de acordo com suas necessidades no trabalho.
+O conceito da segmentação é estabelecer uma zona que respeita as mesmas políticas de segurança governadas por uma entidade.
+A   implantação   de   VLANs (Virtual   Local   Área   Network) tem   a   intenção   de segmentar uma rede lógica afim de aumentar o controle de tráfego da rede, diminuir o alcance de disseminação de pacotes de difusão (broadcast) e de pragas virtuais, melhorado assim o desempenho e a segurança de uma determinada rede.
+Por outro lado, em sua configuração básica, computadores de uma Vlan não podem se comunicar com computadores de outra Vlan, da mesma forma como redes locais diferentes não podem se comunicar. 
+Assim também como nas redes locais, nas Vlans devem ser usados dispositivos roteadores para proporcionar a conectividade entre estas.
+
