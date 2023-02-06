@@ -1,0 +1,64 @@
+Esta aula é sobre como descobrir dados projetando-os, vinculando-os e limitando dados intervalos ou escopos. Abordaremos principalmente a sintaxe e o uso do comando SELECT, WHERE, LIMIT, JOIN e UNION/UNION ALL para operar em conjuntos de dados.
+
+ 
+
+Projeto de dados usando SELECT
+
+O caso de uso mais comum do Hive é consultar dados no Hadoop. Para conseguir isso, precisamos escreva e execute uma instrução SELECT. O trabalho típico realizado pela instrução SELECT é para projetar a linha inteira (com SELECT *) ou as colunas especificadas (com SELECT column1, column2, ...) de uma tabela, com ou sem condições. As instruções SELECT mais simples não acionará um trabalho do Yarn. Em vez disso, uma tarefa de despejo é criada apenas para despejar os dados, como o comando hdfs dfs -cat. A instrução SELECT é frequentemente usada com o FROM e DISTINCT palavras-chave. Uma palavra-chave FROM seguida por uma tabela é onde SELECT projeta dados. A palavra-chave DISTINCT usada após SELECT garante apenas linhas ou combinações exclusivas de colunas são retornadas da tabela. Além disso, o SELECT também suporta colunas combinado com funções definidas pelo usuário, IF() ou uma instrução CASE WHEN THEN ELSE END, e expressões regulares. A seguir estão exemplos de dados projetados com uma instrução SELECT:
+
+ 
+
+ 
+
+>SELECT * FROM empregado;
+
+>SELECT name FROM empregado; -- Selecionando colunas específicas
+
+Apresentar todas as colunas
+
+ 
+
+>SET hive.support.quoted.identifiers = none; --
+
+>SELECT `^work.*` FROM empregado;
+
+>SELECT DISTINCT name, work_place FROM empregado;
+
+ 
+
+Select columns with IF or CASE WHEN functions:
+
+> SELECT
+
+> CASE WHEN gender_age.gender = 'Female' THEN 'Ms.'
+> ELSE 'Mr.' END as title,
+> name,
+> IF(array_contains(work_place, 'New York'), 'US', 'CA') as
+country
+> FROM employee;
+
+ 
+
+Várias instruções SELECT podem trabalhar juntas para criar uma consulta complexa usando aninhadas
+
+consultas ou CTE. Uma consulta aninhada, também chamada de subconsulta, é uma consulta que projeta dados do resultado de outra consulta. As consultas aninhadas podem ser reescritas usando o CTE com as palavras-chave WITH e AS. Ao usar consultas aninhadas, um alias deve ser fornecido para a consulta interna (consulte t1 no seguinte exemplo) ou o Hive reportará exceções.
+
+ 
+
+Filtrando Dados com Condições
+
+É bastante comum restringir o conjunto de resultados usando uma cláusula de condição, como LIMIT, WHERE, IN/NOT IN e EXISTS / NOT EXISTS. A palavra-chave LIMIT limita o número especificado de linhas retornadas aleatoriamente. Comparado com LIMIT, WHERE é a cláusula de condição poderosa e genérica para limitar o resultado retornado definido por expressões.
+
+ 
+
+Vinculando dados com JOIN
+
+JOIN é usado para vincular linhas de duas ou mais tabelas. O Hive suporta a maioria Operações SQL JOIN, como INNER JOIN e OUTER JOIN. Além disso, o HQL suporta algumas junções especiais, como MapJoin e Semi-Join também. Na versão anterior, apenas o Hive junção igual suportada. Após a v2.2.0, a junção desigual também é suportada. No entanto, você deve estar mais cuidado ao usar junção desigual, a menos que você saiba o que é esperado, já que desigual.
+
+Quando JOIN é executado entre várias tabelas, os trabalhos Yarn / MapReduce são criados para processar os dados no HDFS. Cada um dos trabalhos é chamado de estágio. Geralmente, sugere-se coloque a mesa grande logo no final da instrução JOIN para obter melhor desempenho e evitar exceções de falta de memória (OOM). Isso ocorre porque a última tabela no JOIN a sequência geralmente é transmitida através de redutores, onde, como os demais, são armazenados no buffer redutor por padrão. Além disso, uma dica, / * + STREAMTABLE (table_name) * / tables. Quando você deseja restringir a saída de uma associação, aplique uma cláusula WHERE após a associação como JOIN ocorre antes da cláusula WHERE. Se possível, pressione as condições do filtro nas condições de junção em vez de onde condições para filtrar os dados anteriormente. Além do mais, todos os tipos de junções esquerda / direita não são comutativas e sempre associativas esquerda / direita, enquanto INNER e FULL OUTER JOINS são comutativas e associativas.
+
+ 
+
+Combinando dados com Union
+
+Quando queremos combinar dados com o mesmo esquema, geralmente usamos set operações. As operações regulares do conjunto no banco de dados relacional são INTERSECT, MINUS e UNIÃO / UNIÃO TUDO. O HQL suporta apenas UNION e UNION ALL. A diferença entre o UNION ALL não remove linhas duplicadas, enquanto o UNION remove. Além disso, todos dados sindicalizados devem ter o mesmo nome e tipo de dados; caso contrário, uma conversão implícita será pode ser feito e pode causar uma exceção de tempo de execução. Se ORDER BY, CLUSTER BY, DISTRIBUTE BY ou LIMIT, são aplicados a todo o conjunto de resultados após a união.

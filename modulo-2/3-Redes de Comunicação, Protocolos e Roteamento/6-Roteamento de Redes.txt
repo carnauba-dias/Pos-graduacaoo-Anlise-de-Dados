@@ -1,0 +1,28 @@
+Roteamento de Redes
+Nesta aula foram apresentados 4 tipo de tradução e roteamento de dados: 
+  NAT, BGP, OSF e MPLS.
+O Network Address Translation ou também conhecida pela sigla NAT ou como 
+masquerading, é uma técnica que consiste em reescrever, utilizando-se de uma tabela hash, 
+os endereços IP de origem de um pacote que passam por um router ou firewall de maneira que um computador de uma rede interna tenha acesso ao exterior ou Rede Mundial de Computadores
+A maioria dos NATs mapeiam vários host privados para um endereço IP exposto publicamente. 
+Em uma configuração típica, uma rede local usa uma das sub-redes de endereços IP "privados" (RFC 1918). 
+Um roteador desta rede tem um endereço privado naquele espaço de endereços. O roteador também está conectado à Internet com um endereço "público" atribuído por um provedor de serviços de Internet. 
+Quando o tráfego passa da rede local para a Internet, o endereço de origem em cada pacote é traduzido em tempo real de um endereço privado para o endereço público. O roteador rastreia dados básicos sobre cada conexão ativa (em particular o endereço de destino e porta). 
+Quando uma resposta retorna ao roteador, ele usa os dados de rastreamento de conexões que armazenou durante a fase de saída para determinar o endereço privado na rede interna para encaminhar a resposta.
+O BGP é um dos protocolos mais importantes e utilizados hoje em dia para comunicação entre ISP’s, responsável por distribuir rotas na internet fazendo com que um tráfego IP viaje o mais eficiente possível de um ponto a outro.
+BGP é o protocolo que faz a internet funcionar, ele faz isso habilitando o roteamento de dados na Internet
+A internet é dividida em centenas de milhares de redes menores conhecidas como sistemas autônomos (Autonomous Systems, ou AS).
+Um AS pode ser um provedor de serviços de Internet, uma universidade ou uma rede corporativa inteira, incluindo vários locais (endereços IP). 
+Cada AS é representado por um número exclusivo denominado ASN. O protocolo BGP é projetado para trocar informações de roteamento e acessibilidade entre sistemas autônomos na internet, desta forma, um AS não precisa estar conectado a outro AS para saber seu prefixo de rede.
+O mecanismo de tomada de decisão do BGP analisa todos os dados e define um de seus pares como a próxima parada, para encaminhar pacotes para um determinado destino. 
+Cada peer gerencia uma tabela com todas as rotas que conhece para cada rede e propaga essa informação para seus sistemas autônomos vizinhos.
+Assim, o BGP permite que um AS colete todas as informações de roteamento de seus sistemas autônomos vizinhos e “anuncie” essas informações posteriormente. Cada peer transfere a informação internamente dentro de seu próprio sistema autônomo.
+O protocolo de roteamento OSPF (Open Shortest Path First) é enquadrado na categoria de protocolo de roteamento dinâmico de interior gateway, responsável em encaminhar os pacotes de rede pelo melhor caminho possível.
+O OSPF trabalha através de um programa chamado algoritmo  Dijkstra , desenvolvido pelo cientista holandês Edsger Dijkstra, cuja função é manter um banco de dados  contendo as mensagens recebidas de todos os outros roteadores.
+Quando um roteador recebe todas essas mensagens ele constrói seu banco de dados local, o OSPF utiliza o algoritmo open shortest path first (SPF) de Dijkstra para criar uma árvore SPF. 
+A árvore SPF é então utilizada para preencher a tabela de roteamento IP com os melhores caminhos para cada rede.
+O MPLS (Multi-Protocol Label Switching) definido pela RFC 3031 é uma tecnologia de encaminhamento de pacotes baseada em rótulos ou labels, que atua entre as camadas 2 e 3 do modelo OSI, citado também por alguns autores como um protocolo de camada 2,5. 
+Amplamente difundida em países de primeiro mundo e com atuação expressiva em boa parte dos países em desenvolvimento, a tecnologia vem se consolidando devido a capacidade de associar a facilidade dos roteadores com a eficiência dos switchs.
+A ideia principal do MPLS é prover um aceleramento do transporte de pacotes em roteadores, mas acabou resultando em importantes avanços no campo de redes de computadores e telecomunicação como: tecnologia de plano de controle, engenharia de tráfego, redes privadas virtuais (VPNs), melhor aproveitamento de QoS e gerenciamento de conexões em redes óticas entre outros.
+O MPLS veio como uma outra visão de metodologia para tratamento do tráfego na rede. Ao invés de analisar o cabeçalho de camada 3, como feito em redes IP tradicionais, os dispositivos MPLS tomam decisões com base nas etiquetas inseridas assim que o pacote ingressa na rede. 
+Isso dá ao MPLS, independência dos protocolos da camada de rede.

@@ -1,0 +1,78 @@
+Tecnologias Emergentes
+Nesta aula, conhecemos 4 novas tecnologias que visam não só melhorar a experiência do usuário, como tambem prove maior conectividade, maior desempenho e segurança.
+
+ 
+
+A primeira é a tecnologia MESH.
+
+ 
+
+O Wi-Fi Mesh é uma nova tecnologia de redes sem fio, que utiliza uma topologia de malha (no original em inglês, mesh) onde todos os terminais são conectados entre todos, agindo como uma única rede sem fio com vários pontos espalhados. 
+
+ 
+
+Parece com o conceito de usar repetidores, mas funciona de forma totalmente diferente.
+
+ 
+
+Assim como o Wi-Fi, que distribui a internet pelos cômodos por meio do sinal transmitido pelo roteador, os aparelhos que possuem a tecnologia Mesh também se conectam a um roteador. 
+
+ 
+
+Porém, a distribuição não é feita apenas a partir dele. 
+
+ 
+
+Para montar a rede Mesh, são usados, pelo menos, mais dois aparelhos instalados em pontos determinados pelo usuário, e, com todos ligados, a conexão acaba se expandindo pelos pontos casa de forma igualitária.
+
+ 
+
+A segunda tecnologia é o Li-Fi, do termo inglês "Light Fidelity", é uma tecnologia que emprega luz para transmitir dados em alta velocidade. 
+
+ 
+
+Diferente da Wi-fi que usa ondas de rádio, a Li-Fi usa lâmpadas de LED para transmitir as informações. A Li-Fi pode transmitir velocidades até 100 Gbps e, possivelmente ainda mais, mas isso exigiria uma mudança na tecnologia de iluminação.
+
+ 
+
+A Li-Fi possui vantagem de apta para uso em áreas sensíveis à ondas eletromagnéticas, como cabines de aeronaves, hospitais e usinas nucleares, pois obviamente não possuem ondas eletromagnéticas.
+
+ 
+
+A terceira tecnologia é a Powerline, também conhecido pela sigla PLC (Power Line Communication), nada mais é do que um dispositivo que funciona como um repetidor de sinal da sua internet dentro de casa através da rede elétrica. 
+
+ 
+
+O Powerline funciona como um distribuidor de sinal de banda larga, transformando as tomadas em pontos de acesso de rede e como a transmissão é feita pela rede elétrica, o Powerline não encontra problemas em sua disseminação pela casa. Paredes grossas e longas distâncias não são um problema para o dispositivo.
+
+ 
+
+Outro ponto positivo do uso do dispositivo é não necessitar passar longos cabos de rede pela casa ou empresa. Automaticamente, menos furos nas paredes e complexidade na instalação. O consumo de energia do dispositivo também é reduzido comparado à um repetidor de sinal, por isso, a alteração no valor da conta de energia será mínima.
+
+ 
+
+Um ponto negativo do Powerline é a necessidade de que as tomadas estejam conectadas ao mesmo circuito elétrico, ou seja, ao mesmo disjuntor. Isso limita o alcance do dispositivo, já que, em muitos casos, os circuitos elétricos são divididos em um mesmo empreendimento.
+
+ 
+
+A quarta tecnologia são as Smart Grids, ou redes inteligentes. As redes elétricas inteligentes pressupõem uma maior automação e o uso de protocolos de operação dinâmicos, que respondem imediatamente à informação recebida do consumidor final.
+
+ 
+
+Só para fazer uma comparação didática: o que torna o celular um smartphone? É o computador que existe dentro dele, não é? 
+
+ 
+
+Da mesma forma, as Smart Grids e toda a tecnologia inserida nelas levam a rede elétrica para a era digital. Para que isso aconteça, as redes inteligentes são compostas por medidores eletrônicos inteligentes, muito mais modernos que os convencionais, em várias fases da transmissão e distribuição de energia elétrica. 
+
+ 
+
+Com o uso de medidores inteligentes e um sistema de transmissão de dados em tempo real, dá para monitorar o consumo, detectar falhas com rapidez, armazenar energia e acionar mecanismos para evitar a interrupção do serviço.
+
+ 
+
+As Smart Grids permitiriam um fluxo de energia no sentido em que o próprio consumidor final poderia ser um microgerador de energia ao se conectar na rede, fornecendo energia elétrica para a distribuidora quando conveniente e também permitiriam um fluxo de informações, no qual a distribuidora e o consumidor poderiam acompanhar continuamente a evolução do uso de energia e responder em tempo real a qualquer alteração no sistema
+
+ 
+
+A promessa das redes inteligentes é trazer benefícios para as distribuidoras, os consumidores e a sociedade.

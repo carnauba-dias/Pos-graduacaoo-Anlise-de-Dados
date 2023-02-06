@@ -1,0 +1,60 @@
+Agregação e amostragem de dados
+Esta aula será sobre como agregar e mostrar dados no HQL. Primeiro abrange o uso de várias funções agregadas, agregado aprimorado funções e funções de janela que trabalham com as declarações GROUP BY, PARTITION BY. Em seguida, apresenta as diferentes formas de amostragem de dados.
+
+ 
+
+Agregação Básica
+
+A agregação de dados é o processo de coletar e expressar dados em um resumo para obter mais informações sobre grupos específicos com base em condições específicas. O HQL oferece várias funções agregadas integradas, como max (...), min (...) e avg (...). Ele também suporta agregação avançada usando palavras-chave como GROUPING SETS, ROLLUP e CUBE, e diferentes tipos de função de janela.
+
+As funções agregadas internas básicas são geralmente usadas com a declaração GROUP BY. Se não houver uma declaração GROUP BY especificada, ela será agregada em toda a linha (todas as colunas) por padrão.
+
+Além das funções agregadas, todas as colunas selecionadas também devem ser incluídas na declaração GROUP BY.
+
+Uma função agregada pode ser usada com outras funções agregadas na mesma instrução SELECT. Também pode ser usado com outras funções, como funções condicionais, de maneira aninhada. No entanto, funções agregadas aninhadas não são suportadas.
+
+Quando usamos COUNT e DISTINCT juntos, ele sempre ignora a configuração (como mapred.reduce.tasks = 20) para o número de redutores usados e pode usar apenas um redutor. Nesse caso, o redutor único se torna o gargalo ao processar grandes volumes de dados.
+
+ 
+
+Agregação Aprimorada
+
+O aprimoramento de agregação pode ser realizado utilizando GROUPING SETS, CUBE e ROLLUP
+
+GOUPING SETS
+
+O GROUPING SETS implementa várias operações avançadas do GROUP BY no mesmo conjunto de dados. Na verdade, GROUPING SETS são uma maneira abreviada de conectar vários conjuntos de resultados GROUP BY com UNION ALL. A palavra-chave GROUPING SETS conclui todos os processos em um único estágio do trabalho, o que é mais eficiente. Um conjunto em branco () na declaração GROUPING SETS calcula a agregação geral.
+
+ROLLUP e CUBE
+
+A instrução ROLLUP permite que uma instrução SELECT calcule vários níveis de agregações em um grupo especificado de dimensões. A instrução ROLLUP é uma extensão simples da declaração GROUP BY com alta eficiência e sobrecarga mínima para uma consulta.
+
+Comparado ao GROUPING SETS, que cria níveis especificados de agregações, o ROLLUP cria n + 1 níveis de agregações, em que n é o número de colunas de agrupamento. Primeiro, calcula os valores agregados padrão especificados na declaração GROUP BY. Em seguida, ele cria subtotais de nível superior, movendo-se da direita para a esquerda na lista de combinações de colunas de agrupamento. Por exemplo, GROUP BY a, b, c WITH ROLLUP é equivalente a GROUP BY a, b, c GRUPOS DE GRUPOS ((a, b, c), (a, b), (a), ()).
+
+A instrução CUBE utiliza um conjunto especificado de colunas de agrupamento e cria agregações para todas as combinações possíveis. Se n colunas forem especificadas para CUBO, haverá 2n combinações de agregações retornadas. Por exemplo, GROUP BY a, b, c WITH CUBE é equivalente a GRUPO POR a, b, c GRUPOS DE GRUPO ((a, b, c), (a, b), (b, c), (a, c), (a), (b), (c), ())
+
+A função GROUPING__ID funciona como uma extensão para distinguir linhas inteiras uma da outra. Retorna o equivalente decimal do vetor BIT para cada coluna especificada após GROUP BY. O número decimal retornado é convertido de um binário de uns e zeros, que representa se a coluna é agregada (0) na linha ou não (1). Por outro lado, a função de agrupamento (...) também indica se uma coluna em uma declaração GROUP BY é agregada ou não, retornando o binário de 1 ou 0 diretamente. No exemplo a seguir, a ordem das colunas começa contando a coluna mais próxima (como o nome) de GROUP BY.
+
+A primeira linha no conjunto de resultados indica que nenhuma das colunas está sendo usada no GROUP BY.
+
+ 
+
+Funções de Janela
+
+As funções de janela, disponíveis desde o Hive v0.11.0, são um grupo especial de funções que varre várias linhas de entrada para calcular cada valor de saída. As funções da janela são geralmente usadas com OVER, PARTITION BY, ORDER BY e a especificação de janelas. Diferente das funções agregadas regulares usadas com a declaração GROUP BY e limitadas a um valor de resultado por grupo, as funções de janela operam em janelas nas quais as linhas de entrada são ordenadas e agrupadas usando condições flexíveis expressas por meio das declaraçãos OVER e PARTITION.
+
+As funções da janela fornecem resultados agregados, mas não agrupam o conjunto de resultados. Eles retornam o valor do grupo várias vezes com cada registro. As funções de janela oferecem grande flexibilidade e funcionalidades em comparação com a declaração GROUP BY regular e tornam as agregações especiais do HQL mais fáceis e mais poderosas. A sintaxe para uma função janela é:
+
+Função (arg1, ..., argn) OVER ([PARTITION BY <...>] [ORDER BY <....>] [<expressão da janela>]) 
+
+ 
+
+Amostragem
+
+Quando o volume de dados é muito grande, talvez seja necessário encontrar um subconjunto de dados para acelerar a análise. Isso é amostragem, uma técnica usada para identificar e analisar um subconjunto de dados, a fim de descobrir padrões e tendências em todo o conjunto de dados. No HQL, existem três maneiras de amostrar dados: amostragem aleatória, amostragem de tabelas de balde e amostragem de blocos.
+
+Amostragem aleatória: A amostragem aleatória usa a função rand () e a palavra-chave LIMIT para obter a amostragem de dados, conforme mostrado no exemplo a seguir. As palavras-chave DISTRIBUTE e SORT são usadas aqui para garantir que os dados também sejam distribuídos aleatoriamente entre mapeadores e redutores eficientemente. A instrução ORDER BY rand () também pode atingir o mesmo objetivo, mas o desempenho não é bom.
+
+Amostragem em Bloco: Esse tipo de amostragem permite que uma consulta recolha aleatoriamente n linhas de dados, n porcentagem do tamanho dos dados ou n bytes de dados. A granularidade da amostra é o tamanho do bloco HDFS.
+
+

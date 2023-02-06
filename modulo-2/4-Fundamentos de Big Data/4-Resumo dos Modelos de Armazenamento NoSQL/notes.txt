@@ -1,0 +1,78 @@
+Manipulação de Dados
+Acapacidade de manipular dados é crítica na análise de big data. Manipular dados é o processo de troca, movimentação, classificação, transformação e modificação de dados. Essa técnica é usada em muitas situações, como limpeza de dados, pesquisa de padrões, criação de tendências e assim por diante. O HQL oferece várias instruções, palavras-chave, operadores e funções para executar manipulação de dados.
+
+ 
+
+Troca de dados com LOAD
+
+Para mover dados, o Hive usa a instrução LOAD. Mover para cá significa que os dados originais são movidos para a tabela / partição de destino e não existem mais no local original. A palavra-chave LOCAL na instrução LOAD especifica onde os arquivos estão localizados no host do cliente. Se a palavra-chave LOCAL não for especificada, os arquivos serão carregados a partir do URI (Uniform Resource Identifier) ​​ specificado após INPATH (na maioria das vezes, caminho hdfs) ou o valor da propriedade fs.default.name definida em hdfs-site.xml por padrão. O caminho após INPATH pode ser um caminho relativo ou um caminho absoluto. O caminho aponta para um arquivo ou uma pasta (referente a todos os arquivos na pasta) a serem carregados, mas a subpasta não é permitida no caminho especificado. Se os dados forem carregados em uma tabela de partição, a coluna da partição deverá ser especificada.
+
+A palavra-chave OVERWRITE é usada para decidir se substitui os dados existentes na tabela / partição de destino ou não. A seguir, é apresentado um exemplo de como mover dados para a tabela ou partição de arquivos locais ou HDFS:
+
+Para mover dados, o Hive usa o LOAD de dados locais em uma tabela, interna ou externa. A instrução load não pode ser repetida, pois os arquivos a serem carregados são movidos.
+
+ 
+
+>LOAD DATA LOCAL INPATH
+> '/home/dayongd/Downloads/employee_hr.txt'
+> OVERWRITE INTO TABLE employee_hr;
+No rows affected (0.436 seconds)
+
+ 
+
+ 
+
+Troca de dados com INSERT
+
+Para extrair dados de tabelas / partições, podemos usar a palavra-chave INSERT. Como outros bancos de dados relacionais, o Hive suporta a inserção de dados em uma tabela, selecionando dados de outra mesa. Este é um ETL muito comum (um termo no data warehousing para Extract, Transformar e Carregar) usado para preencher uma tabela nova ou existente de outra tabela ou conjunto de dados. A instrução HQL INSERT possui a mesma sintaxe que o INSERT de um banco de dados relacional. No entanto, o HQL aprimorou sua instrução INSERT, oferecendo suporte à substituição de dados, inserção múltipla e inserção de partição dinâmica, além de inserir dados em arquivos.
+
+ 
+
+Troca de dados com o [EX | IM] PORT
+
+Ao trabalhar na migração de dados ou na implantação de versões, podemos precisar mover dados entre diferentes ambientes ou clusters. No HQL, as instruções EXPORT e IMPORT estão disponíveis para mover dados entre o HDFS em diferentes ambientes ou clusters. A instrução EXPORT exporta dados e metadados de uma tabela ou partição. Os metadados são exportados em um arquivo chamado _metadata.
+
+
+Classificação de Dados
+
+Outro aspecto da manipulação de dados é classificá-los adequadamente, a fim de identificar claramente fatos importantes, como os valores N, máximo, mínimo e assim por diante. Suporta HQL as seguintes palavras-chave para classificação de dados:
+
+ORDER BY [ASC | DESC]: É semelhante à instrução SQL ORDER BY. Quando usando ORDER BY, uma ordem classificada é mantida em toda a saída de todos os redutor. Ele realiza uma classificação global usando apenas um redutor, portanto, leva mais tempo para retornar o resultado. O especificador de direção após ORDER BY pode ser ASC para ascendente (baixo para alto) ou DESC para decrescente (alto para baixo).
+
+ 
+
+Para fornecer um especificador de direção, o padrão de ascendente é usado. Desde a v2.1.0, a instrução ORDER BY suporta a especificação da direção de classificação para o NULL valor, como NULL PRIMEIRO ou NULL LAST. Por padrão, NULL permanece no primeiro coloque na direção ASC e o último lugar na direção DESC
+
+SORT BY[ASC | DESC]: especifica quais colunas usar para classificar a entrada do redutor registros. Isso significa que a classificação é concluída antes de enviar dados para o redutor.
+
+A instrução SORT BY não executa uma classificação global (mas ORDER BY executa) e apenas garante que os dados sejam classificados localmente em cada redutor. Se SORT BY classificar com apenas um redutor (definido mapred.reduce.tasks = 1), é igual a ORDER BY, pois o exemplo a seguir mostra. Na maioria das vezes, o SORT BY é inútil, mas é usado com DISTRIBUTE BY.
+
+ 
+
+Funções
+
+Para manipular ainda mais os dados, também podemos usar operadores, expressões e funções no HQL para transformar dados. O wiki do Hive (https://cwiki.apache.org/confluence/display/hive/LanguageManual+UDF) oferece especificações para todas as expressões e funções suportadas; portanto, não iremos repetí-las aqui.
+
+O Hive definiu operadores relacionais, operadores aritméticos, operadores lógicos, tipo complexo operadores e construtores de tipos complexos. Para operadores relacionais, aritméticos e lógicos, eles são semelhantes aos operadores padrão em SQL / Java.
+
+Definição e descrição de dados, bem como o exemplo de inserção de dados em dados dinâmicos partições anteriores neste capítulo. As funções no HQL são categorizadas da seguinte maneira:
+
+Funções matemáticas: São usadas principalmente para executar funções matemáticas. cálculos, como rand (...) e pi (...)
+
+Funções de coleção: são usadas para encontrar o tamanho, chaves e valores para tipos complexos, como tamanho (...)
+
+Funções de conversão de tipo: são principalmente (...) e binárias (...) funções para converter um tipo para outro
+
+Funções de data: são usadas para executar cálculos relacionados à data, como ano (...) e mês (...)
+
+Funções condicionais: são usadas para verificar condições específicas com um valor retornado, como coalescência (...), if (...) e case quando então fim
+
+Funções de string: são usadas para executar operações relacionadas a strings, como superior (...) e aparar (...)
+
+Funções agregadas: são usadas para executar agregação, como soma (...) e contagem (*)
+
+Funções de geração de tabela: essas funções transformam uma única linha de entrada em várias linhas de saída, como explodir (...) e json_tuple (...)
+
+Funções personalizadas: essas funções são criadas por Java como extensões.
+
+Para listar todos os operadores, funções internas e funções definidas pelo usuário, podemos usar os comandos SHOW FUNCTIONS. Para mais detalhes de uma função específica, podemos usar DESC [EXTENDED] nome_da_função da seguinte maneira:

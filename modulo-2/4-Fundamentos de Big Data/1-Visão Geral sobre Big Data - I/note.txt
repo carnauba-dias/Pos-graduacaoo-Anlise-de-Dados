@@ -1,0 +1,149 @@
+Visão Geral Sobre Big Data
+Esta aula é uma visão geral do big data e do Hive, especialmente no ecossistema Hadoop. Isto apresenta brevemente a evolução do big data para que os leitores saibam onde estão jornada de big data e pode descobrir suas áreas preferidas em aprendizado futuro. Este aula também cobre como o Hive se tornou uma das principais ferramentas no ecossistema de big data e por que ainda é competitivo.
+
+Nesta aula, abordaremos os seguintes tópicos:
+
+Um breve histórico do banco de dados, do data warehouse ao big data
+
+Apresentando big data
+
+Bancos de dados relacionais e NoSQL versus Hadoop
+
+Processamento em lote, em tempo real e fluxo
+
+Visão geral do ecossistema Hadoop
+
+Visão geral do Hive
+
+ 
+
+Breve Histórico do Big Data
+
+Na década de 1960, quando os computadores se tornaram uma opção mais econômica para as empresas, as pessoas começaram a usar bancos de dados para gerenciar dados. Mais tarde, na década de 1970, os bancos de dados relacionais tornaram-se mais popular para as necessidades de negócios, pois eles conectaram dados físicos com os negócios com facilidade e proximidade. Na década seguinte, o SQL (Structured Query Language) tornou-se a linguagem de consulta padrão para bancos de dados. A eficácia e simplicidade do SQL motivou muitas pessoas a usar bancos de dados e aproximou-os de uma ampla variedade de usuários e desenvolvedores. Logo, observou-se que as pessoas utilizavam bancos de dados para aplicação de dados e gestão e isso continuou por um longo período de tempo.
+
+Depois que muitos dados foram coletados, as pessoas começaram a pensar em como lidar com o problema de dados históricos. Então, o termo data warehousing surgiu nos anos 90. Daquele tempo a partir de então, as pessoas começaram a discutir como avaliar o desempenho atual revisando as data histórica. Vários modelos e ferramentas de dados foram criados para ajudar as empresas de maneira eficaz gerenciar, transformar e analisar seus dados históricos. Bancos de dados relacionais tradicionais também evoluiu para fornecer agregação mais avançada e funções analisadas, bem como otimizações para data warehousing. A principal linguagem de consulta ainda era SQL, mas era mais intuitivo e poderoso em comparação com as versões anteriores. Os dados ainda estavam bem estruturados e o modelo foi normalizado. Quando entramos nos anos 2000, a internet gradualmente tornou-se o principal setor para a criação da maioria dos dados em termos de variedade e volume. Tecnologias mais recentes, como análise de mídia social, mineração na web e dados visualizações, ajudou muitos negócios e empresas a processar grandes quantidades de dados para uma melhor compreensão de seus clientes, produtos, concorrência e mercados. Os dados o volume cresceu e o formato dos dados mudou mais rápido do que nunca, o que obrigou as pessoas a procure novas soluções, especialmente nas áreas de pesquisa e código aberto. Como resultado, grandes os dados se tornaram um tópico importante e um campo desafiador para muitos pesquisadores e empresas.
+
+No entanto, em todos os desafios, há uma grande oportunidade. Na década de 2010, o Hadoop, que era um dos projetos de código aberto de big data, começou a ganhar grande atenção devido à sua licença de origem, comunidades ativas e poder para lidar com grandes volumes de dados. Este foi uma das poucas vezes em que um projeto de código aberto levou a mudanças na tecnologia tendências antes de qualquer produto comercial de software. Logo depois, o banco de dados NoSQL, em tempo real análise e aprendizado de máquina, como seguidores, rapidamente se tornaram componentes importantes parte superior do ecossistema de big data do Hadoop. Armado com essas tecnologias de big data, as empresas foram capazes de revisar o passado, avaliar o atual e aproveitar as oportunidades futuras.
+
+ 
+
+Introdução ao Big Data
+
+Big Data não é simplesmente um grande volume de dados. Aqui, a palavra Big refere-se ao grande escopo de dados. Um ditado bem conhecido nesse domínio é descrever big data com a ajuda de três Palavras que começam com a letra V:
+
+volume,
+
+velocidade e
+
+variedade.
+
+Mas os dados analíticos e mundo da ciência viu dados variando em outras dimensões, além dos três fundamentos Vs de big data, como veracidade, variabilidade, volatilidade, visualização e valor. Podemos definir os Vs de big data da seguinte forma:
+
+Volume: refere-se à quantidade de dados gerados em segundos. 90% dos os dados do mundo hoje foram criados nos últimos dois anos. Desde então, o os dados no mundo dobram a cada dois anos. Esses grandes volumes de dados são principalmente gerados por máquinas, redes, mídias sociais e sensores, incluindo dados estruturados, semiestruturados e não estruturados
+
+Velocidade: refere-se à velocidade na qual os dados são gerados, armazenados, analisado e mudou-se. Com a disponibilidade de dispositivos conectados à Internet, máquinas e sensores sem fio ou com fio podem transmitir seus dados assim que criada. Isso leva ao streaming de dados em tempo real e ajuda as empresas a fazer decisões valiosas e rápidas. 
+
+Variedade: refere-se aos diferentes formatos de dados. Os dados costumavam ser armazenados em os formatos .txt, .csv e .dat de fontes de dados, como sistemas de arquivos, planilhas e bancos de dados. Este tipo de dados, que reside em um campo fixo dentro de um registro ou arquivo, é chamado de dados estruturados. Atualmente, os dados nem sempre estão em o formato estruturado tradicional. O mais novo semi-estruturado ou não estruturado formas de dados também são geradas por vários métodos, como email, fotos, áudio, vídeo, PDFs, SMS ou até algo sobre o qual não temos idéia. Estes variedades de formatos de dados criam problemas para armazenar e analisar dados. Isto é um dos principais desafios que precisamos superar no domínio do big data.
+
+Veracidade: refere-se à qualidade dos dados, como confiabilidade, preconceitos, ruído, e anormalidade nos dados. Dados corrompidos são bastante normais. Pode se originar devido por várias razões, como erros de digitação, abreviações ausentes ou incomuns, dados reprocessamento e falhas no sistema. No entanto, ignorar esses dados maliciosos pode levar a análises de dados imprecisas e, eventualmente, uma decisão errada. Portanto, garantir que os dados estejam corretos em termos de audição e correção de dados importante para análise de big data.
+
+Variabilidade: refere-se à alteração de dados. Isso significa que os mesmos dados podem têm significados diferentes em contextos diferentes. Isto é particularmente importante ao realizar análise de sentimentos. Os algoritmos de análise são capazes de entender o contexto e descobrir o significado exato e os valores dos dados nesse contexto.
+
+Volatilidade: refere-se a quanto tempo os dados são válidos e armazenados. Isto é particularmente importante para a análise em tempo real. Requer uma janela de tempo alvo de dados a serem determinados para que os analistas possam se concentrar em questões específicas e obter bom desempenho fora da análise.
+
+Visualização: refere-se à maneira de tornar os dados bem compreendidos. Visualização não significa apenas gráficos comuns ou gráficos de pizza; também faz vastas quantidades de dados compreensíveis em uma visão multidimensional fácil de compreende. A visualização é uma maneira inovadora de mostrar alterações nos dados. Isto requer muita interação, conversas e esforços conjuntos entre big data analistas e especialistas no domínio comercial para tornar a visualização significativa.
+
+Valor: refere-se ao conhecimento adquirido com a análise de dados em big data. O valor do big data é como as organizações se transformam em big data empresas e usar o insight da análise de big data para a tomada de decisões.
+
+ 
+
+Os bancos de dados relacionais e NoSQL versus Hadoop
+
+Para entender melhor as diferenças entre o banco de dados relacional, o banco de dados NoSQL e Hadoop, vamos compará-los com as formas de viajar. Você ficará surpreso ao descobrir que eles tem muitas semelhanças. Quando as pessoas viajam, elas pegam carros ou aviões, dependendo na distância e custo da viagem. Por exemplo, quando você viaja para Vancouver de Toronto, um avião é sempre a primeira escolha em termos de tempo de viagem versus custo. Quando você viajar para Niagara Falls a partir de Toronto, um carro é sempre uma boa escolha. Quando você viaja para Montreal, de Toronto, algumas pessoas podem preferir levar um carro para um avião. A distância e custo aqui são como o volume e o investimento em big data. O relacional tradicional o banco de dados é como o carro, e a ferramenta de big data do Hadoop é como o avião. Quando você lida com uma pequena quantidade de dados (curta distância), um banco de dados relacional (como o carro) é sempre a melhor opção, pois é rápido e ágil lidar com uma quantidade pequena ou moderada de dados. Quando você lida com uma grande quantidade de dados (longa distância), o Hadoop (como o avião) é o melhor escolha, pois é mais escalável linear, rápido e estável para lidar com o grande volume de dados. Você poderia dirigir de Toronto para Vancouver, mas leva muito tempo. Você também pode Pegue um avião de Toronto para as Cataratas do Niágara, mas levaria mais tempo para você o aeroporto e custa mais do que viajar de carro. Além disso, você pode pegar um navio ou um trem. É como um banco de dados NoSQL, que oferece características e equilíbrio de ambos os banco de dados relacional e Hadoop em termos de bom desempenho e vários formatos de dados suporte para quantidades moderadas a grandes de dados.
+
+ 
+
+Processamento em Batch (lote), Real Time (em tempo real) e Stream (fluxo)
+
+O processamento em lote Batch é usado para processar dados em lotes. Lê dados da entrada, processos e grava na saída. O Apache Hadoop é o open source mais conhecido e popular implementação de origem do sistema de processamento em lote distribuído usando o MapReduce. Os dados são armazenados em um sistema de arquivos compartilhado e distribuído, chamado Hadoop Sistema de arquivos distribuídos (HDFS) e divididos em divisões, que são os dados lógicos divisões para o processamento do MapReduce.
+
+Para processar essas divisões usando o MapReduce, a tarefa de mapa lê as divisões e passa todos os seus pares chave / valor para uma função de mapa e grava os resultados no intermediário arquivos. Após a conclusão da fase do mapa, o redutor lê os arquivos intermediários enviados através o processo de reprodução aleatória e os passa para a função de redução. Por fim, a tarefa de redução grava resultados para os arquivos de saída finais. As vantagens do modelo MapReduce incluem criar programação distribuída mais fácil, aceleração quase linear, boa escalabilidade e tolerância a falha. A desvantagem deste modelo de processamento em lote é não poder executar trabalhos recursivos ou iterativos. Além disso, o comportamento óbvio do lote é que todas as entradas devem estar pronta pelo mapa antes do início da tarefa de redução, o que torna o MapReduce inadequado para on-line e casos de uso de processamento de fluxo.
+
+O processamento em tempo real é usado para processar dados e obter o resultado quase imediatamente. Este conceito na área de consultas ad hoc em tempo real sobre big data foi implementado pela primeira vez em Dremel do Google. Ele usa um novo formato de armazenamento colunar para estruturas aninhadas com algoritmos de rápida agregação de índice e escalável para calcular os resultados da consulta em paralelo de sequências em lote. Essas duas técnicas são os principais personagens do processamento em tempo real e são usados ​​por implementações semelhantes, como Impala (https://impala.apache.org/), Presto (https://prestodb.io/) e Drill (https://drill.apache.org/), alimentado por o formato de dados de armazenamento colunar, como Parquet (https://parquet.apache.org/), ORC (https://orc.apache.org/), CarbonData (https://carbondata.apache.org/)  e Arrow (https://arrow.apache.org/). Por outro lado, a computação em memória oferece, sem dúvida, soluções mais rápidas para processamento em tempo real. A computação na memória oferece muito alta largura de banda, superior a 10 gigabytes / segundo, em comparação com os 200 discos rígidos megabytes / segundo. Além disso, a latência é comparativamente menor, nanossegundos versus milissegundos, em comparação com discos rígidos. Com o preço da RAM cada vez mais baixo, cada dia, a computação na memória é mais acessível como uma solução em tempo real, como o Apache Spark (https://spark.apache.org/), que é uma implementação popular de código aberto da computação na memória. O Spark pode ser facilmente integrado ao Hadoop e seus dados na memória o conjunto de dados distribuídos resilientes (RDD) da estrutura pode ser gerado a partir de fontes de dados, como HDFS e HBase, para armazenamento em cache eficiente.
+
+O processamento de Stream (fluxo) é usado para processar e agir continuamente nos dados da transmissão ao vivo para obter um resultado. No processamento de fluxo, existem dois fluxos de uso geral comumente usados estruturas de processamento: Storm (https://storm.apache.org/) e Flink (https: // flink. apache.org/). Ambas as estruturas são executadas na Java Virtual Machine (JVM) e os dois processos fluxos com chave. Em termos do modelo de programação, o Storm fornece as ferramentas básicas para construa uma estrutura, enquanto o Flink fornece uma estrutura bem definida e facilmente usada. No Além disso, Samza (http://samza.apache.org/) e Kafka Stream (https://kafka.apache.org/documentation/streams/) aproveitam o Kafka para armazenamento em cache de mensagens e transformação. Recentemente, o Spark também fornece um tipo de processamento de fluxo em termos de modo inovador de processamento contínuo.
+
+ 
+
+Arquitetura Hadoop
+
+O Hadoop foi lançado pela Apache em 2011 como versão 1.0.0, que continha apenas HDFS e MapReduce. O Hadoop foi projetado como computação (MapReduce) e armazenamento (HDFS) desde o início. Com a crescente necessidade de análise de big data,  o Hadoop atrai muitos outros softwares para resolver questões de big data e se funde em um ecossistema de big data centrado no Hadoop. O diagrama a seguir fornece uma breve visão geral do ecossistema de big data do Hadoop na pilha Apache:
+
+Segurança
+
+Gerenciamento de Meta Dados
+
+Tipo de Dado
+
+Coordenação e Gerenciamento
+
+Processamento em Memória
+
+Processamento em stream
+
+Hadoop Sobre SQL
+
+Banco de Dados NoSQL
+
+Search Engine
+
+Data Piping
+
+Machine Learning
+
+Scripting
+
+Agendamento
+
+Recursos de Gerenciamento
+
+Armazenamento
+
+No atual ecossistema do Hadoop, o HDFS ainda é a principal opção ao usar o disco rígido armazenamento e o Alluxio fornece alternativas de memória praticamente distribuída. Além do HDFS, os formatos de dados Parquet, Avro e ORC podem ser usados junto com uma compactação rápida algoritmo para otimização de computação e armazenamento. O Yarn, como o primeiro gerenciador de recursos de uso geral do Hadoop, foi projetado para melhorar o gerenciamento de recursos e escalabilidade. Spark e Ignite, como mecanismos de computação na memória, são capazes de rodar no Yarn para trabalhe com o Hadoop de perto também.
+
+Por outro lado, Kafka, Flink e Storm estão dominando o processamento de fluxo. HBase é um principal banco de dados NoSQL, especialmente em clusters do Hadoop. Para aprendizado de máquina, trata-se de Spark MLlib e Madlib, juntamente com um novo Mahout. Sqoop ainda é uma das principais ferramentas para troca de dados entre o Hadoop e bancos de dados relacionais. Flume é um amadurecido, ferramenta de coleta de logs distribuída e confiável para mover ou coletar dados para o HDFS. Impala e O Drill pode iniciar consultas SQL interativas diretamente nos dados do Hadoop. No Além disso, o Hive over Spark / Tez, juntamente com o Live Long And Process (LLAP), oferece aos usuários o capacidade de executar uma consulta em processos de longa duração em diferentes estruturas de computação, em vez do que o MapReduce, com armazenamento em cache de dados na memória. Como resultado, o Hive está jogando mais papéis importantes no ecossistema do que nunca. Também estamos felizes em ver que Ambari como um novo a geração de ferramentas de gerenciamento de cluster fornece gerenciamento de cluster mais poderoso e coordenação além do Zookeeper. Para agendamento e gerenciamento de fluxo de trabalho, podemos use o Airflow ou Oozie. Por fim, temos uma governança de código aberto e metadados o serviço, Altas, que capacita a conformidade e a linhagem de grandes dados no ecossistema.
+
+ 
+
+Visão geral do Hive
+
+O Hive é um padrão para consultas SQL sobre petabytes 250 de dados no Hadoop. Ele fornece como o SQL acesso aos dados no HDFS, permitindo que o Hadoop seja usado como um data warehouse. A consulta do Hive Language (HQL) possui semântica e funções semelhantes às do SQL padrão no banco de dados, para que analistas de banco de dados experientes possam facilmente colocar suas mãos nele. Hive a linguagem de consulta pode ser executada em diferentes mecanismos de computação, como MapReduce, Tez e Spark.
+
+A estrutura de metadados do Hive fornece uma estrutura de alto nível, semelhante a uma tabela, sobre o HDFS. Isto suporta três estruturas de dados principais, tabelas, partições e buckets. As tabelas correspondem para diretórios HDFS e pode ser dividido em partições, onde os arquivos de dados podem ser divididos em baldes. A estrutura de metadados do Hive é geralmente o esquema do conceito de esquema na leitura em Hadoop, o que significa que você não precisa definir o esquema no Hive antes de armazenar dados no HDFS. A aplicação de metadados do Hive após o armazenamento de dados traz mais flexibilidade e eficiência para o seu trabalho de dados. A popularidade dos metadados do Hive faz com que seja a maneira de descrever big data e é usado por muitas ferramentas no ecossistema de big data.
+
+
+Destaques do Hive que podemos ter em mente:
+
+O Hive fornece um modelo de consulta simples e otimizado com menos codificação do que MapReduce
+
+HQL e SQL têm uma sintaxe semelhante
+
+O tempo de resposta da consulta do Hive geralmente é muito mais rápido que outros no mesmo volume de grandes conjuntos de dados
+
+O Hive suporta a execução em diferentes estruturas de computação
+
+O Hive suporta dados de consulta ad hoc no HDFS e HBase
+
+O Hive suporta funções, scripts e procedimentos java / scala definidos pelo usuário idiomas para estender sua funcionalidade
+
+Drivers JDBC e ODBC maduros permitem que muitos aplicativos extraam dados do Hive para relatórios contínuos
+
+O Hive permite que os usuários leiam dados em formatos arbitrários, usando SerDes e
+
+Formatos de entrada / saída
+
+O Hive é uma ferramenta de processamento em lote estável e confiável, pronta para produçãomuito tempo
+
+O Hive possui uma arquitetura bem definida para gerenciamento de metadados, autenticação,e otimizações de consulta
+
+Existe uma grande comunidade de profissionais e desenvolvedores trabalhando e usando Hive

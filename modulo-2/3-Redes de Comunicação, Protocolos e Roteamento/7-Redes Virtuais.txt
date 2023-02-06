@@ -1,0 +1,40 @@
+Redes Virtuais
+A   implantação   de   VLANs (Virtual   Local   Área   Network) tem   a   intenção   de segmentar uma rede lógica afim de aumentar o controle de tráfego da rede, diminuir o alcance de disseminação de pacotes de difusão (broadcast) e de pragas virtuais, melhorado assim o desempenho e a segurança de uma determinada rede.
+
+O crescimento desenfreado do tráfego de rede cria gargalos em determinados   pontos   da   estrutura, podendo   gerar   lentidão   ou   até   tornar   alguns   serviços indisponíveis temporariamente. Esta situação pode ser agravada pela propagação de pacotes de difusão (broadcast) que em muitos casos consomem fatia considerável da banda de um enlace de dados.
+
+Uma rede local (LAN) pode ser definida como uma área de comunicação de dados interligada de abrangência restrita e altas taxas de transmissão, porém é mais comumente descrita como sendo um domínio de broadcast, isto porque, um pacote de difusão lançado em uma rede local se dissemina para todos os pontos de acesso ativos.
+
+A Segmentação de Redes surgiu para, entre outros motivos, limitar a disseminação de broadcasts em uma rede local e consiste em inserir dispositivos na rede (roteadores) que bloqueiam a passagem de pacotes de broadcasts quando atravessam suas interfaces. Estes roteadores têm também a função de interligar diferentes LANs.
+
+Uma Vlan proporciona uma segmentação lógica da rede através de comutadores (bridges ou switches) que possuam esta função. Um atributo importante das VLANs é o fato de poder usá-la “onde   existe   a necessidade de separar a topologia lógica de segmentos de rede da topologia física”.
+
+Pode-se ativar duas VLANs em algumas portas de diferentes switches, fazendo com que estas se comportem   como   duas   redes   separadas, sendo   assim, todos   os   pacotes   provenientes   de dispositivos membros de uma Vlan somente serão encaminhados para as portas dos switches pertencentes a mesma Vlan.
+
+A implementação do conceito de VLANs torna o gerenciamento das redes locais mais flexíveis levando em consideração o fato de permitir que computadores possam fazer parte de uma ou outra Vlan sem que seja necessário alterar a organização física da rede. 
+
+
+
+Por outro lado, em sua configuração básica, computadores de uma Vlan não podem se comunicar com computadores de outra Vlan, da mesma forma como redes locais diferentes não podem se comunicar. 
+
+Assim também como nas redes locais, nas VLANs devem ser usados dispositivos roteadores para proporcionar a conectividade entre estas.
+
+A principal característica atribuída ao uso de VLANs é a possibilidade de se agrupar estações pertencentes a uma ou mais Lans físicas para se formar um único domínio de difusão ou Broadcast, garantindo a comunicação entre elas mesmo que façam parte de segmentos físicos diferentes.
+
+Em uma rede não segmentada, computadores, impressoras e outros dispositivos conectados disseminam uma grande quantidade de pacotes de difusão, seja por falhas na conexão dos cabos, mau funcionamento de placas de rede, ou até mesmo por protocolos e aplicações que geram este tipo de tráfego, podendo causar atraso no tempo de resposta e lentidão na rede local. 
+
+No modelo de VLANs, existe um domínio lógico de difusão por onde os pacotes de broadcast ou multicast são contidos e não se propagam a outras redes virtuais.
+
+Assim uma rede segmentada com VLANs cria vários subdomínios de difusão, diminuindo o tráfego de mensagens de difusão tanto na rede segmentada como na rede da organização em geral. A implementação de VLAN para segmentar uma rede melhora a performance.
+
+A implantação de redes virtuais pode ser aplicada de acordo com grupos de trabalhos ou setores mesmo que estes grupos estejam em localizações físicas distintas, garantindo assim a segmentação lógica da rede.
+
+As Vlans podem ser configuradas de três formas diferentes a fim de possibilitar que os dispositivos se conectem a elas: Configuração manual (ou estática), automática (ou dinâmica) e semi­automática (ou semi­estática).
+
+Em um processo de comunicação, quando o tráfego de rede atravessa os comutadores, estes devem ser capazes de identificar a quais Vlans os pacotes fazem parte. Esta identificação pode ser feita   através do reconhecimento dos frames.
+
+O quadro padrão Ethernet, após a inclusão da tagg Vlan sofre um acréscimo em seu tamanho máximo, passando de 1518 para 1522 bytes e precisa ter o FCS (Frame Check Sequence) recalculado para não ser identificado como pacote corrompido por outros dispositivos de rede, e estes devem também possuir suporte para identificação de quadros Vlan, do contrário os pacotes serão descartados.
+
+Atividade extra
+
+Procure conhecer sobre o JUMBO FRAME, uma propriedade que manipulam o tamanho máximo dos pacotes, o MTU e quando pode ser empregado.
