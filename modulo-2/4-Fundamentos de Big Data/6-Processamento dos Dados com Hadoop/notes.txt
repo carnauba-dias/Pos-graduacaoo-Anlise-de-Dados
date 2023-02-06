@@ -1,0 +1,58 @@
+Considerações Sobre Performance
+Embora o Hive seja desenvolvido para lidar com o processamento de big data, ainda não podemos ignorar a importância do desempenho. Na maioria das vezes, uma consulta melhor pode contar com o otimizador de consulta inteligente para encontrar a melhor estratégia de execução, bem como as configurações padrão e as práticas recomendadas. No entanto, usuários experientes devem aprender mais sobre a teoria e a prática do ajuste de desempenho, especialmente ao trabalhar em um projeto ou ambiente sensível ao desempenho.
+ 
+Utilitários de desempenho
+O HQL fornece as instruções EXPLAIN e ANALYZE, que podem ser usadas como utilitários para verificar e identificar o desempenho das consultas. Além disso, os logs do Hive contêm informações detalhadas suficientes para investigação e solução de problemas de desempenho.
+ 
+EXPLAIN –
+Instrução fornecida para retornar um plano de execução da consulta sem executar a consulta. Podemos usá-lo para analisar consultas se tivermos preocupações sobre o desempenho delas. A instrução EXPLAIN nos ajuda a ver a diferença entre duas ou mais consultas para a mesma finalidade. A sintaxe é a seguinte:
+EXPLAIN [FORMATTED | EXTENDED | DEPENDENCY | AUTHORIZATHION ] hql_query
+ 
+As seguintes palavras-chave podem ser usadas:
+FORMATTED: Fornece uma versão JSON formatada do plano de consulta.
+EXTENDED: fornece informações adicionais para os operadores do plano, como nome do caminho do arquivo.
+DEPENDENCY: fornece uma saída no formato JSON que contém uma lista de tabelas e partições das quais a consulta depende. Está disponível desde o Hive v0.10.0
+AUTHORIZATHION: lista todas as entidades que precisam ser autorizadas, incluindo entradas e saída para executar a consulta e falha na autorização, se houver. Tem sido disponível desde o Hive v0.14.0.
+ 
+Um plano de consulta típico contém as três seções a seguir:
+Árvore de sintaxe abstrata (AST): O Hive usa um gerador de analisador chamado ANTLR (consulte http://www.antlr.org/) para gerar automaticamente uma sintaxe de árvore
+Dependências de estágio do HQL: lista todas as dependências e o número de estágios usados ​​para executar a consulta
+Planos de estágio: contém informações importantes, como operadores e ordens de classificação, para executar a tarefa
+ 
+Declaração ANALYZE
+As estatísticas do Hive são uma coleção de dados que descreve mais detalhes, como o número de linhas, o número de arquivos e o tamanho dos dados brutos dos objetos no banco de dados. As estatísticas são as metadados de dados, coletados e armazenados no banco de dados do metastore. O Hive suporta estatísticas no nível da tabela, partição e coluna. Essas estatísticas servem como uma entrada para o Hive CostBased Optimizer (CBO), que é um otimizador usado para escolher o plano de consulta com o menor custo em termos de recursos do sistema necessários para concluir a consulta. As estatísticas são parcialmente reunidos automaticamente no Hive v3.2.0 até o JIRA HIVE-11160 (https://issues.apache.org/jira/browse/HIVE-11160) ou manualmente através da instrução ANALYZE em tabelas, partições e colunas.
+ 
+Otimização do Projeto
+A otimização de design abrange vários designs, formatos de dados e estratégias de otimização de tarefas para melhorar o desempenho.
+Definição da Participação de Tabela - O particionamento do Hive é uma das maneiras mais eficazes de melhorar o desempenho da consulta em grandes tabelas. Uma consulta com filtragem de partição carregará apenas dados das partições especificadas (subdiretórios), para que possa executar muito mais rapidamente do que uma consulta normal que filtra por um campo sem particionamento. A seleção da chave da partição é sempre um fator importante para o desempenho. Sempre deve ser um atributo de baixa cardinal para evitar a sobrecarga de muitos subdiretórios. A seguir estão alguns atributos comumente usados como chaves de partição:
+Partições por data e hora: use data e hora, como ano, mês e dia (horas pares), como chaves de partição quando os dados estiverem associados à data / hora colunas, como load_date, business_date, run_date e assim por diante
+Partições por local: use país, território, estado e cidade como chaves de partição quando os dados estão relacionados à localização
+Partições por lógica de negócios: use departamento, região de vendas, aplicativos, clientes e assim por diante como chaves de partição quando os dados podem ser separados uniformemente por logíca de negócios
+Definição do Índice - O uso de índices é uma prática recomendada muito comum para ajuste de desempenho em sistemas relacionais de bancos de dados. O Hive oferece suporte à criação de índice em tabelas / partições desde o Hive v0.7.0. Um índice no Hive fornece uma visualização de dados baseada em chaves e um melhor acesso a dados para determinadas operações, como WHERE, GROUP BY e JOIN. O uso de um índice é sempre uma alternativa mais barata que as verificações de tabela completa. 
+Use tabelas inclinadas / temporárias - Além de tabelas internas / externas ou de partição regulares, também devemos considerar o uso de um mesa inclinada ou temporária para melhor design e desempenho.
+Desde o Hive v0.10.0, o HQL oferece suporte à criação de uma tabela especial para organizar distorções dados. Uma tabela inclinada pode ser usada para melhorar o desempenho dividindo esses valores inclinados em arquivos ou diretórios separados automaticamente. Como resultado, o número total de arquivos ou pastas de partição é reduzido. Além disso, uma consulta pode incluir ou ignorar esses dados rapidamente e eficientemente.
+ 
+Otimização de Dados
+A otimização do arquivo de dados cobre a melhoria de desempenho nos arquivos de dados em termos de arquivo formato, compactação e armazenamento.
+Formato  - O Hive suporta os formatos de arquivo TEXTFILE, SEQUENCEFILE, AVRO, RCFILE, ORC e PARQUET. Existem duas instruções HQL usadas para especificar o formato do arquivo da seguinte maneira:
+CREATE TABLE ... STORE AS <file_format>: especifique o formato do arquivo ao criar uma tabela
+ALTER TABLE ... [PARTITION partition_spec] SET FILEFORMATb <file_format>: modifique o formato do arquivo (apenas definição) em uma tabela existente
+TEXTFILE: Este é o formato de arquivo padrão para criação de tabela. Os dados são armazenados em claro texto para este formato. Um arquivo de texto é naturalmente divisível e pode ser processado em paralelo. Também pode ser compactado com algoritmos, como GZip, LZO e Snappy. No entanto, a maioria dos arquivos compactados não pode ser dividida em paralelo em processamento. Como resultado, eles usam apenas um trabalho com um único mapeador para processar dados lentamente. A melhor prática para usar arquivos de texto compactados é garantir que o O arquivo não é muito grande e está próximo a alguns tamanhos de bloco HDFS.
+SEQUENCEFILE: Este é um formato de armazenamento binário para pares de chave / valor. O benefício de um arquivo de sequência é que ele é mais compacto que um arquivo de texto e se ajusta bem ao Formato de saída MapReduce. Os arquivos de sequência podem ser compactados para gravar ou bloquear nível, onde o nível do bloco tem uma melhor taxa de compressão. Para habilitar o nível de bloco compactação, precisamos usar as seguintes configurações: set hive.exec.compress.output = true; E definir io.seqfile.compression.type = BLOCO ;
+AVRO: Este também é um formato binário. Mais do que isso, é também uma serialização e estrutura de desserialização. O AVRO fornece um esquema de dados que descreve os dados estrutura e também lida com as alterações do esquema, como adicionar, renomear e removendo colunas. O esquema é armazenado junto com os dados para qualquer em processamento. Considerando as vantagens do AVRO para lidar com a evolução do esquema, é recomendável usá-lo ao mapear os dados de origem, o que provavelmente terá o esquema muda de tempos em tempos.
+ RCFILE: é a abreviação de Record Columnar File. É um arquivo simples que consiste em pares de chave / valor binário que compartilham muitas semelhanças com um arquivo de sequência. O  RCFile divide os dados horizontalmente em grupos de linhas. Um ou vários grupos são armazenado em um arquivo HDFS. Em seguida, o RCFile salva os dados do grupo de linhas em uma coluna salvando a primeira coluna em todas as linhas e, em seguida, a segunda coluna em todas as linhas e assim por diante. Esse formato é divisível e permite que o Hive pule irrelevantes partes dos dados e obtenha os resultados mais rápido e mais barato
+ORC: é a abreviação de Coluna de linha otimizada. Está disponível desde o Hive v0.11.0. O formato ORC pode ser considerado uma versão aprimorada do RCFILE. Ele fornece um tamanho de bloco maior de 256 MB por padrão (RCFILE tem 4 MB e SEQUENCEFILE tem 1 MB), otimizado para grandes leituras sequenciais no HDFS para maior taxa de transferência e menos arquivos para reduzir a sobrecarga no nome do nó. Diferente do RCFILE, que conta com o metastore para conhecer os tipos de dados, o arquivo ORC entende os tipos de dados usando codificadores específicos para otimizar a compactação, dependendo dos tipos diferentes. Ele também armazena estatísticas básicas, como MIN, MAX, SUM e COUNT, em colunas, além de um índice leve que pode ser usado para pular blocos de linhas que não importam.
+PARQUET: Esse é outro formato de arquivo colunar de linhas com design semelhante ao o do ORC. Além disso, o Parquet tem um suporte mais amplo para a maioria projetos no ecossistema, em comparação com o ORC, que é apoiado principalmente por Colmeia, Porco e Faísca. O PARQUET aproveita as melhores práticas no design de Dremel do Google (consulte http://research.google.com/pubs/pub36632.html) para suportar a estrutura aninhada de dados. PARQUET foi suportado por um plugin desde o Hive v0.10.0 e obteve suporte nativo após o v0.13.0
+ 
+Compressão
+As técnicas de compressão no Hive podem reduzir significativamente a quantidade de transferência de dados entre mapeadores e redutores comprimindo adequadamente a saída intermediária e final dados. Como resultado, a consulta terá melhor desempenho. Para compactar arquivos intermediários produzido entre várias tarefas do MapReduce, precisamos definir a seguinte propriedade (false por padrão) na sessão da linha de comandos ou no arquivo hive-site.xml.
+ 
+Armazenamento
+Os dados usados ou verificados com frequência podem ser identificados como dados quentes. Geralmente, consulta o desempenho em dados quentes é fundamental para o desempenho geral.
+ 
+ 
+Referência Bibliográfica
+- The Mongo DB 3.4 Manual — MongoDB Manual 3.4, disponível em http://docs.mongodb.com/manual/
+- Apache Cassandra Documentation v4.0, disponível em http://cassandra.apache.org/doc/latest/.
+- R. Elmasri and S. B. Navathe. Fundamentals of Database Systems. Pearson, 7th edition, 2016.
+
