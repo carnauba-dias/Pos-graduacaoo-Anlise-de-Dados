@@ -1,16 +1,16 @@
-Considerações de extensibilidade
+# Considerações de extensibilidade
 Embora o Hive tenha fornecido muitas funções internas, em casos de uso especiais, os usuários podem precisar de energia além do que é fornecido. Nesse caso, podemos estender a funcionalidade do Hive em três áreas principais:
 Função definida pelo usuário (UDF): fornece uma maneira de estender funcionalidades com uma função externa (principalmente escrita em Java) que pode ser avaliada no HQL
 Streaming: Conecta os programas personalizados de um usuário aos dados transmissão
 SerDe: Significa serialização e desserialização e fornece uma maneira de serializar ou desserializar dados com a forma de arquivo customizada
  
-Função Definida pelo Usuário
+# Função Definida pelo Usuário
 As funções definidas pelo usuário fornecem uma maneira de usar a própria lógica de aplicativo / negócios do usuário para processando valores da coluna durante uma consulta HQL. Por exemplo, uma função definida pelo usuário pode executar a limpeza de recursos com uma biblioteca externa de aprendizado de máquina, autenticar o acesso do usuário de outros serviços, mesclar vários valores em um ou vários, executar codificação ou criptografia de dados especiais e outras operações que estão fora do escopo de o HQL regular operadores e função. O Hive define os três seguintes tipos de funções definidas pelo usuário, que são extensíveis:
 UDF: significa Função Definida pelo Usuário, que opera em linhas e gera um resultado para uma linha, como a maioria das funções integradas de matemática e string
 UDAF: significa Função de agregação definida pelo usuário, que opera em linha ou em grupo e gera uma linha para toda a tabela ou uma linha para cada grupo como resultado, como max (...) e count(...) funções integradas
 UDTF:  significa função geradora de tabela., definida pelo usuário, que também opera em linha, mas produz várias linhas/tabelas como resultado, como a função explode(...). UDTF pode ser usado após a instrução SELECT ou declaração LATERAL VIEW.
  
-Streaming
+# Streaming
 O Hive também pode aproveitar o recurso de streaming no Hadoop para transformar dados em uma alternativa caminho. A API de streaming abre um canal de E / S para um processo externo, como um script. Em seguida, o processo lê os dados da entrada padrão e grava os resultados na saída padrão. No HQL, podemos usar as cláusulas TRANSFORM diretamente para incorporar os scripts mapeador e redutor escritos em comandos, shell scripts, Java ou outras linguagens de programação.
 Embora o streaming traga sobrecarga usando serialização / desserialização entre processos, ele fornece um modo de codificação simples para desenvolvedores não-Java.
 Por padrão, os valores INPUT para o script do usuário são os seguintes:
@@ -18,13 +18,13 @@ Colunas transformadas em valores de STRING
 Delimitado por uma guia
 Valores NULL convertidos na cadeia literal N (diferencia valores NULL de cadeias vazias)
  
-Por padrão, os valores OUTPUT do script do usuário são os seguintes:
+# Por padrão, os valores OUTPUT do script do usuário são os seguintes:
 Tratado como colunas STRING separadas por tabulação
 N será reinterpretado como NULL
 A coluna STRING resultante será convertida no tipo de dados especificado na tabela declaração
 
 
-SerDe
+# SerDe
 SerDe significa Serialização e Desserialização. É a tecnologia usada para processar registros e mapeá-los para tipos de dados de coluna nas tabelas do Hive. Para explicar o cenário de uso do SerDe, precisamos entender como o Hive lê e grava dados primeiro.
 O processo para ler dados é o seguinte.
 Os dados são lidos no HDFS.
@@ -49,9 +49,4 @@ ParquetHiveSerDe: Este é o SerDe embutido que permite ler e gravar o formato de
 OpenCSVSerDe: Este é o SerDe para ler e gravar dados CSV. Ele vem como um SerDe integrado a partir do Hive v0.14.0. O OpenCSVSerDe é mais poderoso que o delimitador de linha interno suportado pelo suporte a especificações de scape e cotação e assim por diante.
  
  
-Referência Bibliográfica
- 
-- The Mongo DB 3.4 Manual — MongoDB Manual 3.4, disponível em http://docs.mongodb.com/manual/
-- Apache Cassandra Documentation v4.0, disponível em http://cassandra.apache.org/doc/latest/.
-- R. Elmasri and S. B. Navathe. Fundamentals of Database Systems. Pearson, 7th edition, 2016.
 
