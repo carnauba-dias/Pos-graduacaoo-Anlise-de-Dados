@@ -1,0 +1,57 @@
+Considerações de extensibilidade
+Embora o Hive tenha fornecido muitas funções internas, em casos de uso especiais, os usuários podem precisar de energia além do que é fornecido. Nesse caso, podemos estender a funcionalidade do Hive em três áreas principais:
+Função definida pelo usuário (UDF): fornece uma maneira de estender funcionalidades com uma função externa (principalmente escrita em Java) que pode ser avaliada no HQL
+Streaming: Conecta os programas personalizados de um usuário aos dados transmissão
+SerDe: Significa serialização e desserialização e fornece uma maneira de serializar ou desserializar dados com a forma de arquivo customizada
+ 
+Função Definida pelo Usuário
+As funções definidas pelo usuário fornecem uma maneira de usar a própria lógica de aplicativo / negócios do usuário para processando valores da coluna durante uma consulta HQL. Por exemplo, uma função definida pelo usuário pode executar a limpeza de recursos com uma biblioteca externa de aprendizado de máquina, autenticar o acesso do usuário de outros serviços, mesclar vários valores em um ou vários, executar codificação ou criptografia de dados especiais e outras operações que estão fora do escopo de o HQL regular operadores e função. O Hive define os três seguintes tipos de funções definidas pelo usuário, que são extensíveis:
+UDF: significa Função Definida pelo Usuário, que opera em linhas e gera um resultado para uma linha, como a maioria das funções integradas de matemática e string
+UDAF: significa Função de agregação definida pelo usuário, que opera em linha ou em grupo e gera uma linha para toda a tabela ou uma linha para cada grupo como resultado, como max (...) e count(...) funções integradas
+UDTF:  significa função geradora de tabela., definida pelo usuário, que também opera em linha, mas produz várias linhas/tabelas como resultado, como a função explode(...). UDTF pode ser usado após a instrução SELECT ou declaração LATERAL VIEW.
+ 
+Streaming
+O Hive também pode aproveitar o recurso de streaming no Hadoop para transformar dados em uma alternativa caminho. A API de streaming abre um canal de E / S para um processo externo, como um script. Em seguida, o processo lê os dados da entrada padrão e grava os resultados na saída padrão. No HQL, podemos usar as cláusulas TRANSFORM diretamente para incorporar os scripts mapeador e redutor escritos em comandos, shell scripts, Java ou outras linguagens de programação.
+Embora o streaming traga sobrecarga usando serialização / desserialização entre processos, ele fornece um modo de codificação simples para desenvolvedores não-Java.
+Por padrão, os valores INPUT para o script do usuário são os seguintes:
+Colunas transformadas em valores de STRING
+Delimitado por uma guia
+Valores NULL convertidos na cadeia literal N (diferencia valores NULL de cadeias vazias)
+ 
+Por padrão, os valores OUTPUT do script do usuário são os seguintes:
+Tratado como colunas STRING separadas por tabulação
+N será reinterpretado como NULL
+A coluna STRING resultante será convertida no tipo de dados especificado na tabela declaração
+
+
+SerDe
+SerDe significa Serialização e Desserialização. É a tecnologia usada para processar registros e mapeá-los para tipos de dados de coluna nas tabelas do Hive. Para explicar o cenário de uso do SerDe, precisamos entender como o Hive lê e grava dados primeiro.
+O processo para ler dados é o seguinte.
+Os dados são lidos no HDFS.
+Os dados são processados pela implementação INPUTFORMAT, que define a entrada divisão de dados e registros de chave / valor. No Hive, podemos usar CREATE TABLE ... ARMAZENADO COMO <FILE_FORMAT> (consulte o Capítulo 9, Considerações sobre desempenho) para especifique de qual INPUTFORMAT ele lê.
+A classe Deserializer Java definida no SerDe é chamada para formatar os dados em um registro que mapeia para tipos de coluna e dados em uma tabela.
+ 
+Para um exemplo de leitura de dados, podemos usar o JSON SerDe para ler os dados no formato TEXTFILE do HDFS e converter cada linha do atributo e valor JSON em linhas nas tabelas do Hive com o esquema correto.
+O processo para gravar dados é o seguinte:
+Os dados (como o uso de uma instrução INSERT) a serem gravados são convertidos pela classe Serializer definida em SerDe para o formato que a classe OUTPUTFORMAT pode ler.
+Os dados são processados pela implementação OUTPUTFORMAT, que cria o objeto RecordWriter. Semelhante à implementação INPUTFORMAT, a implementação OUTPUTFORMAT é classificada da mesma maneira que uma tabela na qual ele grava os dados.
+Os dados são gravados na tabela (dados salvos no HDFS).
+
+
+Para um exemplo de gravação de dados, podemos escrever uma coluna de linha de dados nas tabelas do Hive usando JSON SerDe, que converte dados em uma sequência de texto JSON salva no HDFS.
+Uma lista dos SerDe comumente usados (org.apache.hadoop.hive.serde2) suportados é a seguinte:
+LazySimpleSerDe: O SerDe interno padrão usado com o formato TEXTFILE
+ColumnarSerDe: Este é o SerDe interno usado com os formatos RCFILE e ORC.
+RegexSerDe: Esta é a expressão regular Java interna usada no SerDe para analisar arquivos de texto.
+HBaseSerDe: Este é o SerDe interno para permitir que o Hive se integre ao HBase. Podemos mapear uma tabela do Hive para uma tabela existente do HBase, aproveitando este SerDe para consulta e inserção de dados.
+AvroSerDe: Este é o SerDe interno que permite ler e gravar dados do Avro nas tabelas do Hive. O Avro é uma estrutura de chamada de procedimento remoto e serialização de dados.
+ParquetHiveSerDe: Este é o SerDe embutido que permite ler e gravar o formato de dados do Parquet a partir do Hive v0.13.0
+OpenCSVSerDe: Este é o SerDe para ler e gravar dados CSV. Ele vem como um SerDe integrado a partir do Hive v0.14.0. O OpenCSVSerDe é mais poderoso que o delimitador de linha interno suportado pelo suporte a especificações de scape e cotação e assim por diante.
+ 
+ 
+Referência Bibliográfica
+ 
+- The Mongo DB 3.4 Manual — MongoDB Manual 3.4, disponível em http://docs.mongodb.com/manual/
+- Apache Cassandra Documentation v4.0, disponível em http://cassandra.apache.org/doc/latest/.
+- R. Elmasri and S. B. Navathe. Fundamentals of Database Systems. Pearson, 7th edition, 2016.
+
