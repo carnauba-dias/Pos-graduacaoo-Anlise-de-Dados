@@ -1,0 +1,41 @@
+# Considerações de Segurança
+Para a maioria dos softwares de código aberto, a segurança é uma área crítica a ser tratada antes da produção. Como a principal interface semelhante a SQL para dados do Hadoop, o Hive deve garantir que os dados sejam protegido e acessado com segurança. Por esse motivo, a segurança no Hive é sempre considerada uma parte integrante e importante do ecossistema. A versão anterior do Hive contava principalmente com o HDFS para segurança. A segurança do Hive gradualmente se tornou madura após o lançamento do hiveserver2.
+Será apresentado as seguintes áreas:
+Autenticação
+Autorização
+Máscara e Criptografia
+ 
+# Autenticação
+Autenticação é o processo de verificar a identidade de um usuário, obtendo a senha do usuário credenciais. O Hive oferece autenticação desde o hiveserver2. Na versão antiga do Hive, hiveserver1 não suporta autenticação Kerberos para clientes de baixo custo. Como resultado, se poderíamos acessar o host / porta pela rede, acessar o servidor. Em vez disso, podemos aproveite o servidor de metastore, que suporta Kerberos, para autenticação.
+Autenticação Mestastore para forçar os clientes a se autenticarem com o servidor de metastore usando o Kerberos, podemos definir as três propriedades a seguir no arquivo hive-site.xml e, em seguida, reiniciar o metastore servidor para fazê-lo funcionar:
+Habilite a estrutura SASL (Simple Authentication and Security Layer) para imponha a autenticação Kerberos do cliente:
+Especifique o keytab Kerberos gerado. Verifique se a máscara de permissão do arquivo keytab está definido como permissão somente leitura (600) para evitar a alteração acidental ou excluído. Também deve pertencer à mesma conta (seção por padrão) usada para execute o servidor de metastore
+Especifique a cadeia de padrão principal do Kerberos. A cadeia especial _HOST será substituído automaticamente pelo nome do host correto
+ 
+O hiveserver2 suporta vários modos de autenticação, como Kerberos, LDAP, PAM e código personalizado. Para configurar o hiveserver2 para usar um desses modos de autenticação, podemos definir as propriedades apropriadas em hive_site.xml da seguinte maneira e reiniciar o serviço hiveserver2 para fazê-lo funcionar:
+NONE: Nenhuma autenticação é o que está nas configurações padrão. Nenhum aqui significa isso permite acesso anônimo usando a seguinte configuração
+KERBEROS: Se a autenticação Kerberos for usada, ela será usada para autenticar entre o cliente thrift e hiveserver2 e hiveserver2 e protegeu o HDFS
+LDAP: Para configurar o hiveserver2 para usar a validação de usuário e senha suportada pelo LDAP
+PAM: Desde o Hive v0.13.0, o Hive suporta o PAM (autenticação conectável por Módulos), que oferece o benefício de conectar os existentes mecanismos de autenticação no Hive.
+ 
+# Autorização
+A autorização é usada para verificar se um usuário tem permissão para executar uma determinada ação, como criar, ler ou gravar dados ou metadados. O Hive fornece três autorizações modos: modo legado, modo baseado em armazenamento e modo baseado em padrão SQL
+Modo Legado - Este é o modo de autorização padrão no Hive, fornecendo nível de coluna e linha autorização através de instruções HQL. No entanto, não é completamente seguro modo de autorização e possui algumas limitações. Ele pode ser usado principalmente para impedir que bons usuários acidentalmente façam coisas ruins, em vez de impedir operações maliciosas do usuário.
+Modo baseado em armazenamento - O modo de autorização baseada em armazenamento (desde o Hive v0.10.0) depende da autorização fornecida pelo HDFS da camada de armazenamento, que fornece permissões POSIX e ACL (disponíveis desde o Hive v0.14.0.
+A autorização baseada em armazenamento está ativada no servidor de metastore; tem um único visualização consistente de metadados em outros aplicativos no ecossistema. Esse modo verifica as permissões do usuário em relação às permissões POSIX nos diretórios de arquivos correspondentes no HDFS. Além do modelo de permissões POSIX, o HDFS também fornece listas de controle de acesso descritas nas ACLs no HDFS em:
+[hadoop](http://hadoop.apache.org/docs/r2.4.0/hadoop-projectdist/hadoophdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)
+Modo baseado em padrão SQL - Para controle de acesso refinado em nível de coluna e linha, podemos usar o modo baseado em padrão SQL, disponível desde o Hive v0.13.0. É semelhante à autorização de banco de dados relacional usando as instruções GRANT e REVOKE para controlar o acesso através do hiveserver2 configuração. No entanto, ferramentas como os comandos Hive ou HDFS não acessam dados por meio do hiveserver2, portanto, o modo baseado em padrão SQL não pode autorizar seu acesso.
+ 
+# Máscara e Criptografia
+Para dados confidenciais e protegidos legalmente, como Informações de identidade pessoal (PII) ou Informações Confidenciais Pessoais (PCI), é necessário armazenar dados em arquivos criptografados ou formato mascarado no sistema de arquivos. Desde o Hive v0.13.0, seus recursos de segurança de dados amadurecem nas áreas de funções de hash de dados, mascaramento de dados e criptografia / descriptografia de dados.
+ 
+# Função Data-hashing
+Antes do suporte aos dados de mascaramento, a função de hash embutida era uma alternativa desde o Hive v1.3.0. Uma função hash lê uma sequência de entrada e produz uma sequência de saída alfanumérica de tamanho fixo. Como a saída geralmente é mapeada de forma exclusiva (muito pouca chance de colisão) para a sequência de entrada, o valor do hash é frequentemente usado para proteger colunas, que são os identificadores exclusivos para unir ou comparar dados.
+ 
+# Função Data-masking
+Desde o Hive v2.1.0, a função de máscara de dados está disponível no SQL como UDF interno.
+Os dados de mascaramento são frequentemente solicitados para dados sensíveis ao usuário, como números de cartão de crédito, números de contas bancárias e senhas. Diferente da função hash, a função de máscara no SQL pode especificar o mascaramento de dados parciais, o que o torna mais flexível quando você deseja manter parte dos dados desmascarados para melhor entendimento.
+ 
+# Função Data-encryption
+Desde o Hive v1.3.o, aes_encrypt (string de entrada / binário, string de chave / binário) e aes_decrypt (binário de entrada, cadeia de chaves / binário) UDF foram fornecidos para suporta criptografia e descriptografia de dados usando o AES (Advanced Encryption Padrão), que é uma técnica simétrica de criptografia de dados de bloco de 128 bits, desenvolvida pela Bélgica criptografadores Joan Daemen e Vincent Rijmen.
+
