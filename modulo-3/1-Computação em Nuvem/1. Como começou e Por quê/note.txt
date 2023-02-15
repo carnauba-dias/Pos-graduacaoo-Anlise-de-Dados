@@ -1,0 +1,90 @@
+# Observação: este site inclui um sistema de acessibilidade. Pressione Control-F11 para ajustar o site aos deficientes visuais que usam um leitor de tela; Pressione Control-F10 para abrir um menu de acessibilidade.
+Pressione Enter para acessar acessibilidade para cegos
+que usam leitores de tela
+Pressione Enter para Navegação pelo Teclado
+Pressione Enter para acessar o menu de acessibilidade
+O início da Computação em Nuvem
+O enigma da Computação na Nuvem
+Até recentemente, as organizações que precisavam de novas soluções de software para suas diversas práticas de negócios, como contabilidade, vendas, manufatura e assim por diante, precisariam planejar e construir seu novo sistema em detalhes antes de começar a usá-lo. Isso muitas vezes incluiria a construção de uma nova infraestrutura de TI, incluindo novos prédios e salas, chamados centros de dados, que hospedariam os servidores, os dispositivos de rede e os dispositivos de armazenamento. Lembre-se de que esses prédios não eram estruturas regulares, pois normalmente precisavam de acesso extra seguro, sistemas de refrigeração de última geração e fontes de alimentação confiáveis. Em outros casos, uma infraestrutura de TI atualizada simplesmente exigia novo hardware para datacenters existentes.
+Apesar de todo o planejamento, era muito comum as organizações superestimarem ou subestimarem as necessidades de computação de seus novos sistemas. Isso significava que muitos sistemas em um data center consumiam grandes quantidades de espaço, energia e dinheiro com baixo uso geral, ou que as soluções de software apresentavam um desempenho insatisfatório devido ao pouco poder computacional para suportá-las.
+ 
+# A Solução
+Em vez de precisar estimar o uso de seu computador e apostar financeiramente nos resultados, imagine que você pode aumentar e diminuir sua infraestrutura de computação com base nas suas necessidades reais. Portanto, em vez de criar um data center e proteger seus aplicativos, imagine ter todo esse trabalho feito remotamente e automaticamente.
+Na verdade, as organizações nem precisam imaginar; Tudo o que eles precisam fazer é procurar a nuvem para encontrar ofertas de infraestrutura de TI disponíveis comercialmente que possam atender às suas necessidades comerciais exclusivas. A computação em nuvem torna a infra-estrutura de computação em crescimento e redução muito mais ágil e flexível. Você pode pensar na computação em nuvem como o agrupamento de serviços, como armazenamento, rede e computadores, ao mesmo tempo em que fornece funcionalidade a usuários e administradores com uma sobrecarga de gerenciamento reduzida. Os serviços podem ser desenvolvidos e reduzidos conforme necessário, o que proporciona maior elasticidade ao sistema, eficiência e agilidade para o negócio e responsabilidade pelo sistema real. 
+ 
+# O que faz a Computação na Nuvem possível?
+É importante observar que, até a nuvem estar disponível, as organizações não tinham a opção de adotar essa cara fase de planejamento e soluções detalhadas. Para serem competitivos, precisavam fornecer a seus negócios a velocidade e a precisão da tecnologia de computação de dados, mas muitas vezes eram limitadas devido a restrições em sua rede, ou riscos de inatividade ou perda de dados. Recentemente, novas tecnologias e conceitos amadureceram para criar as condições perfeitas para a nuvem nascer, incluindo:
+Virtualização de cargas de trabalho computacional;
+Conectividade de Internet de banda larga;
+Dispositivos inteligentes de ponto final;
+As Economias de serviços modernos (Economia Digital);
+Comércio eletrônico.
+ 
+Sem qualquer uma dessas condições, a computação em nuvem não seria prática. 
+ 
+# Tudo Faz Sentido
+As organizações viram um enorme crescimento nos próprios dados de transações e eventos que eles geram. Estima-se que os dados do mundo dobrem a cada dois anos. Isso significa que nos próximos dois anos geraremos a mesma quantidade de dados que todos os dados que geramos desde o início do tempo. É difícil armazenar, filtrar e analisar todos esses dados e, por essa razão, as organizações também procuraram a nuvem para ajudá-los a obter insights sobre seus enormes armazenamentos de dados. As organizações do passado tropeçariam nos astronômicos custos iniciais de armazenar todos esses dados e hardware de computação para executar seus sistemas, mas agora eles podem disponibilizá-los instantaneamente usando a nuvem.
+ 
+# Definindo a nuvem
+A computação em nuvem, ou “a nuvem”, tornou-se uma tendência líder em TI. No entanto, sua definição é ambígua e algumas das terminologias relacionadas a ela podem ser confusas. Tentar definir a nuvem em termos puramente tecnológicos é difícil. É melhor pensar nisso como um conceito abstrato que encapsula as técnicas usadas para fornecer serviços de computação a partir de um conjunto de recursos compartilhados.
+As soluções em nuvem abstraem o hardware físico e as apresentam como recursos virtualizados para serem usados ​​no processamento, na memória, no armazenamento e na rede. Muitas soluções em nuvem adicionam mais camadas de abstração para definir serviços específicos que podem ser provisionados e usados.
+A nuvem pode significar coisas diferentes para pessoas diferentes, dependendo de como a usam, seja acessando e-mails, usando softwares on-line, armazenando arquivos on-line e assim por diante.
+ 
+# Benefícios da nuvem
+Existem muitas boas razões para implementar uma solução em nuvem para o seu negócio. Este tópico se concentra em três importantes benefícios de negócios que direcionam as empresas na direção das soluções em nuvem.
+Agilidade:
+As oportunidades de negócios e de mercado podem emergir e mudar muito rapidamente. Uma oportunidade comercial viável hoje pode não ser mais relevante amanhã. As modernas operações de TI precisam ser ágeis e capazes de responder rápida e facilmente às mudanças nos negócios, permitindo que uma empresa permaneça competitiva.
+ 
+# Eficiência Operacional e Gerencial:
+Também se tornando mais proeminente é algo chamado Shadow IT. Shadow IT é um termo que se refere a aplicativos e infraestrutura de Tecnologia da Informação (TI) que são gerenciados e operados sem o conhecimento do departamento de TI da organização. Onde a TI é incapaz de responder com rapidez suficiente para atender às necessidades de negócios, uma tendência crescente tem sido o uso de soluções de terceiros por funcionários e departamentos para fornecer os requisitos de TI que atenderão às suas necessidades. Isso pode resultar em aumento do risco para os negócios em termos de controle reduzido, segurança e problemas de conformidade, bem como falta de visibilidade. Portanto, um fator importante é a necessidade de os departamentos de TI se posicionarem como empresas capacitadoras, em vez de serem percebidas como inibidoras.
+ 
+# Custo reduzido:
+A economia também é um dos principais impulsionadores da nuvem. Em muitos casos, é simplesmente muito mais barato para uma empresa utilizar um serviço de nuvem do que construir, gerenciar e manter os serviços em si. Isso leva a um uso mais eficiente dos recursos e a relatórios claros e concisos, o que ajuda a reduzir os custos gerais.
+ 
+# Principais Vantagens da Nuvem
+Para falarmos das principais vantagens da Nuvem fazemos a comparação entre a utilização de uma Infraestrutura de TI própria versus a utilização de serviços de Computação na Nuvem:
+Planejamento de Custos - CAPEX para OPEX. Dificuldade de fazer os investimentos iniciais. Na nuvem você paga pelo o que usa, sem investimentos iniciais.
+Sistemas Corporativos de Alto Nível – grandes corporações utilizam sistemas sofisticados de TI. A Nuvem traz esse nível de Sistemas Corporativos (ERP, CRM, BI, BigDATA, AI, etc) para a lojinha da esquina ou a padaria do seu Antônio aí perto da sua casa. Ou seja, qualquer negócio, qualquer tipo de empresa, grande ou pequena, pode ter acesso a tecnologias e serviços avançados de infraestrutura de TI.
+Rápido “No Ar” (Go Live!) – Lembra no início que falamos do enigma da computação e da TI para as empresas? Aquele ciclo longo de implementar sistemas de TI para atender as demandas dos negócios. A Nuvem corta esse esforço e tempo para quase zero! Ou seja, sua empresa vai trabalhar mais no “Ao Vivo” do que no “playback”. Configurar o seu laptop na nuvem (um processador básico, memória, e comunicação de rede) leva apenas alguns cliques e poucos segundos!
+Capacidade Ágil e Elástica – Essa é parte mais atrativa da computação da nuvem. Não gostou da solução que desenvolveu? Não atendeu as necessidades previstas? Foi importante por um período, mas agora os clientes querem outras coisas? Deleta tudo em poucos cliques e refaz de novo. A solução ficou boa e a sua base de clientes está crescendo? Você percebe que existe pico de utilização apenas nos finais de semana? A Nuvem se ajusta para isso, de acordo com o perfil do seu negócio e você paga somente o que utilizar a mais! Ou para de pagar o que não precisa mais.
+Integração “Na Caixa” – antes da nuvem as empresas gastavam muito dinheiro para integração sistemas diferentes. Cada departamento tinha um sistema diferente e era quase impossível criar um fluxo de informações entre esses departamentos, pois os sistemas eram complexos para serem integrados. A nuvem tem essa integração na sua essência, mesmo utilizando sistemas legados!
+Alta Disponibilidade – já foi difícil fazer os investimentos iniciais para os sistemas de TI para sua empresa numa solução própria (CAPEX). Imagina pagar pela redundância? Imagina estar preparado para um desastre de força maior que pode desligar tudo. A nuvem também tem essas demandas de disponibilidade e recuperação de desastres na sua essência, pois os provedores de computação na nuvem cuidam dessa infraestrutura robusta para você.
+Segurança Superior – soluções caseiras nas empresas geralmente não se preocupam com Segurança. Somente por migrar para a Nuvem as empresas são obrigadas a desenvolver suas soluções com requisitos de segurança, o que torna tais sistemas de TI mais robustos. Dos provedores de soluções na Nuvem até a sua equipe de TI e Negócios, todos agora pensam em segurança. O que quebra um mito de que a Nuvem é vulnerável.
+Regras de Conformidade – o famoso “compliance” é mais fácil de ser gerenciando com a Nuvem pois os provedores de soluções de computação na Nuvem na sua maioria já entregam serviços de acordo com as regulamentações e leis de cada país que operam e também de órgãos reguladores internacionais. Fazer tudo isso “in-house” levaria tempo e dinheiro. E aqui estamos falando de ambos os padrões tecnológicos (protocolos, formatos, especificação de hardware, consumo de energia, materiais sustentáveis, etc) e também de negócios (regras de contabilidade, bolsa de valores, segurança das informações de usuários, etc).
+ 
+# Toda a Nuvem Precisa
+Todos os serviços da Nuvem devem oferecer as seguintes principais características:
+Self-Service - A capacidade das empresas alocarem os recursos necessários por si mesmos, sem envolvimento do provedor de serviços em nuvem.
+Avançado acesso a rede de comunicação - Estar acessível através de mecanismos padrões de acesso à rede, sem a necessidade de qualquer infraestrutura especializada.
+Grupo de Recursos acessíveis - Os agrupamentos dos vários recursos devem ser alocados e devolvidos conforme necessário.
+Rápida elasticidade - A capacidade de ampliar e reduzir conforme necessário, de maneira automática ou manual, sem tomar muito tempo.
+Medição e Monitoramento - A capacidade de medir exatamente quais recursos estão sendo usados, monitorar e controlar esses serviços e poder apresentar esses dados ao provedor de serviços ou ao usuário final.
+ 
+# Atividades extra
+A Máquina de Turing é um dispositivo teórico conhecido como máquina universal, que foi concebido pelo matemático britânico Alan Turing (1912-1954), muitos anos antes de existirem os modernos computadores digitais (o artigo de referência foi publicado em 1936). Num sentido preciso, é um modelo abstrato de um computador, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física. Numa máquina de Turing pode-se modelar qualquer computador digital. Turing também se envolveu na construção de máquinas físicas para quebrar os códigos secretos das comunicações alemãs durante a Segunda Guerra Mundial, tendo utilizado alguns dos conceitos teóricos para o seu modelo de computador universal.
+ Filme - O jogo da Imitação (The Imitation Game). Assita o filme e conheça mais sobre a história de Alan Turing e seu primeiro computador.
+Leituras da Atualidade.
+Volumes da Nuvem: TechCrunch: Google's still not sharing cloud revenue (Fev2019) @ https://techcrunch.com/2019/02/05/googles-still-not-sharing-cloud-revenue/
+Volumes da Nuvem: Here’s Why Amazon Is No Shoo-In To Win The $513B Global Cloud Market (Ago2018) @ https://www.cbinsights.com/research/amazon-google-microsoft-multi-cloud-strategies/ 
+ 
+ 
+ 
+# Referência Bibliográfica
+ 
+Livros:
+Computação em Nuvem |  Manoel Veras Sousa de Neto | Editora: BRASPORT
+https://www.amazon.com.br/Computa%C3%A7%C3%A3o-Nuvem-Manoel-Veras-Sousa-ebook/dp/B016P42YUI/ 
+Certificação Cloud Essentials: GUIA PREPARATÓRIO PARA O EXAME CLO-001 | Yuri Diógenes e‎ Manoel Veras | Editora: Novaterra
+https://www.amazon.com.br/Livro-Certifica%C3%A7%C3%A3o-Cloud-Essentials-PREPARAT%C3%93RIO-ebook/dp/B00X4BIM02/ 
+Computação em Nuvem Cloud Computing. Tecnologias e Estratégias | Brian J. S. Chee e Curtis Franklin Jr. | Editora: MBOOKS 
+https://www.amazon.com.br/Computa%C3%A7%C3%A3o-Nuvem-Computing-Tecnologias-Estrat%C3%A9gias/dp/8576802074/ 
+Computação em Nuvem: O Que Você Realmente Precisa Saber | OPUS SOFTWARE | Editora: Opus Software
+https://www.amazon.com.br/Computa%C3%A7%C3%A3o-Nuvem-Realmente-Precisa-Saber-ebook/dp/B01E9TC8X4/ 
+Cloud Computing: Planejando a sua Jornada | Daniel Rosa | Editora: Daniel Rosa - Auto Publicação
+https://www.amazon.com.br/Cloud-Computing-Planejando-sua-Jornada-ebook/dp/B075GZHCZM/ 
+ 
+# Web-learning:
+IT Support: Cloud Fundamentals @ https://courses.edx.org/courses/course-v1:Microsoft+CLD263x+1T2019/course/
+Architecting Distributed Cloud Applications @ https://courses.edx.org/courses/course-v1:Microsoft+DEVOPS200.9x+1T2019/course/
+Cloud Computing Concepts @ https://www.coursera.org/learn/cloud-computing/home/welcome 
+

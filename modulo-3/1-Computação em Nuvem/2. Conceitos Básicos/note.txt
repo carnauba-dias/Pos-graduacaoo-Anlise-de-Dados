@@ -1,0 +1,73 @@
+# Introdução à Computação em Nuvem
+Computação na Nuvem é um paralelo e distribuído sistema computacional ....
+....que consiste numa coleção de interconectados e virtualizados computadores .....
+....que são dinamicamente provisionados e apresentados como um ou vários recursos.....
+...... baseados numa oferta de serviço
+ 
+Resumindo, a computação em nuvem é a distribuição de serviços de computação – servidores, armazenamento, bancos de dados, redes, software, análises, inteligência e muito mais pela Internet (“a nuvem”), proporcionando inovações mais rápidas, recursos flexíveis e economia na escala. Você normalmente paga apenas pelos serviços de nuvem que utiliza, ajudando a reduzir os custos operacionais, a executar sua infraestrutura com mais eficiência e a dimensionar conforme as necessidades da sua empresa mudam.
+ 
+Principais benefícios da computação em nuvem
+A computação em nuvem é uma grande mudança na forma tradicional de pensamento adotada pelas empresas sobre os recursos de TI. Conheça seis motivos comuns pelos quais as organizações estão adotando os serviços de computação em nuvem:
+Custo: A computação em nuvem elimina o gasto de capital com a compra de hardware e software, instalação e execução de datacenters locais, incluindo racks de servidores, disponibilidade constante de eletricidade para energia e resfriamento, além de especialistas de TI para o gerenciamento da infraestrutura. Tudo isso contribui para o alto custo da computação.
+Velocidade: A maior parte dos serviços de computação em nuvem é fornecida por autosserviço e sob demanda, para que até grandes quantidades de recursos de computação possam ser provisionadas em minutos, normalmente com apenas alguns cliques, fornecendo às empresas muita flexibilidade e aliviando a pressão do planejamento de capacidade.
+Escala global: Os benefícios dos serviços de computação em nuvem incluem a capacidade de dimensionamento elástico. Em termos de nuvem, isso significa fornecer a quantidade correta de recursos de TI – por exemplo, mais ou menos potência de computação, armazenamento e largura de banda – sempre quando necessário e no local geográfico correto.
+Produtividade: Datacenters locais normalmente exigem pilhas de equipamentos e implementações, como configuração de hardware, correção de software e outras tarefas demoradas de gerenciamento da TI. A computação em nuvem remove a necessidade de muitas destas tarefas, para que as equipes de TI possam investir seu tempo na obtenção de suas metas comerciais mais importantes.
+Desempenho: Os maiores serviços de computação em nuvem são executados em uma rede mundial de datacenters seguros, que são atualizados regularmente com a mais recente geração de hardware de computação rápido e eficiente. Isso oferece diversos benefícios em um único datacenter corporativo, incluindo latência de rede reduzida para aplicativos e mais economia de escalonamento.
+Segurança: Muitos provedores em nuvem oferecem um amplo conjunto de políticas, tecnologias e controles que fortalecem sua postura geral de segurança, ajudando a proteger os dados, os aplicativos e a infraestrutura contra possíveis ameaças.
+Tipos de computação em nuvem: Nem todas as nuvens são iguais e não há um tipo de computação em nuvem que seja ideal para todas as pessoas. Vários modelos, tipos e serviços diferentes evoluíram para ajudar a oferecer a solução certa para suas necessidades.
+ 
+Tipos de implantação de nuvem
+Primeiro, você precisa determinar o tipo de implantação de nuvem ou a arquitetura de computação em nuvem, no qual seus serviços de nuvem serão implementados. Há três maneiras diferentes de implantar serviços de nuvem: em uma nuvem pública, nuvem privada ou nuvem híbrida.
+ 
+Nuvem pública
+As nuvens públicas pertencem a um provedor de serviços de nuvem terceirizado e são administradas por ele, que fornece recursos de computação, como servidores e armazenamento, pela Internet. O Microsoft Azure é um exemplo de nuvem pública. Com uma nuvem pública, todo o hardware, software e outras infraestruturas de suporte são de propriedade e gerenciadas pelo provedor de nuvem. Você acessa esses serviços e gerencia sua conta usando um navegador da Web.
+ 
+Nuvem privada
+Uma nuvem privada se refere aos recursos de computação em nuvem usados exclusivamente por uma única empresa ou organização. Uma nuvem privada pode estar localizada fisicamente no datacenter local da empresa. Algumas empresas também pagam provedores de serviços terceirizados para hospedar sua nuvem privada. Uma nuvem privada é aquela em que os serviços e a infraestrutura são mantidos em uma rede privada.
+ 
+Nuvem híbrida
+Nuvens híbridas combinam nuvens públicas e privadas ligadas por uma tecnologia que permite que dados e aplicativos sejam compartilhados entre elas. Permitindo que os dados e os aplicativos se movam entre nuvens privadas e públicas, uma nuvem híbrida oferece à sua empresa maior flexibilidade, mais opções de implantação e ajuda a otimizar sua infraestrutura, segurança e conformidade existentes.
+ 
+Tipos de serviços de nuvem: IaaS, PaaS, sem servidor e SaaS
+A maioria dos serviços de computação em nuvem se enquadra em quatro categorias amplas: IaaS (infraestrutura como serviço), PaaS (plataforma como serviço), sem servidor e SaaS (software como serviço). Às vezes, eles são chamados de pilha da computação em nuvem, pois se baseiam um no outro. Saber o que eles são e como são diferentes ajuda a alcançar suas metas de negócios.
+ 
+IaaS (infraestrutura como serviço)
+A categoria mais básica de serviços de computação em nuvem. Com a IaaS, você aluga a infraestrutura de TI, (que inclui servidores e máquinas virtuais, armazenamento (VMs), redes e sistemas operacionais), de um provedor de nuvem, com pagamento conforme o uso. 
+ 
+PaaS (plataforma como serviço)
+A plataforma como serviço refere-se aos serviços de computação em nuvem que fornecem um ambiente sob demanda para desenvolvimento, teste, fornecimento e gerenciamento de aplicativos de software. O PaaS foi criado para facilitar aos desenvolvedores criarem aplicativos móveis ou Web rapidamente, sem se preocupar com a configuração ou o gerenciamento de infraestrutura subjacente de servidores, armazenamento, rede e bancos de dados necessários para desenvolvimento. 
+ 
+Computação sem servidor
+Como o PaaS, a computação sem servidor concentra-se na criação de aplicativos, sem perder tempo com o gerenciamento contínuo dos servidores e da infraestrutura necessários para isso. O provedor em nuvem cuida da configuração, do planejamento de capacidade e do gerenciamento de servidores para você. As arquiteturas sem servidor são altamente escalonáveis e controladas por eventos, usando recursos apenas quando ocorre uma função ou um evento que desencadeie esse uso.
+ 
+SaaS (software como serviço)
+O software como serviço é um método para a distribuição de aplicativos de software pela Internet sob demanda e, normalmente, baseado em assinaturas. Com o SaaS, os provedores de nuvem hospedam e gerenciam o aplicativo de software e a infraestrutura subjacente e fazem manutenções, como atualizações de software e aplicação de patch de segurança. Os usuários conectam o aplicativo pela Internet, normalmente com um navegador da Web em seu telefone, tablet ou PC.
+ 
+Como a computação em nuvem funciona
+Embora todos os serviços de computação em nuvem funcionem de maneiras um pouco distintas, muitos fornecem um painel amigável baseado em navegador que facilita para os profissionais de TI e desenvolvedores solicitarem recursos e gerenciar suas contas. Alguns serviços de computação em nuvem também são criados para funcionar com APIs REST e uma interface de linha de comando, fornecendo diversas opções aos desenvolvedores.
+ 
+Usos da computação em nuvem
+Provavelmente você está usando computação em nuvem neste momento, mesmo sem perceber. Se você usa um serviço online para enviar email, editar documentos, ver filmes ou TV, ouvir música, jogar ou armazenar fotos e outros arquivos, é provável que a computação em nuvem esteja nos bastidores possibilitando tudo isso. Os primeiros serviços de computação em nuvem têm somente uma década, mas diversas organizações – de pequenas start-ups a corporações globais, de agências do governo a empresas sem fins lucrativos – estão adotando essa tecnologia por diversos motivos.
+Veja alguns exemplos do que é possível fazer hoje com os serviços de nuvem por meio de um provedor em nuvem:
+Criar novos aplicativos e serviços: Crie, implante e dimensione aplicativos rapidamente – Web, dispositivos móveis e API – em qualquer plataforma. Acesse os recursos necessários para ajudar a atender aos requisitos de desempenho, segurança e conformidade.
+Testar e criar aplicativo: Reduza o custo e o tempo de desenvolvimento de aplicativos usando infraestruturas de nuvem que podem ser ampliadas ou reduzidas com facilidade.
+Armazenar, fazer backup e recuperar dados: Proteja seus dados de maneira mais econômica – e em grande escala – transferindo-os pela Internet para um sistema de armazenamento em nuvem externo acessível em qualquer local e dispositivo.
+Analisar os dados: Unifique seus dados entre equipes, divisões e locais na nuvem. Em seguida, use serviços de nuvem, como aprendizado de máquina e inteligência artificial, para descobrir insights e tomar decisões mais informadas.
+Transmitir áudio e vídeo: Conecte-se ao seu público-alvo em qualquer lugar, a qualquer hora, em qualquer dispositivo com vídeo e áudio de alta definição com distribuição global.
+Inserir inteligência: Use modelos inteligentes para ajudar a envolver os clientes e fornecer insights importantes com base nos dados capturados.
+Fornecer software sob demanda: Também conhecido como SaaS (software como serviço), o software sob demanda permite que você ofereça as últimas versões de software e atualizações para os clientes – sempre que precisarem, onde quer que estejam.
+ 
+Atividades extra
+Quer conhecer mais sobre a Nuvem e os seus DataCenters (Infraestrutura Massiva) faça um Tour pelo Google e o Facebook:
+Google Datacenter Video Tour:
+https://www.youtube.com/watch?v=XZmGGAbHqa0
+ 
+https://www.youtube.com/watch?v=zDAYZU4A3w0
+ 
+Facebook Datacenter Vídeo Visit (em Inglês)
+https://www.youtube.com/watch?v=X9ELENWZqLE 
+ 
+2. Quer conhecer mais sobre os recursos de software da Nuvem. Analise esse Mapa com a lista de exemplos de ferramentas e recursos de software para a Nuvem.
+Aproveite para verificar quais fornecedores podem ajudar nos seus próximos objetivos com relação à adoção da computação em nuvem como parte da estratégia de sistemas de TI da sua empresa.
+Referência em  http://techgenix.com/open-source-application-monitoring-tools
+
