@@ -1,0 +1,36 @@
+# Tudo na Nuvem e o Futuro
+## Serveless
+Em arquiteturas tradicionais, a implantação de um software abrange muito mais do que a sua lógica: servidores, middleware e runtime são alguns dos fatores que devem ser levados em conta. Ao utilizar uma arquitetura serverless, por outro lado, o desenvolvedor não precisa se preocupar com o que acontece a nível de infraestrutura e com a gestão de servidores.
+Isso pode acontecer de duas formas. Ao dividir a sua aplicação em partes menores, o desenvolvedor pode usar serviços gerenciados para desempenhar funções que não fazem parte do diferencial da aplicação, como por exemplo login, gerenciamento de senhas e até mesmo armazenamento de arquivos, feitos por chamadas de APIs ou via SDK. Esse é um modelo de arquitetura serverless chamado BaaS (Backend as a Service ou, em português, Backend como um Serviço).
+Já na segunda forma, a lógica da aplicação é dividida em funções e cada uma delas é implantada individualmente em uma plataforma de FaaS (Functions as a Service ou Funções como um Serviço), que está sempre disponível, sem gerar cobrança na ociosidade, e são acionadas por eventos. Assim, a plataforma de FaaS é configurada para responder a uma requisição, rodar o código necessário e, depois, encerrar a função solicitada. Em nenhum desses dois modelos de arquitetura serverless (BaaS e FaaS), o cliente gerencia a infraestrutura necessária para manter a aplicação.
+Algumas características importantes da computação Serverless:
+Preço - Uma das principais vantagens de usar o Serverless é o custo reduzido, por anos o custo de provisionar servidores e manter essa equipe de servidores 24x7 que abriu um buraco no seu bolso se foi. O modelo de custo do Serverless é baseado em execução: você é cobrado pelo número de execuções. Você recebe um certo número de segundos de uso que varia de acordo com a quantidade de memória necessária. Da mesma forma, o preço por MS (milissegundos) varia com a quantidade de memória necessária. Obviamente, funções de execução mais curtas são mais adaptáveis a esse modelo, com um tempo de pico de execução de 300 segundos para a maioria dos fornecedores de nuvem.
+Ambientes - Configurar ambientes diferentes para o Serverless é tão fácil quanto configurar um ambiente único. Como é pago por execução, isso é uma grande melhoria em relação aos servidores tradicionais, você não precisa mais configurar máquinas de desenvolvimento, teste e produção. Eventualmente você perderia a conta de todos os ambientes, em algum momento.
+Totalmente gerenciado por um fornecedor de nuvem - O AWS Lambda, as Funções do Azure, o IBM OpenWhisk e o Google Cloud Functions são as soluções FaaS mais conhecidas disponíveis. Cada oferta suporta tipicamente uma variedade de idiomas e tempos de execução, e. Node.js, Python, NET Core, Java.
+Timeout - Com a computação sem servidor, há um limite de tempo limite de 300 segundos. Funções muito complexas ou de longa duração não são boas para o Serverless, mas ter um tempo limite difícil impossibilita a realização de determinadas tarefas. Um limite rígido nesse tempo torna o Serverless inutilizável para aplicativos que possuem tempos de execução variáveis e para determinados serviços que exigem informações de uma fonte externa.
+ 
+# Computação em Neblina (Fog Computing)
+Computação em neblina ou em inglês: fog computing (também denominada de computação em névoa, computação de borda ou nevoeiro, que deriva da denominação fogging), consiste na alocação do poder de processamento mais perto do limite da rede. Portanto é uma arquitetura de computação descentralizada onde dados, cálculos, comunicações, armazenamentos, medições, aplicações e gerenciamentos são distribuídos no local mais lógico e eficiente: entre a fonte de dados e a nuvem.
+Esta abordagem é apresentada por alguns autores, e.g. CISCO, como uma alternativa à solução de computação em nuvem, pois este paradigma reduz a quantidade de dados transmitidos na rede e também a complexidade computacional necessária na nuvem. Porém, existem abordagens no ramo da computação que tentam tirar partido de ambas as abordagens em simultâneo.
+O grau de liberdade apresentado por este novo ramo incide principalmente sobre o panorama da internet das coisas, que necessita de uma infra-estrutura que englobe todos os seus requisitos, situação em que a computação em neblina se encaixa, o que possibilita um foco principal em permitir que a tomada de decisões e gestão dos dados seja feita localmente.
+ 
+# Computação de Borda (Edge Computing)
+A edge computing é uma rede formada por micro data-centers que têm a função de processar dados críticos no local. Depois, todas as informações são enviadas para um repositório e armazenamento em nuvem. Ou seja, essa tecnologia faz uma triagem inicial dos dados para reduzir o tráfego ao repositório central.
+Ela foi citada pela Gartner como uma das principais tendências para o mercado de tecnologia. Isso porque a edge supera os desafios de conectividade e latência ao fazer a entrega do conteúdo mais próximo de sua origem. Por isso, ela é considerada uma computação de borda.
+A Gartner também acredita que em breve as companhias vão começar a utilizar esse padrão de cloud, principalmente as que utilizam recursos de inteligência artificial, pois a edge computing tem muitas possibilidades de aplicação.
+Os carros autônomos, por exemplo, contêm equipamentos que funcionam como verdadeiros data centers sobre rodas. Eles contam com dispositivo de borda para poderem realizar a transmissão de dados em tempo real. Isso evita que os veículos sofram com problemas de latência ou disponibilidade.
+ 
+Atividade extra
+1. Vídeo Complementar – Conheça o conceito de compra física da AmazonGo (tecnologias de nuvem na veia!): https://www.youtube.com/watch?v=s8L6ZWK2h7w 
+ 
+2. Leitura Adicional – Conheça mais detalhes sobre a Computação Serverless: Serverless Architectures @ https://martinfowler.com/articles/serverless.html
+ 
+3. Vídeo Prático Complementar – Veja um exemplo de utilização da FaaS (Funções como serviço), utilizando o conceito Serverless https://www.youtube.com/watch?v=cAf9bzyxutM
+ 
+Referência Bibliográfica
+GABRIEL, M. Você, Eu e os Rôbos - Pequeno Manual do Mundo Digital. Editora Atlas, 2017.
+WIKIPEDIA. Inteligência artificial. Disponível em: https://pt.wikipedia.org/wiki/Intelig%C3%AAncia_artificial
+WIKIPEDIA. Nanotecnologia. Disponível em: https://pt.wikipedia.org/wiki/Nanotecnologia
+ZAMBARDA, P. ‘Internet das Coisas’: entenda o conceito e o que muda com a tecnologia. Disponível em: https://www.techtudo.com.br/noticias/noticia/2014/08/internet-das-coisas-entenda-o-conceito-e-o-que-muda-com-tecnologia.html
+
+
