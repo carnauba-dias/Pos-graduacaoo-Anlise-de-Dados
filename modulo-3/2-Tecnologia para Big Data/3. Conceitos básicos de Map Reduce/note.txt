@@ -1,0 +1,87 @@
+ara (HANSON, 2013), MapReduce é um “modelo de programação que permite o processamento de dados massivos em um algoritmo paralelo e distribuído, geralmente em um cluster de computadores”. O MapReduce foi proposto em um paper pela Google em 2004 como um modelo abstrato de programação, atualmente é largamente usado dentro do modelo de processamento de dados distribuído.
+Segundo (BENGFORT, 2016), o MapReduce (MR) foi o primeiro e principal framework computacional usado pelas aplicações para acesso ao HADOOP. É simples, e ficar, projetado trabalhar em cluster e tolerante a falhas. Baseado nas operações de Map e Reduce de linguagens funcionais como o LISP, permite que várias tarefas independentes efetuem operações em parte dos dados locais, agregando-as após o processamento. 
+Em linguagens funcionais, os processamentos unitários são avaliados stateless, sendo assim, as funções dependem unicamente de suas entradas, são fechadas e não compartilham estados. A transferência dos dados é feita entre as funções de forma que a saída de uma função é enviada para servir de entrada para outra de maneira totalmente independente (APACHE, 2018).
+A operação de MapReduce é dividido em duas operações básicas (Hanson, 2013):
+Map e 
+Reduce.
+MAP
+Para (APACHE, 2018), os dados não são processados como listas ou coleções, a coordenação do processamento é feitas com pares de chave-valor <Key/Value>.  A função de MAP aceita a entrada de uma série de pares chave-valor <Key/Value> como entrada, processa cada par individualmente e gera um conjunto de pares chave-valor <Key/Value> intermediário. As solicitações de busca são encaminhadas para no NameNode do HADOOP inicia um grande número de processos de MAP e REDUCE. Uma vez que a operação MapReduce para uma chave de pesquisa específica é concluída, o NameNode retorna o valor de saída ao servidor que, por sua vez, o retorna ao cliente.
+Normalmente, é durante a operação de mapeamento que os dados são analisados. Isso ocorre nessa fase porque a função MAP consegue ver cada elemento do conjunto de dados. Durante o processamento, os pares chave-valor <Key/Value> são testados, caso atendam a condição de busca, o par é enviado para a saída da função, caso não atendam a condição de busca, o par é ignorado. (BENGFORT, 2016).
+mapper (filename, file-contents):
+  for each word in file-contents:
+    emit (word, 1)
+Código Fonte 18 – Exemplo função MAP definida pelo usuário. 
+Fonte: IBM (2013).
+A função MAP do exemplo é parte de uma solução para contar cada palavra de um dado arquivo. Ela analisa todas as palavras de um conjunto de palavras e retorna o valor um (1) para cada palavra encontrada.
+REDUCE
+Para (BENGFORT, 2016), ao término da operação de MAP, os pares chave-valor <Key/Value> gerados são agrupados de acordo com a chave e enviados como entrada da função de REDUCE de cada chave. A função REDUCE é aplicada a entrada de dados e gera um único valor agregado por par chave-valor <Key/Value>. 
+reducer (word, values):
+  sum = 0
+  for each value in values:
+    sum = sum + value
+  emit (word, sum)
+Código Fonte 19 – Exemplo função REDUCE definida pelo usuário. 
+Fonte: IBM (2013).
+A função REDUCE do exemplo é parte de uma solução para contar cada palavra de um dado arquivo. Ela soma todas as contagens emitidas para uma palavra específica e devolve a soma para a aplicação. 
+EXEMPLO DE MAPREDUCE EM MONGODB.
+Neste exemplo iremos criar uma coleção denominada BICHOS usando o MongoDB. Usaremos uma operação de MapReduce para contar quantos animais de cada tipo existem em nossa coleção.
+     db.bichos.insert({_id:1,tags:['cao','gato']});
+     db.bichos.insert({_id:2,tags:['gato']});
+     db.bichos.insert({_id:3,tags:['rato','gato','cao']});
+     db.bichos.insert({_id:4,tags:['gato','rato','cao']});
+     db.bichos.insert({_id:5,tags:['cao','gato','cao']});
+     db.bichos.insert({_id:6,tags:['cao','gato','cao']});
+     db.bichos.insert({_id:7,tags:['zebra','macaco','galo']});
+     db.bichos.insert({_id:8,tags:['hipopotamo']});
+     db.bichos.insert({_id:9,tags:[]})
+Código Fonte 20 – Criação da coleção BICHOS no MongoDB. 
+Fonte: MongoDB (2018).
+No exemplo, estamos criando a coleção BICHOS, com nove (9) entradas. As entradas podem ter de nenhum animal até três animais. 
+A função MAP irá ler os dados e retornar o valor 1 (um) para cada animal encontrado.
+     m = function(){
+        this.tags.forEach(
+           function(z){
+                emit( z , { count : 1 } );
+            }
+       );
+    };
+Código Fonte 21 – Criação função MAP para a coleção BICHOS no MongoDB. 
+Fonte: MongoDB (2018).
+No exemplo, a função MAP (m) executa um laço e lê todos os dados da coleção. Cada palavra encontrada é transformada em um para chave-valor com a palavra encontra e o valor 1 (um).
+Vejamos a função Reduce.
+    r = function( key , values ){
+        var total = 0;
+        for ( var i=0; i<values.length; i++ )
+             total += values[i].count;
+        return { count : total };
+        };
+Código Fonte 22 – Criação função REDUCE para a coleção BICHOS no MongoDB. 
+Fonte: MongoDB (2018).
+No exemplo, a função REDUCE (r) varre os pares chave-valor gerados pela função MAP e soma os valores das chaves iguais.
+Vamos executar as funções.
+     res = db.bichos.mapReduce(m, r, { out : "saida" } );
+     db.saida.find()
+Código Fonte 23 – Execução do MAPREDUCE para a coleção BICHOS no MongoDB. 
+Fonte: MongoDB (2018).
+No exemplo excutamos a função de MAP m e a função REDUCE r, o resultado é enviado para coleção SAIDA. O conteúdo da coleção saída é exibido pela segunda linha de comandos do exemplo.
+ 
+ 
+Atividade extra
+Nome da atividade: Onde usar MapReduce?
+MapReduce é um modelo de programação desenhado para processar grandes volumes de dados em paralelo, dividindo o trabalho em um conjunto de tarefas independentes. Programas MapReduce são escritos em um determinado estilo influenciado por construções de programação funcionais, especificamente expressões idiomáticas para listas de processamento de dados. Este módulo explica a natureza do presente modelo de programação e como ela pode ser usada para escrever programas que são executados no ambiente Hadoop.
+Pesquise na internet pelo nome das empresas que adotaram Hadoop MapReduce. Baseado na sua pesquisa responda: “mapreduce é muito utilizado?”.
+ 
+Referência Bibliográfica
+APACHE, Software Fundation. Apache Hadoop 2.9.1. EUA: The Apache Software Fundation, 2018. Disponível em: <https://hadoop.apache.org/docs/stable/>. Acesso em: 23/09/2019.
+BENGFORT, Benjamin; KIM, Jenny. Data Analytics with Hadoop: An Introduction for Data Scientists. EUA: O'Reilly Media, 2016.
+CISCO. The Zettabyte Era: Trends and Analysis. 2017. Disponível em: <https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/vni-hyperconnectivity-wp.html>. Acesso em: 23/09/2019.
+DESJARDINS, Jeff. What Happens in an Internet Minute in 2018? 2018. Disponível em: < http://www.visualcapitalist.com/internet-minute-2018/>. Acesso em: 23/09/2019.
+HANSON, Jeff. Uma Introdução ao Hadoop Distributed File System. 2013. Disponível em: <https://www.ibm.com/developerworks/br/library/wa-introhdfs/index.html>. Acesso em: 23/09/2019.
+HORTON. How to Process Data with Apache Hive. 2013. Disponível em:  <https://hortonworks.com/tutorial/how-to-process-data-with-apache-hive/>.  Acesso em: 23/09/2019.
+IBM. Administrando Ambari e componentes. Disponível em: <https://www.ibm.com/support/knowledgecenter/pt-br/SSPT3X_4.1.0/com.ibm.swg.im.infosphere.biginsights.admin.doc/doc/admin_icnav_admin.html>. Acesso em: 23/09/2019.
+PUGA, Sandra; França, Edson; Goya, Milton. Banco de Dados: Implementação PL/SQL e Oracle 11g. São Paulo: Pearson, 2013.
+SADALAGE, Pramod; FOWLER, Martin. NoSQL Essencial. Brasil: Novatec, 2013.
+SOMASUNDARAM, Gnanasundaram; SHRIVASTAVA, Alok. Armazenamento e Gerenciamento de Informações: Como armazenar, gerenciar e proteger informações digitais. São Paulo: EMC Education Services, 2011. 
+TUTORIALSPOINT. Hadoop – Introduction to Hadoop. 2013. Disponível em: <https://www.tutorialspoint.com/pg/hadoop/hadoop_introduction_to_hadoop.htm>. Acesso em: 23/09/2019.
+WELLMAN, David. What is Big Data?. 2013. Disponível em: <https://www.slideshare.net/dwellman/what-is-big-data-24401517>. Acesso em: 23/09/2019.
+

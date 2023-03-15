@@ -1,0 +1,220 @@
+Introdução a PIG
+O Apache Pig é uma abstração sobre o MapReduce. É uma ferramenta / plataforma usada para analisar conjuntos maiores de dados que os representam como fluxos de dados. O porco é geralmente usado com o Hadoop; podemos executar todas as operações de manipulação de dados no Hadoop usando o Apache Pig.
+Para escrever programas de análise de dados, o Pig fornece uma linguagem de alto nível, conhecida como Pig Latin. Essa linguagem fornece vários operadores, usando os quais os programadores podem desenvolver suas próprias funções para leitura, gravação e processamento de dados.
+Para analisar dados usando o Apache Pig, os programadores precisam escrever scripts usando o idioma latino do Pig. Todos esses scripts são convertidos internamente em tarefas Map e Reduce. O Apache Pig possui um componente conhecido como Pig Engine que aceita os scripts do Pig Latin como entrada e converte esses scripts em tarefas do MapReduce.
+  O Apache Pig possui diversos recursos, como:
+Grande conjunto de operadores - fornece muitos operadores para executar operações como join, sort e filter.
+Facilidade de programação - O Pig Latin é semelhante ao SQL e é fácil escrever um script Pig se você é bom em SQL.
+Facilidades de otimização - As tarefas no Apache Pig otimizam sua execução automaticamente, para que os programadores precisem se concentrar apenas na semântica da linguagem.
+Extensibilidade - Usando os operadores existentes, os usuários podem desenvolver suas próprias funções para ler, processar e gravar dados.
+UDF's - O Pig fornece a facilidade de criar funções definidas pelo usuário em outras linguagens de programação, como Java, e invocá-las ou incorporá-las nos scripts do Pig.
+Manipula todos os tipos de dados - o Apache Pig analisa todos os tipos de dados, tanto estruturados quanto não estruturados. Ele armazena os resultados no HDFS.
+Modelo de dados
+Pig Latin é o idioma usado para analisar dados no Hadoop usando o Apache Pig. O modelo de dados do Pig é totalmente aninhado (fully nested). Uma relação é a estrutura mais externa do modelo de dados Pig Latin. Uma relação também é uma bag. Uma bag é uma coleção de tuplas. Uma tupla é um conjunto ordenado de campos. Um campo pode ser visto como um dado.
+Ao processar dados usando o Pig Latin, as statements (instruções) são as construções básicas. Essas statements funcionam como relações. Eles incluem expressions e schemas. Toda statements termina com um ponto-e-vírgula (;). Os statements realizam várias operações usando operadores fornecidos pela Pig Latin.
+    Excetuando LOAD e STORE, durante a execução de todas as operações, as statements do Pig Latin tomam uma relação como entrada e produzem outra relação como saída.
+    Assim que você inserir uma instrução Load no shell Grunt, sua verificação semântica será realizada. Para ver o conteúdo do esquema, você precisa usar o operador Dump . Somente após executar a operação de dump, a tarefa MapReduce para carregar os dados no sistema de arquivos será executada.
+O exemplo a seguir é uma statements do Pig Latin, que carrega dados para o Apache Pig.
+grunt> Student_data = LOAD 'alunos.txt' USING PigStorage(',')as 
+   ( rm:int, primeiro:chararray, sobrenome:chararray, fone:chararray, cidade:chararray );
+Tipos de dados
+O Pig Latin aceita vários tipos de dados, alguns deles estão listados abaixo
+Tipo de dados, descrição e exemplo
+int         Representa um número inteiro de 32 bits assinado.
+long            Representa um número inteiro de 64 bits assinado.
+float           Representa um ponto flutuante de 32 bits.
+double          Representa um ponto flutuante de 64 bits.
+chararray       Representa uma matriz de caracteres (string) no formato Unicode UTF-8.
+Bytearray Representa uma matriz de bytes (blob).
+boolean   Representa um valor booleano.
+datatime Representa uma data e hora.
+Biginteger Representa um Java BigInteger.
+Bigdecimal Representa um Java BigDecimal
+Tipos Complexos
+Tuple Uma tupla é um conjunto ordenado de campos.
+bag Uma bag é uma coleção de tuplas.
+Map Um mapa é um conjunto de pares de valores-chave.
+Valores Nulos
+Os valores para todos os tipos de dados acima podem ser NULL. O Apache Pig trata valores nulos de maneira semelhante ao SQL.
+Um nulo pode ser um valor desconhecido ou um valor inexistente. É usado como um espaço reservado para valores opcionais. Esses nulos podem ocorrer naturalmente ou podem ser o resultado de uma operação.
+Operadores Aritméticos
+Operador Descrição
++ Adição - Adiciona valores em ambos os lados do operador
+- Subtração - Subtrai o operando do lado direito do operando do lado esquerdo
+* Multiplicação - multiplica valores nos dois lados do operador
+/ Divisão - Divide o operando esquerdo pelo operando direito
+% Módulo - Divide o operando da mão esquerda pelo operando da mão direita e retorna o restante.
+Operadores de Comparação
+Operador Descrição
+== Igual - Verifica se os valores de dois operandos são iguais ou não; se sim, então a condição se torna verdadeira.
+!= Diferente - Verifica se os valores de dois operandos são iguais ou não. Se os valores não forem iguais, a condição se tornará verdadeira.
+> Maior que - Verifica se o valor do operando esquerdo é maior que o valor do operando direito. Se sim, então a condição se torna verdadeira.
+< Menor que - Verifica se o valor do operando esquerdo é menor que o valor do operando direito. Se sim, então a condição se torna verdadeira.
+> = Maior que ou igual a - Verifica se o valor do operando esquerdo é maior que ou igual ao valor do operando direito. Se sim, então a condição se torna verdadeira.
+<= Menor que ou igual a - Verifica se o valor do operando esquerdo é menor ou igual ao valor do operando direito. Se sim, então a condição se torna verdadeira.
+Manipulando dados no Pig Latin
+No sistema de arquivo local, abra um termina, execute o editor de texto gedit para criar um arquivo de nome alunos.csv com o seguinte conteúdo:
+gedit alunos.csv
+1,Humberto,Silva,36,929451722,Aracaju
+2,Rita,Tavares,38,946330236,Belem
+3,Sandra,Miranda,38,956924691,Belmonte
+4,Edson,Martins,36,952739850,Araraquara
+5,Maria,Miragaia,31,963367817,Bariri
+6,Rosa,Drauzio,35,988782874,Barra
+7,Ana,Camargo,35,908371955,Campinas
+8,Henrique,Oz¢rio,37,901876944,Bocaina
+9,Bianka,Estrada,38,928699387,Capela
+10,Mauricio,Pimentel,36,929817835,Colmeia
+11,Airton,Borges,21,928713908,Aracaju
+12,Izilda,Duque,19,922449888,Belem
+13,Gabriela,Assis,29,906956556,Belmonte
+14,Queren,Machado,32,963144094,Araraquara
+15,Fernanda,Ono,18,981533693,Bariri
+16,Nicole,Kim,33,933061205,Barra
+17,Ralf,Forte,30,926772832,Campinas
+18,Elise,Valente,27,950888146,Bocaina
+19,Thais,Berg,26,933694061,Capela
+20,Sandro,Franca,22,923226439,Colmeia
+21,Viviane,Key,21,965003873,Aracaju
+22,Matilda,Crew,28,936825726,Belem
+23,Tereza,Carmo,26,912316641,Belmonte
+24,Renato,Honda,25,971658609,Araraquara
+25,Andre,Nildo,25,964046602,Bariri
+26,Pedregunda,Rocha,34,961898155,Barra
+27,Pietra,Horta,38,938700355,Campinas
+28,Sidney,Norte,31,983087084,Bocaina
+29,Darcy,Costa,26,926634477,Capela
+30,Leandro,Duna,29,966032007,Colmeia
+Onde:
+Coluna 1 – Código do aluno
+Coluna 2 – Nome do aluno
+Coluna 3 – Sobrenome do aluno
+Coluna 4 – Idade do aluno
+Coluna 5 – Telefone do aluno
+Coluna 6 – Cidade do aluno
+Salve e feche o editor de texto após o término da digitação
+No sistema de arquivo local, abra um termina, execute o editor de texto gedit para criar um arquivo de nome estado.csv com o seguinte conteúdo:
+gedit estado.csv
+1,Aracaju,SE
+2,Belem,PA
+3,Belmonte,MG
+4,Araraquara,SP
+5,Bariri,AM
+6,Barra,RJ
+7,Campinas,SP
+8,Bocaina,MS
+9,Capela,GO
+10,Colmeia,MT
+Onde:
+Coluna 1 – Código sequencial
+Coluna 2 – Nome da cidade
+Coluna 3 – UF
+Salve e feche o editor de texto após o término da digitação
+Em um terminal, execute o comando abaixo para que o pig seja executado localmente.
+pig –x local
+Crie uma relação denominada dados_alunos com os dados do arquivo alunos.csv.
+dados_alunos = LOAD 'alunos.csv' USING PigStorage(',') as (cod:int, nome:chararray, sobrenome:chararray, idade:int, fone:chararray, cidade:chararray);
+Use o comando dump para exibir o conteúdo da relação dados_alunos. 
+dump dados_alunos;
+Use o comando illustrate para exibir uma amostra da relação dados_alunos. 
+illustrate dados_alunos;
+Crie uma relação denominada dados_estado com os dados do arquivo estado.csv. 
+dados_estado = LOAD 'estado.csv' USING PigStorage(',') as (cod:int, cidade:chararray, uf:chararray);
+Use o comando dump para exibir o conteúdo da relação dados_estado.
+dump dados_estado;
+Use o comando illustrate para exibir uma amostra da relação dados_estado.
+ illustrate dados_estado;
+Crie uma nova relação denominada dados_agrupados. Essa nova relação deve conter os dados da relação dados_alunos agrupados por idade. 
+dados_agrupados = GROUP dados_alunos by idade;
+Use o comando describe para exibir a estrutura da relação. 
+describe dados_agrupados;
+Use o comando illustrate para exibir uma amostra da relação dados_agrupados.
+illustrate dados_agrupados;
+Crie uma nova relação denominada múltiplas_colunas. Essa nova relação deve conter os dados da relação dados_alunos agrupados por idade e por cidade. 
+multiplas_colunas = GROUP dados_alunos by (idade, cidade);
+Use o comando illustrate para exibir uma amostra do conteúdo da relação multiplas_colunas.
+illustrate multiplas_colunas
+Crie uma nova relação denominada todas_colunas. Essa nova relação deve conter os dados da relação dados_alunos agrupados por todas as colunas da relação. 
+todas_colunas = GROUP dados_alunos by all;
+Use o comando illustrate para exibir uma amostra desta nova relação.
+illustrate todas_colunas
+Crie uma nova relação denominada duas_relacoes. Essa nova relação deve conter os dados da relação dados_alunos e da relação dados_estado  agrupados pelo nome da cidade. 
+duas_relacoes = COGROUP dados_alunos by cidade, dados_estado by cidade;
+Exiba uma mostra da nova relação
+illustrate duas_relacoes;
+No sistema de arquivo local, abra um termina, execute o editor de texto gedit para criar um arquivo de nome empregado.csv com o seguinte conteúdo:
+gedit empre ado.csv
+1,Sandra,10
+2,Edson,10
+3,Rita,20
+4,Bianka,10
+5,Humberto,20
+6,Rosa,10
+7,Thais,20
+8,Winna,30
+9,Paulo,30
+10,Antonio,20
+11,Fatima,50
+Onde:
+Coluna 1 – Número do funcionário
+Coluna 2 – Nome do funcionário
+Coluna 3 – Código do departamento
+Salve e feche o editor de texto após o término da digitação
+No sistema de arquivo local, abra um termina, execute o editor de texto gedit para criar um arquivo de nome departamento.csv com o seguinte conteúdo:
+gedit departamento.csv
+10,Comercial,AM
+20,Pesquisa,MS
+30,Jogos,SE
+40,Suporte,DF
+Onde:
+Coluna 1 – Código do departamento
+Coluna 2 – Nome do departamento
+Coluna 3 – UF do departamento
+Salve e feche o editor de texto após o término da digitação
+Crie uma relação denominada empregado que deverá conter os dados do arquivo empregado.csv e outra relação denominada departamento que deverá conter os dados do arquivo departamento.csv.
+empregado = LOAD 'empregado.csv' USING PigStorage (',') as (cod:int, nome:chararray, dept:int);
+departamento = LOAD 'departamento.csv' USING PigStorage (',') as (dept:int, nome:chararray, uf:chararray);
+Una os dados das relações empregado e departamento usando a instrução JOIN. Use o código de departamento para unir as relações. 
+dados_join = JOIN empregado by dept, departamento by dept;
+Una os dados das relações empregado e departamento usando a instrução LEFT OUTER JOIN. Use o código de departamento para unir as relações. 
+dados_join = JOIN empregado by dept LEFT OUTER, departamento by dept;
+Una os dados das relações empregado e departamento usando a instrução RIGHT OUTER JOIN. Use o código de departamento para unir as relações. 
+dados_join = JOIN empregado by dept RIGHT OUTER, departamento by dept;
+Una os dados das relações empregado e departamento usando a instrução FULL OUTER JOIN. Use o código de departamento para unir as relações. 
+dados_join = JOIN empregado by dept FULL OUTER, departamento by dept;
+Execute o comando abaixo para dividir a relação dados_aluno em duas. A primeira é denominada de dados_s1 e a segunda de dados_s2. Aquela conterá os alunos com idade abaixo de 23 anos e esta conterá os alunos com idade acima de 35 anos.
+SPLIT dados_alunos into dados_s1 if idade<23, dados_s2 if idade>35;
+dump dados_s1;
+dump dados_s2;
+Execute o comando abaixo para unir os dados da relação dados_s1 e dados_s2 em uma relação denominada dados_u1.
+dados_u1 = UNION dados_s1, dados_s2;
+dump dados_u1;
+Crie uma nova relação apenas com os dados da cidade de Campinas. Leia os dados da relação dados_alunos e crie a relação dados_campinas.
+dados_campinas = FILTER dados_alunos by cidade == 'Campinas';
+Crie uma nova relação denominada proj_camp a partir dos dados da relação dados_campinas. Nesta nova relação somente deverão existir os campo idade, nome e cidade. 
+proj_camp = FOREACH dados_campinas GENERATE idade, nome, cidade;
+Crie uma nova relação denominada ordenado_camp a partir dos dados da relação proj_camp. Ordene dos dados de forma que os alunos mais jovens sejam listados em primeiro lugar e os menos jovens por último. 
+ordenado_camp = ORDER proj_camp BY idade;
+Armazene o conteúdo da relação ordenado_camp no disco local usando o comando abaixo:
+STORE ordenado_camp INTO '/home/oracle/Downloads/campinas.csv' USING PigStorage(',');
+ 
+Referência Bibliográfica
+APACHE, Software Fundation. Apache Hadoop 2.9.1. EUA: The Apache Software Fundation, 2018. Disponível em: <https://hadoop.apache.org/docs/stable/>. Acesso em: 23/09/2019.
+BENGFORT, Benjamin; KIM, Jenny. Data Analytics with Hadoop: An Introduction for Data Scientists. EUA: O'Reilly Media, 2016.
+CISCO. The Zettabyte Era: Trends and Analysis. 2017. Disponível em: <https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/vni-hyperconnectivity-wp.html>. Acesso em: 23/09/2019.
+DESJARDINS, Jeff. What Happens in an Internet Minute in 2018? 2018. Disponível em: < http://www.visualcapitalist.com/internet-minute-2018/>. Acesso em: 23/09/2019.
+HANSON, Jeff. Uma Introdução ao Hadoop Distributed File System. 2013. Disponível em: <https://www.ibm.com/developerworks/br/library/wa-introhdfs/index.html>. Acesso em: 23/09/2019.
+HORTON. How to Process Data with Apache Hive. 2013. Disponível em:  <https://hortonworks.com/tutorial/how-to-process-data-with-apache-hive/>.  Acesso em: 23/09/2019.
+IBM. Administrando Ambari e componentes. Disponível em: <https://www.ibm.com/support/knowledgecenter/pt-br/SSPT3X_4.1.0/com.ibm.swg.im.infosphere.biginsights.admin.doc/doc/admin_icnav_admin.html>. Acesso em: 23/09/2019.
+PUGA, Sandra; França, Edson; Goya, Milton. Banco de Dados: Implementação PL/SQL e Oracle 11g. São Paulo: Pearson, 2013.
+SADALAGE, Pramod; FOWLER, Martin. NoSQL Essencial. Brasil: Novatec, 2013.
+SOMASUNDARAM, Gnanasundaram; SHRIVASTAVA, Alok. Armazenamento e Gerenciamento de Informações: Como armazenar, gerenciar e proteger informações digitais. São Paulo: EMC Education Services, 2011. 
+TUTORIALSPOINT. Hadoop – Introduction to Hadoop. 2013. Disponível em: <https://www.tutorialspoint.com/pg/hadoop/hadoop_introduction_to_hadoop.htm>. Acesso em: 23/09/2019.
+WELLMAN, David. What is Big Data?. 2013. Disponível em: <https://www.slideshare.net/dwellman/what-is-big-data-24401517>. Acesso em: 23/09/2019.
+ 
+ 
+Atividade extra
+Nome da atividade: Onde usar PIG?
+Suponha que exista um arquivo em formato texto com o tamanho de 1 gigabyte (1 GB) no ambiente HADOOP HDFS. Esse arquivo pode ser aberto por um software de planilha eletrônica como, por exemplo, o Microsoft Excel e contêm os dados de venda da empresa no país inteiro. No arquivo existe uma coluna com a Unidade da Federação (estado) indicando onde a operação foi feita . O tempo gasto para abrir esse arquivo é de quinze (15) minuto. Você precisa ler esse arquivo, remover todos os dados da Unidade da Federação que sejam do estado de São Paulo (SP) e gerar um novo arquivo sem os dados de São Paulo.
+Baseado nesse cenário, você recomendaria o uso da ferramenta de APACHE PIG para processar esse arquivo? Escreva um texto justificando sua escolha.
+
