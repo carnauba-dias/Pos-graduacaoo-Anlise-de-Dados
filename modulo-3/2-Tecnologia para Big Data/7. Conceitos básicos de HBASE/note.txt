@@ -1,0 +1,142 @@
+Introdução a HBase
+Desde 1970, o RDBMS é a solução para problemas relacionados ao armazenamento e manutenção de dados. Após o advento do big data, as empresas perceberam o benefício do processamento de big data e começaram a optar por soluções como o Hadoop.
+O Hadoop usa o sistema de arquivos distribuído para armazenar big data e o MapReduce para processá-lo. O Hadoop se destaca no armazenamento e processamento de grandes dados de vários formatos, como arbitrários, semi ou mesmo não estruturados.
+No entanto, o Hadoop pode executar apenas o processamento em lote e os dados serão acessados ​​apenas de maneira sequencial. Isso significa que é preciso pesquisar em todo o conjunto de dados, mesmo nos trabalhos mais simples.
+Um grande conjunto de dados quando proc O HBase é um banco de dados orientado a colunas distribuído, construído sobre o sistema de arquivos Hadoop. É um projeto de código aberto e é escalável horizontalmente.
+O HBase é um modelo de dados semelhante ao BigTable do Google, projetado para fornecer acesso aleatório rápido a grandes quantidades de dados estruturados. Ele aproveita a tolerância a falhas fornecida pelo Hadoop File System (HDFS). É parte do ecossistema do Hadoop que fornece acesso aleatório de leitura / gravação em tempo real aos dados no Hadoop File System.
+Modelo de dados do HBase
+Uma linha individual é acessada por meio de sua ROWKEY. É composta por uma ou mais famílias de colunas. Cada família de colunas tem um ou mais qualificadores de coluna. Cada coluna pode ter uma ou mais versões.  Para acessar um dado individual, é necessário saber sua ROWKEY, família de coluna, qualifica Ao projetar um modelo de dados do HBase, é útil pensar em como os dados serão acessados. 
+Você pode acessar os dados do HBase de duas maneiras: Através de sua chave de linha ou através de uma varredura de tabela para um intervalo de ROWKEY e através de processamento em lote usando MAP-REDUCE.
+
+Os registros no HBase são armazenadas de acordo com a ordem das chaves da linha.  Este é um princípio fundamental do HBase e é também utilizado no design do esquema.  As chaves são ordenadas obedecendo a ordem lexicográfica com comparações da esquerda para a direita.
+Executando operações de CRUD com HBase shell
+Vamos iniciar o HBase shell e criar uma tabela HBase, incluir, consultar e  apagar dados da tabela.
+A tabela a ser criada é a tabela aluno com a seguinte estrutura
+
+Inicie o HBase com o comando
+ 
+hbase shell
+ 
+Explore a ajuda aos comando com o comando “help”:
+ 
+help 'create'
+help 'describe'
+help 'put'
+help 'get'
+help 'scan'
+help 'count'
+help 'delete'
+help 'deleteall'
+ 
+Crie a tabela “aluno”:
+ 
+create 'aluno', {NAME=>'identificacao'}, {NAME=>'historico'}
+ 
+Observação: caso cometa algum erros, apague a tabela com os comandos:
+disable 'aluno'
+drop 'aluno'
+ 
+Use o comando “describe” para exibir a estrutura da tabela:
+ 
+describe 'aluno'
+ 
+Use o comando “put” incluir dados na tabela:
+ 
+put 'aluno', 'RM1234', 'identificacao:nome', 'Sandra'   
+ 
+Use o comando “get” para exibir os dados do aluno RM1234 :
+ 
+get 'aluno', 'RM1234' 
+ 
+Insira mais alguns dados na tabela aluno:
+ 
+put 'aluno', 'RM1234', 'identificacao:sobrenome', 'Puga'
+put 'aluno', 'RM1234', 'historico:disciplina', 'Banco de Dados'
+put 'aluno', 'RM1234', 'historico:nota', '10.0'   
+ 
+Use o comando “get” para exibir os dados do aluno RM1234 :
+ 
+get 'aluno', 'RM1234' 
+ 
+Use o comando “get” para exibir os dados de uma família de colunas do aluno RM1234 :
+ 
+get 'aluno', 'RM1234', {COLUMNS=>['identificacao']} 
+ 
+Use o comando “get” para exibir os dados de uma coluna específica do aluno RM1234 :
+ 
+get 'aluno', 'RM1234', {COLUMNS=>['identificacao:sobrenome']} 
+ 
+Use o comando “alter” para armazenar mais versões da família de colunas “histórico” :
+ 
+alter 'aluno', NAME => 'historico', VERSIONS => 5 
+ 
+Use o comando “describe” para exibir a estrutura da tabela:
+ 
+describe 'aluno'
+ 
+Use o comando “put” para incluir mais algumas notas para o aluno RM1234 :
+ 
+put 'aluno', 'RM1234', 'historico:nota', '9.5'   
+put 'aluno', 'RM1234', 'historico:nota', '9.0'   
+put 'aluno', 'RM1234', 'historico:nota', '8.5'   
+put 'aluno', 'RM1234', 'historico:nota', '8.5'   
+ 
+Use o comando “get” para exibir os dados da coluna “histórico” do aluno RM1234 :
+ 
+get 'aluno', 'RM1234', {COLUMNS=>['historico:nota']} 
+ 
+Use o comando “get” para exibir todas as versões da coluna “histórico” do aluno RM1234 :
+ 
+get 'aluno', 'RM1234', {COLUMNS=>['historico:nota'], VERSIONS => 5} 
+ 
+Insira mais alguns dados na tabela aluno:
+ 
+put 'aluno', 'RM2345', 'identificacao:nome', 'Henrique'
+put 'aluno', 'RM2345', 'identificacao:sobrenome', 'Poyatos'
+put 'aluno', 'RM2345', 'historico:disciplina', 'Java'
+put 'aluno', 'RM3456', 'identificacao:nome', 'Rita'
+put 'aluno', 'RM3456', 'identificacao:sobrenome', 'Rodrigues'
+put 'aluno', 'RM3456', 'historico:disciplina', 'SQL'
+put 'aluno', 'RM3456', 'historico:nota', '10.0'
+put 'aluno', 'RM2345', 'historico:nota', '10.0'
+put 'aluno', 'RM4567', 'historico:nota', '10.0'
+put 'aluno', 'RM5678', 'historico:nota', '10.0'
+put 'aluno', 'RM1234', 'historico:nota', '9.5'
+put 'aluno', 'RM1234', 'historico:disciplina', 'Modelagem de Banco'   
+ 
+Use o comando “scan” para obter todas linhas e colunas de uma tabela :
+ 
+scan 'aluno'
+ 
+Use o comando “scan” para obter todas linhas da família de colunas “identificação” :
+ 
+scan 'aluno', {COLUMNS=>['identificacao']}
+ 
+Use o comando “scan” para obter todas as versões da coluna “nota” :
+ 
+scan 'aluno', {COLUMNS=>['historico:nota'], VERSIONS => 5}
+ 
+Use o comando “count” para obter o número de linhas de uma tabela:
+ 
+count 'aluno'
+ 
+Use o comando “get” para exibir os dados do aluno RM1234 :
+ 
+get 'aluno', 'RM1234' 
+ 
+Use o comando “delete” para apagar a coluna “sobrenome” do aluno RM1234 :
+ 
+delete 'aluno', 'RM1234', 'identificacao:sobrenome'
+get 'aluno', 'RM1234' 
+ 
+Use o comando “deleteall” para apagar todos os dados do aluno RM1234 :
+ 
+deleteall 'aluno', 'RM1234'
+get 'aluno', 'RM1234'
+ 
+ 
+Atividade extra
+Nome da atividade: Onde usar HBase?
+Sua empresa trabalha com RDBMS Oracle para armazenar e consultar dados de uso de clientes de provedores de serviços de comunicação (Communication Services Providers), informações em tempo real de sensores, dados de comportamento de usuários em sites e dados de monitoração de sites e sistemas. A empresa ainda não trabalha com um ambiente Big Data.
+Baseado nesse cenário, você recomendaria o uso de Hbase para substituir o RDBMS Oracle? Escreva um texto justificando sua escolha.
+

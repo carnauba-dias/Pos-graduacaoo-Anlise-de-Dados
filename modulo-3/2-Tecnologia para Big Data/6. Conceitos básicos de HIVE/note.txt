@@ -1,0 +1,200 @@
+Introdução a HIVE
+Para (APACHE, 2018), o APACHE HIVE é um software para data warehouse desenvolvido sobre o APACHE HADOOP. Desenvolvido inicialmente pelo FACEBOOK foi encampado pela fundação APACHE com o nome de APACHE HIVE. Utilizado por várias empresas, incluindo a NETFLIX e a AMAZON no produto AMAZON ELASTIC MAPREDUCE. 
+ Usa uma interface similar ao SQL para consultar bancos de dados e arquivos integrado ao HADOOP. Fornece funções de consulta, aglutinação, agregação e análise que permite associar schemas estruturados a dados no HDFS. O HIVE permite que desenvolvedores que dominem SQL usem o ambiente HADOOP sem que eles precisem trabalhar com JAVA ou alguma outra API do MAPREDUCE. Apesar de usar SQL, o HIVE é definido como uma camada de acesso a dados armazenados no HDFS e não é considerado um Sistema Gerenciador de Banco de Dados, ou SGBD (BENGFORT, 2016).
+O HIVE QUERY LANGUAGE, ou HQL, é o dialeto SQL oferecido pelo HIVE. As instruções em HQL são transformados, internamente, em tarefas, ou jobs, pelo execution engine e gerenciados pelo YARN evitando, assim, que o desenvolvedor tenha que criar Jobs MapReduce para acessar os dados dos HDFS. Suporta instruções de (APACHE, 2018):
+• DDL, ou Data Definition Language, aceitando comandos como CREATE DATABASE, CREATE SCHEMA e CREATE TABLE.
+• DML, ou Data Manipulation Language, aceitando comandos como INSERT, UPDATE e LOAD. 
+• Consulta a dados com operações como o SELECT.
+• Funções definidas pelo usuário.
+CLI, ou Command Line Interface, do HIVE.
+Segundo (APACHE, 2018), o HIVE possui uma interface de linha de comando, ou command line interface (CLI), que acompanha a instalação do produto. Para iniciar a CLI basta abrir um terminal onde o produto foi instalado e digitar:
+    hive
+Código Fonte 25 – Iniciando a CLI do HIVE. 
+Fonte: APACHE (2018).
+É possível listar o arquivo de ajuda do HIVE digitando o comando abaixo no terminal:
+hive -H
+Código Fonte 26 – Listando o arquivo de ajuda da CLI do HIVE. 
+Fonte: APACHE (2018).
+CREATE DATABASE
+Segundo (APACHE, 2018),  a sintaxe para criação de um banco de dados ou de um schema no HIVE é similar a da criação de bancos de dados ou schema do modelo relacional. 
+CREATE DATABASE banco;
+ou
+CREATE SCHEMA banco;
+Código Fonte 27 – Exemplo de criação de banco de dados no HIVE. 
+Fonte: APACHE (2018).
+No exemplo está sendo criado um banco de dados de nome BANCO. Os metadados contendo a definição do banco de dados são armazenados em um repositório denominado metastore.  Ocorrerá um erro caso já exista um banco de dados com o mesmo nome do banco que está sendo criado, para evitar esse erro, é possível testar a existência do banco no momento da criação.
+CREATE DATABASE IF NOT EXISTS banco;
+     Código Fonte 28 – Exemplo de teste de existência do banco antes da criação no HIVE. 
+Fonte: APACHE (2018).
+É possível produzir uma lista com o nome de todos os bancos criados até o momento.
+SHOW DATABASES;
+     Código Fonte 29 – Lista todos os bancos presentes no HIVE. 
+Fonte: APACHE (2018).
+O comando também pode ser executado por um programa, o exemplo abaixo mostra o uso de JDBC com o comando CREATE DATABASE;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.DriverManager;
+public class HiveCreateDb {
+   private static String driverName = "org.apache.hadoop.hive.jdbc.HiveDriver";
+   public static void main(String[] args) throws SQLException {
+      Class.forName(driverName);
+      Connection con = DriverManager.getConnection("jdbc:hive://localhost:10000/default", "", "");
+      Statement stmt = con.createStatement();
+      stmt.executeQuery("CREATE DATABASE banco");
+      System.out.println(“Banco criado.”);
+      con.close();
+   }
+}
+Código Fonte 30 – Criação de um banco HIVE com JDBC. 
+Fonte: TUTORIALSPOINT (2013), adaptado.
+DROP DATABASE
+Segundo (APACHE, 2018), a sintaxe para eliminar um banco de dados ou de um schema no HIVE é similar ao da remoção de bancos de dados ou  schema do modelo relacional. 
+DROP DATABASE IF EXISTS banco;
+Código Fonte 31 – Remoção de um banco HIVE.
+Fonte: APACHE (2018), adaptado.
+A opção CASCADE pode ser utilizada para eliminar as tabelas existentes no banco de dados, caso elas existam, antes de apagar o banco de dados. 
+DROP DATABASE IF EXISTS banco CASCADE;
+Código Fonte 31 – Remoção de um banco HIVE com a opção CASCADE.
+Fonte: APACHE (2018), adaptado.
+O banco de dados também pode ser removido através do uso da palavra-chave SCHEMA. 
+DROP SCHEMA banco;
+Código Fonte 33 – Remoção de um banco HIVE com DROP SCHEMA.
+Fonte: APACHE (2018), adaptado.
+O comando também pode ser executado por um programa, o exemplo abaixo mostra o uso de JDBC com o comando DROP DATABASE.
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.DriverManager;
+public class HiveDropDb {
+   private static String driverName = "org.apache.hadoop.hive.jdbc.HiveDriver";
+   public static void main(String[] args) throws SQLException {
+      Class.forName(driverName);
+         Connection con = DriverManager.getConnection("jdbc:hive://localhost:10000/default", "", "");
+      Statement stmt = con.createStatement();
+      stmt.executeQuery("DROP DATABASE banco");
+      System.out.println(“Banco Removido.”);
+      con.close();
+   }
+}
+Código Fonte 34 – Remoção de um banco HIVE com JDBC. 
+Fonte: TUTORIALSPOINT (2013), adaptado.
+Tipo de Dados
+Segundo (APACHE, 2018), os principais tipos de dados no HIVE são divididos em numéricos, texto, data, tempo, complexos.
+Entre os tipos de dados para armazenar valores numéricos destacamos:
+• TINYINT, é um campo com 1 (um) byte, inteiro, com sinal. Pode ser usado para armazenar valores que vão de -128 até 127.
+• SMALLINT, é um campo com 2 (dois) bytes, inteiro, com sinal. Pode ser usado para armazenar valores que vão de -32.768 até 32.767.
+• INT, é um campo com 4 (quatro) bytes, inteiro, com sinal. Pode ser usado para armazenar valores que vão de -2.147.483.648 até 2.147.483.647.
+• BIGINT, é um campo com 8 (oito) bytes, inteiro, com sinal. Pode ser usado para armazenar valores que vão de -9.223.372.036.854.775.808 até 9.223.372.036.854.775.807.
+• FLOAT, é um campo com 4 bytes, precisão simples, com ponto flutuante.
+• DOUBLE é um campo com 8-byte, precisão dupla,  com ponto flutuante.
+• DECIMAL (precisão, escala). Por padrão, assume o valor 0 (zero) ser a escala não for definida e 10 (dez) se a precisão não for definida. Limitado a 38 dígitos. 
+Entre os tipos de dados para armazenar tempo e data destacamos:
+• TIMESTAMP armazena datas no formato ANO-MÊS-DIA HORA:MINUTO:SEGUNDO:FRAÇÃODESEGUNDO (yyyy-mm-dd hh:mm:ss.fffffffff), com precisão de nove casas na  fração de segundo.
+• DATE armazena datas no formato ANO-MÊS-DIA (yyyy-mm-dd).
+• INTERVAL armazena intervalos de tempo em segundo / minutos / dias / meses / anos.
+Entre os tipos de dados para armazenar texto, destacamos:
+• STRING, usado para armazenar literais. Pode ser delimitado por aspas simples (‘) ou aspas duplas (“).
+• VARCHAR, texto de tamanho variável. Pode ter até 65.535 caracteres.
+• CHAR, texto de tamanho fixo. Pode ter até 65.535 caracteres.
+Entre os tipos de dados complexos do HIVE, destacamos:
+• ARRAY, usado para vetores de elementos do mesmo tipo.
+• MAP, usado para coleções de chave-valor. 
+• STRUCT, usado para registros que encapsulam campos nomeados e qualquer tipo de dados primitivos.
+• UNIONTYPE, usado para coleções de tipo de dados heterogêneos.
+Entre os outros tipos de dados do HIVE, destacamos:
+• BOOLEAN
+• BINARY
+CREATE TABLE
+Segundo (APACHE, 2018), o comando CREATE TABLE cria uma tabela com o nome fornecido. Ocorrerá um erro caso já exista uma tabela com o mesmo nome da tabela que está sendo criada, para evitar esse erro, é possível testar a existência da tabela no momento da criação com o comando IF NOT EXISTS. Em sua forma mais simples, o comando CREATE TABLE aceita um nome para a tabela e a definição de suas colunas.
+CREATE TABLE IF NOT EXISTS TESTE
+(CODIGO SMALLINT,
+ ANO INT,
+ UF CHAR(2)
+ POPULACAO INT);
+Código Fonte 35 – Criação de uma tabela HIVE. 
+Fonte: APACHE (2018), adaptado.
+O exemplo cria a tabela de nome TESTE, caso ela ainda não exista no banco de dados. A tabelas possui quatro colunas: CODIGO, ANO, UF e POPULACAO.
+Caso queira exibir o nome das tabelas existentes em seu banco de dados, use o comando SHOW TABLES.
+SHOW TABLES;
+Código Fonte 36 – Exibindo as tabelas do banco de dados. 
+Fonte: APACHE (2018), adaptado.
+Os dados do HIVE são armazenados no sistema de arquivos HDFS, ou outro semelhante, sendo assim, o comando CREATE TABLE possui cláusulas opcionais, como a cláusula ROW FORMAT. ROW FORMAT informa ao HIVE como ler cada linha do arquivo e mapeá-la para nossas tabelas (BENGFORT, 2016). 
+CREATE TABLE IF NOT EXISTS TESTE
+(CODIGO SMALLINT,
+ ANO INT,
+ UF CHAR(2)
+ POPULACAO INT)
+ ROW FORMAT DELIMITED 
+ FIELDS TERMINATED BY '\t'
+;
+Código Fonte 37 – Criação de uma tabela HIVE com ROW FORMAT. 
+Fonte: APACHE (2018), adaptado.
+No exemplo, estamos informando que os dados estão em um arquivo onde os campos estão separados por um caractere de tabulação. Vejamos outro exemplo.
+CREATE TABLE IF NOT EXISTS TESTE
+(CODIGO SMALLINT,
+ ANO INT,
+ UF CHAR(2)
+ POPULACAO INT)
+ ROW FORMAT DELIMITED 
+ FIELDS TERMINATED BY ',' 
+ LINES TERMINATED BY '\n' 
+ STORED AS TEXTFILE
+;
+Código Fonte 38 – Criação de uma tabela HIVE com ROW FORMAT e STORED AS. 
+Fonte: APACHE (2018), adaptado.
+No exemplo, estamos informando que os dados estão em um arquivo onde os campos estão separados por uma vírgula, as linhas estão separadas por uma quebra de linha em um arquivo de texto simples.
+LOAD DATA
+Segundo (APACHE, 2018), o HIVE não verifica os dados para garantir que esteja compatível com a definição da tabela. Normalmente retorna valores nulos para os campos ausentes ou que não tenham correspondência com os tipos de dados carregados. O comando de carga de dados é o LOAD DATA, permitindo carga massiva de dados em operações batch. O comando INSERT pode ser usado para incluir dados individuais.
+INSERT INTO TABLE teste 
+       VALUES 
+             (1, 2010, 'SP', 41252160),
+             (2, 2010, 'MG', 19595309)
+Código Fonte 39 – Exemplo de INSERT em tabela HIVE. 
+Fonte: APACHE (2018), adaptado.
+No exemplo estamos inserindo dois registros na tabela teste. A sintaxe é bem similar a dos bancos de dados relacionais. O comando LOAD DATA é usado para carga de arquivos em lote.
+LOAD DATA LOCAL 
+    INPATH '/tmp/censo.csv' 
+    OVERWRITE 
+    INTO TABLE teste;
+Código Fonte 40 – Exemplo de LOAD em tabela HIVE. 
+Fonte: APACHE (2018), adaptado.
+No exemplo estamos lendo os dados presentes no arquivo CENSO.CSV e carregando-os na tabela TESTE. A opção OVERWRITE garante que todos os dados existentes na tabela serão apagados e substituídos pelo conteúdo do arquivo. Caso essa opção não for usada, os dados serão adicionados a tabela.
+SELECT
+Segundo (APACHE, 2018), o HIVE permite que analisemos os dados executando consultas HQL, eliminando boa parte do trabalho de criar uma função mapper, uma função reducer e configurar o job que o irá executar.
+O HIVE permite operações de consulta, classificação, agrupamento, entre outras. 
+SELECT * 
+  FROM teste
+WHERE ano = 2010;
+Código Fonte 41 – Operação de consulta a tabela HIVE com filtro pelo ano. 
+Fonte: APACHE (2018), adaptado.
+No exemplo consultamos todos os dados da tabela TESTE onde os dados sejam do ano de 2010.
+SELECT ano, SUM (populacao)
+  FROM teste
+ GROUP BY ano;
+Código Fonte 42 – Operação de consulta a tabela HIVE agrupado pelo ano. 
+Fonte: APACHE (2018), adaptado.
+No exemplo, apresentamos a soma da população agrupada pelo ano.
+ 
+ 
+Atividade extra
+Nome da atividade: Onde usar HIVE?
+Suponha que exista um arquivo em formato texto estruturado com o tamanho de 1 gigabyte (1 GB) armazenado em ambiente HADOOP HDFS. Você gostaria de consultar o conteúdo desse arquivo mas conhece apenas comandos SQL.
+Baseado nesse cenário, que ferramenta de  Big Data poderia ser usada para consultar os dados desse arquivo? Escreva um texto justificando sua escolha.
+ 
+Referência Bibliográfica
+APACHE, Software Fundation. Apache Hadoop 2.9.1. EUA: The Apache Software Fundation, 2018. Disponível em: <https://hadoop.apache.org/docs/stable/>. Acesso em: 23/09/2019.
+BENGFORT, Benjamin; KIM, Jenny. Data Analytics with Hadoop: An Introduction for Data Scientists. EUA: O'Reilly Media, 2016.
+CISCO. The Zettabyte Era: Trends and Analysis. 2017. Disponível em: <https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/vni-hyperconnectivity-wp.html>. Acesso em: 23/09/2019.
+DESJARDINS, Jeff. What Happens in an Internet Minute in 2018? 2018. Disponível em: < http://www.visualcapitalist.com/internet-minute-2018/>. Acesso em: 23/09/2019.
+HANSON, Jeff. Uma Introdução ao Hadoop Distributed File System. 2013. Disponível em: <https://www.ibm.com/developerworks/br/library/wa-introhdfs/index.html>. Acesso em: 23/09/2019.
+HORTON. How to Process Data with Apache Hive. 2013. Disponível em:  <https://hortonworks.com/tutorial/how-to-process-data-with-apache-hive/>.  Acesso em: 23/09/2019.
+IBM. Administrando Ambari e componentes. Disponível em: <https://www.ibm.com/support/knowledgecenter/pt-br/SSPT3X_4.1.0/com.ibm.swg.im.infosphere.biginsights.admin.doc/doc/admin_icnav_admin.html>. Acesso em: 23/09/2019.
+PUGA, Sandra; França, Edson; Goya, Milton. Banco de Dados: Implementação PL/SQL e Oracle 11g. São Paulo: Pearson, 2013.
+SADALAGE, Pramod; FOWLER, Martin. NoSQL Essencial. Brasil: Novatec, 2013.
+SOMASUNDARAM, Gnanasundaram; SHRIVASTAVA, Alok. Armazenamento e Gerenciamento de Informações: Como armazenar, gerenciar e proteger informações digitais. São Paulo: EMC Education Services, 2011. 
+TUTORIALSPOINT. Hadoop – Introduction to Hadoop. 2013. Disponível em: <https://www.tutorialspoint.com/pg/hadoop/hadoop_introduction_to_hadoop.htm>. Acesso em: 23/09/2019.
+WELLMAN, David. What is Big Data?. 2013. Disponível em: <https://www.slideshare.net/dwellman/what-is-big-data-24401517>. Acesso em: 23/09/2019.
+
