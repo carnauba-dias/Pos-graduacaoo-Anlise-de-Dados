@@ -1,0 +1,55 @@
+Planejamento ROI
+Depois de ter uma visão estratégica dos processos de tomada de decisão e de avaliar oportunidades, ameaças, pontos fortes e pontos fracos (mapa Swot), podemos implementar ações e projetos. Na análise dos projetos, é fundamental estudar as soluções possíveis. Toda estratégia somente é concretizada a partir da implementação dos projetos que dela são originados. A Figura 01 mostra duas ações estratégicas já mencionadas no Mapa Swot da aula 01 e seus respectivos projetos que estão sendo utilizados como exemplos nas demais aulas.
+
+Figura 1:  A conexão entre as ações estratégicas e os projetos
+ 
+Nesta disciplina, vamos acompanhar esse processo a partir de dois projetos mencionados nos PPTs da aula 02:
+ 
+Implementação da plataforma 4.0 para gerar informações sobre manutenção das máquinas em tempo real.
+Implementação de produtos de seguros customizados às demandas dos consumidores.
+ 
+Vamos discutir a seguir a viabilidade de projetos verificando benefícios (qualitativos e quantitativos), custos, valor presente líquido, riscos e escolha de fornecedores. Esses pontos – analisados em conjunto – permitem que o gestor decida, de uma maneira mais bem fundamentada, prosseguir ou não com o projeto
+ 
+Um dos processos de tomada de decisão é a escolha de soluções técnicas ou de projetos. O Método Delphi conta com especialistas que interagem de forma anônima e é usado em geral para projetos complexos, que exigem conhecimento muito especializado.
+ 
+Delphi é uma das poucas metodologias científicas que permitem analisar dados qualitativos. Trata-se de um método que permite, através de uma série de questões, descobrir as opiniões de especialistas construindo um cenário denominado “Painel Delphi”. Inicia-se o processo apresentando-se proposições específicas aos participantes, para que estas sejam ordenadas mediante um critério preestabelecido. Depois de agregados e tratados, os resultados são novamente remetidos aos especialistas para que estes reavaliem as respostas iniciais no novo contexto apresentado.
+(...)
+Esse método possui três características marcantes, a saber, o anonimato, a interação com feedback controlado e as respostas estatísticas do grupo para identificar padrões de acordo. A grande vantagem deste método é permitir que pessoas que não se conhecem desenvolvam um projeto comum. Na prática, um estudo Delphi consiste na realização de uma série de questionários, correspondendo cada um a uma rodada; em cada rodada, o especialista responderá às questões formuladas, conforme orientação contida no próprio documento. (CANDIDO ET AL, 2007)
+ 
+O objetivo final desse método é que os especialistas cheguem a um consenso, e é por isso que o organizador decide partir para outras rodadas sempre que necessário.
+ 
+Após a escolha da solução, é fundamental analisar a viabilidade econômica – e para isso um dos principais itens é o retorno financeiro. É nesse contexto que se pode destacar o método de retorno “valor presente líquido”, ou VPL.
+ 
+No que se refere às ferramentas da Engenharia Econômica que são utilizadas na análise de viabilidade econômica de projetos, foi possível constatar que o VPL foi a prática mais utilizada pelos autores nas publicações. Quanto a frequência com que tais ferramentas foram utilizadas nos 31 artigos analisados, percebeu-se que os destaques são o VPL com 24 artigos vinculados (35,8%) e a TIR com 16 artigos (23,9%). Há artigos utilizando mais de uma prática concomitante. (SANTOS, 2014)
+ 
+Por fim, após verificar os benefícios, valor presente líquido, riscos e escolha dos fornecedores, cabe decidir em qual projeto investir – e se será executado internamente ou é preciso contar com a participação de fornecedores. O método sugerido nesse caso é o MCDA (multicriteria decision analysis) – análise de decisão baseada em multicritérios (que são os benefícios, o VPL, os riscos e a escolha de fornecedores), conforme Gráfico 01.
+Um exemplo de ferramenta para decisão: MCDA, Freitas et al. (2006)
+Análise de decisão multicritério (MCDA), proporciona melhores técnicas para a comparação de alternativas de projeto com base em matrizes de decisão;
+Fornece métodos estruturados para a incorporação de opiniões dos stakeholders do projeto no ranking de alternativas.
+
+Gráfico 1: Processo MCDA para tomada de decisão
+ 
+ 
+O MCDA é aplicado quando existem vários fatores importantes para a tomada de decisão. O método promove uma composição da decisão através da interação dos stakeholders que dão peso aos fatores e notas aos projetos. Uma vez tendo todas as informações agrupadas é possível fazer várias simulações, principalmente alterando os pesos das principais variáveis como benefícios, valor presente líquido, riscos e outros.
+ 
+Por fim, para finalizar, vale retomar os pontos tratados nessa aula: alguns processos e ferramentas para tomada de decisão, passando pela decisão da ação estratégica para a geração de projetos relacionados, a ferramenta do método Delphi para obtenção de consenso nas soluções de projetos complexos e finalmente o MCDA para geração e simulação de decisão de projetos.
+ 
+ 
+ 
+Atividade Extra
+ 
+Vejam o vídeo abaixo que aborda a comparação do cálculo do VPL com o Payback simples. É mais uma oportunidade de fixar a forma de cálculo do VPL. Qual a principal diferença entre o cálculo do VPL e o cálculo do Payback?
+https://www.youtube.com/watch?v=VbjeN7YQD1M
+ 
+ 
+Referência Bibliográfica
+ 
+BABOK  A GUIDE TO THE BUSINESS ANALYSIS BODY OF KNOWLEDGE ®  IIBA (International Institute of Business Analysis), 2015.
+BORGA, E. O Open Insurance no Brasil e as expectativas da Susep. Disponível em: https://poletto.adv.br/o-open-insurance-no-brasil-e-as-expectativas-da-susep/.
+CANDIDO, R.; CORAIOLA, J. A.; LEZANA, Á. G. R.; SILVA, J. R. Método Delphi – uma ferramenta para uso em Microempresas de Base Tecnológica, Rev. FAE, Curitiba, v.10, n.2, p.157-164, jul./dez. 2007.
+FREITAS, A. L.; MARINS, C. S.; SOUZA, D. de O. A metodologia de multicritério como ferramenta para a tomada de decisões gerenciais: um estudo de caso. GEPROS – Gestão da Produção, Operações e Sistemas, 2006.
+FREZATTI, F. Gestão de Viabilidade Econômico - Financeira dos Projetos de investimento – São Paulo: Atlas, 2008.
+OLIVEIRA, E.; SILVA, C. E. S. da; SALGADO, E. G. Análise da incorporação do gerenciamento de riscos em projetos de delineamento de experimentos, XIII SIMPEP - Bauru, SP, Brasil, 6 a 8 de Novembro de 2006.
+PMBOK, Um Guia do Conhecimento em Gerenciamento de Projetos. Project Management Institute. Sexta edição. | Newtown Square, PA: 2017.
+SANTOS, S. A. ESTUDO BIBLIOMÉTRICO SOBRE A APLICAÇÃO DE FERRAMENTAS DE ANÁLISE ECONÔMICA UTILIZADAS PARA DAR SUPORTE NA TOMADA DE DECISÃO NO GERENCIAMENTO DE PROJETOS. Monografia apresentada ao Programa de Pós-graduação Lato Sensu em Engenharia Econômica, da Universidade Federal do Pampa, como requisito parcial para obtenção do Título de Especialista em Engenharia Econômica, 2014.
+

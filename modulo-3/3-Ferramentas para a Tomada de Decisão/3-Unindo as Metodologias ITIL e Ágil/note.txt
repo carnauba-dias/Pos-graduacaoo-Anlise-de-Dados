@@ -1,0 +1,54 @@
+Unindo as metodologias ITIL e Ágil
+OMétodo Ágil surgiu em 2001 a partir do Manifesto Ágil, que é uma declaração contendo valores e princípios. Este movimento tem como objetivo eliminar a burocracia do processo de desenvolvimento de sistemas e aplicações.
+Tem trazido muitas vantagens às empresas, mas sua implementação depende da empolgação dos membros da área de T.I., ou seja, a alta direção e as áreas de negócio precisam comprar essa ideia. A participação das áreas de negócio nesse processo é fundamental e nem sempre ocorre.
+ 
+Os 4 valores do método ágil (PMI, 2017).
+Indivíduos e interações x processos e ferramentas;
+Software em funcionamento x documentação abrangente;
+Colaboração com o cliente x negociação de contrato;
+Respondendo à mudança x seguindo um plano.
+ 
+Este manifesto enfatiza a importância dos indivíduos e interações, software em funcionamento, colaboração com o cliente e respondendo à mudança em detrimento dos outros itens da lista acima, que compõem processos mais tradicionais.
+Um dos métodos ágeis mais utilizados e conhecidos é o Scrum. Contudo, é importante ressaltar que para obter os benefícios desse método a alta gerência deve administrar a transição, e principalmente ter vontade de mudar juntamente com a organização – o que significa ajustar a forma pela qual vê, revisa e avalia os seus funcionários, PMI (2017).
+ 
+ 
+METODOLOGIA ÁGIL SCRUM
+ 
+Existem várias metodologias de desenvolvimento classificadas como ágeis, dentre elas a metodologia SCRUM se destaca por ser um processo de desenvolvimento software incremental em ambientes complexos, onde os requisitos não são claros ou mudam com muita frequência. O SCRUM é fundamentado na teoria de controle de processo e tem por objetivo aperfeiçoar a previsibilidade e controlar os riscos de um projeto. Transparência, inspeção e adaptação são os três pilares que sustentam a metodologia SCRUM. A transparência é a garantia que todos os processos que envolvam o resultado sejam claros para ambas as partes envolvidas no projeto. A inspeção é realizada durante todo o projeto e tem por objetivo detectar qualquer variação e ajustar o processo evitando assim problemas futuros. A necessidade de adaptação surge da inspeção e tem por finalidade adaptar o processo para qualquer variação detectada na inspeção. (SILVA ET AL, 2011)
+ 
+Por que se tornar ágil é difícil (mas vale a pena). (Texto de um case da Salesforce.com, (COHN, 2010).
+ 
+ 
+A seguir, uma outra visão através de mais um texto sobre o Método Ágil em que está descrita a experiência da empresa Salesforce.com. utilizando o Método Scrum.
+De acordo com o caso, apesar das dificuldades de migrar de um método tradicional para um método, este processo vale a pena!  O texto alerta que é uma tarefa de longo prazo e que é fundamental envolver não somente os desenvolvedores, mas toda a organização, pois a questão de priorizar e definir projetos deve ser uma atividade e uma prerrogativa das áreas de negócio.
+Fundada em 1999 num apartamento em São Francisco, em 2006 a Salesforce.com já tinha uma receita de US $ 450 milhões, 2000 funcionários, mas havia percebido que não estava atendendo seus clientes em termos de entrega e prazos. Resolveu então adotar o Método Scrum para resolver estes problemas. No primeiro ano com o novo método a empresa lançou mais de 94% de recursos, aumentou em 38% os recursos por desenvolvedor e entregou em valor agregado aos seus clientes o equivalente a 500% comparando com o que foi entregue no ano anterior. A receita chegou a mais de um US$ 1 bilhão nos dois anos seguintes (COHN, 2010).
+Apesar do sucesso de muitas empresas nesse processo é fundamental abordar alguns problemas que envolvem esta mudança e que são decisivos para o sucesso – um exemplo é a falta de envolvimento do P.O. (chamado Product Owner) ou representante do negócio.
+Papel do P.O.: nem sempre os P.O.s assumem seu papel no processo. A falta de envolvimento do cliente ou pessoa que o representa tem sido vista como o aspecto mais desafiador na adoção de métodos ágeis. (HODA et al., 2011);  (JOVANOVIC et al., 2017).
+Tais problemas podem ser resolvidos quando o método Scrum é implementado pelas áreas de negócio em conjunto com a área de Tecnologia da Informação. Fundamental aqui relembrar dois dos valores do Método Ágil PMI (2017):
+ 
+Indivíduos e interações x processos e ferramentas;
+Colaboração com o cliente x negociação de contrato;
+ 
+No primeiro item “Indivíduos e interações” devem prevalecer sobre “processos e ferramentas”; e “colaboração com o cliente” deve prevalecer sobre “negociação de contrato”. E é seguindo esses dois valores que se pode resolver essas questões relacionadas ao envolvimento e interações entre as áreas fundamentais para o sucesso e eficácia do método.
+ 
+O Método Itil
+ 
+Uma breve descrição do ITIL V.3 ITIL:  é uma coleção de suas melhores práticas que requer foco nos clientes e usuários e, mais especificamente, no valor que eles obtêm com a utilização dos serviços de TI (VERLAINE, 2016).
+Um estudo empírico recente demonstra que o ITIL ajuda fortemente as empresas que fornecem serviços de TI a melhorar seus processos e aumentar seus benefícios. ITIL v.3 está estruturado em cinco fases, cada uma composta por processos.  O Itil possui 5 fases conforme ilustra o Figura 01.
+ 
+A etapa inicial é a estratégia que gera uma entrada de informações para a fase de desenho do serviço, que por sua vez produz informações para a fase de transição (onde a solução de serviço atual convive com a futura solução).
+Na sequência, a fase de transição gera informação para a operação (onde o serviço deve estar em ação). O processo de melhoria contínua cria feedbacks para todas as fases e elas também produzem feedback entre si. Isso ocorre principalmente quando alguma mudança precisa ser feita e há algum impacto nas fases anteriores.
+
+Figura 1: As 5 fases do Itil
+Fonte: bing.com
+ 
+ 
+O Método Ágil e o Método Itil
+ 
+Uma vez tendo descrito os referidos métodos é importante mostrar como ambos podem ser utilizados em conjunto conforme mostra a Figura 02.  Na parte superior da figura temos as fases do Método Itil e abaixo as fases do Método Ágil através do Scrum, que se correspondem mutuamente e se complementam. Dessa forma, observa-se que a fase Estratégia de Serviços (Itil) corresponde à Visão (Ágil). A fase de desenho do serviço (Itil) corresponde à fase backlog do produto priorizado (Ágil). A fase transição do serviço (Itil) corresponde às etapas de Planejamento da sprint / backlog, reunião diária, retrospectiva e revisão da sprint (Ágil) e a operação do serviço (Itil) corresponde à implementação finalização da sprint (Ágil).
+
+Figura 2: Unido os métodos Itil e Agil.
+Fonte: Bing.com
+Em resumo, nesta aula foram apresentados os métodos Ágil através do Scrum, o método Itil e a união de ambos. O importante a observar aqui é que todos estes métodos ajudam, através dos seus guias, a elaborar e entregar projetos com qualidade e que atinjam seus objetivos técnicos e principalmente de negócio. Os métodos têm em geral um conhecimento a partir de muitas experiências acumuladas e que fazem com os gestores possam ter mais segurança nas implementações dos projetos.
+ 
+
